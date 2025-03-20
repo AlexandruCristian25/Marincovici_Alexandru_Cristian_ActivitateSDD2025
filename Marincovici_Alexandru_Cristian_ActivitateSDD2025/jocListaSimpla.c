@@ -83,3 +83,26 @@ nod* inserareSfarsit(nod* cap, Joc j) {
 
 }
 
+//Afisare si dezalocare
+void afisare(nod* cap) {
+
+	nod* aux = cap;
+	while (aux) {
+
+		printf("%u, %s, %u, %2.3f \n", aux->info.id, aux->info.nume,
+			aux->info.nrBuc, aux->info.pret);
+		aux = aux->next;
+
+	}
+
+}
+
+void dezalocare(nod* cap) {
+
+	nod* aux = cap;
+	free(aux->info.nume);
+	nod* temp = aux->next;
+	free(aux);
+	aux = temp;
+
+}
