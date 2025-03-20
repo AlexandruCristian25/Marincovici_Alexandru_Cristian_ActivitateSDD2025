@@ -82,3 +82,4 @@ nod* inserareSfarsit(nod* cap, Joc j) {
 	return cap;
 
 }
+
