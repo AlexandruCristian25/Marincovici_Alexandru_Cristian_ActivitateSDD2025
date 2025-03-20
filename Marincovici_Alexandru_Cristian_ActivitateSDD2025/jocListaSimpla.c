@@ -106,3 +106,34 @@ void dezalocare(nod* cap) {
 	aux = temp;
 
 }
+
+//Afisarea in main
+void main() {
+
+	Joc j;
+	nod* cap = NULL;
+	char buffer[50];
+	int nr;
+
+	FILE* f = fopen("jocuri.txt", "r");
+	fscanf(f, "%d", &nr);
+
+	for (int i = 0; i < nr; i++) {
+
+		fscanf(f, "%d", &j.id);
+		fscanf(f, "%d", &j.id);
+		j.nume = (char*)malloc(sizeof(char) * strlen(buffer) + 1);
+		strcpy(j.nume, buffer);
+		fscanf(f, "%d", &j.id);
+		fscanf(f, "%d", &j.id);
+
+		cap = inserareSfarsit(cap, j);
+		free(j.nume);
+
+	}
+
+	fclose(f);
+	afisare(cap);
+	dezalocare(cap);
+
+}
