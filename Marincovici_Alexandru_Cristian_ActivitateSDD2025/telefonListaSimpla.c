@@ -93,3 +93,30 @@ void dezlocare(nod* cap) {
 	free(aux);
 
 }
+
+//Afisarea in main
+void main() {
+
+	int nr;
+	Telefon t;
+	char* buffer[50];
+	nod* cap = NULL;
+
+	FILE* f = fopen("telefon.txt", "r");
+	fscanf(f, "%d", &nr);
+	for (int i = 0; i < nr; i++) {
+
+		fscanf(f, "%u", &t.id);
+		fscanf(f, "%s", buffer);
+		t.producator = (char*)malloc(sizeof(buffer) * strlen(buffer) + 1);
+		strcpy_s(t.producator, sizeof(buffer) * strlen(buffer) + 1, buffer);
+		fscanf(f, "%f", &t.pret);
+
+		cap = inserare(cap, t);
+		free(t.producator);
+
+	}
+
+	afisare(cap);
+
+}
