@@ -19,3 +19,22 @@ typedef struct nod {
 
 }nod;
 
+//Creare contructor cu parametri
+Telefon initializareTelefon(int id, const char* producator, float pret) {
+
+	Telefon t;
+	t.id = id;
+	t.producator = (char*)malloc(sizeof(producator) * strlen(producator) + 1);
+	strcpy_s(t.producator, sizeof(producator) * strlen(producator) + 1, producator);
+	t.pret = pret;
+
+	return t;
+
+}
+
+typedef struct nod {
+
+	Joc info;
+	struct nod* next;
+
+}nod;
