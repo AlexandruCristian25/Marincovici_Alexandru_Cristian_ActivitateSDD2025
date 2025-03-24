@@ -61,3 +61,35 @@ nod* inserareInceput(nod* cap, Telefon t) {
 	return cap;
 
 }
+
+//Afisare si dezalocare
+void afisare(nod* cap) {
+
+	nod* aux = cap;
+	while (aux->next != cap) {
+
+		printf("%u, %s \n", aux->info.id, aux->info.producator, aux->info.pret);
+		aux = aux->next;
+
+	}
+
+	printf("%u, %s \n", aux->info.id, aux->info.producator, aux->info.pret);
+
+}
+
+void dezlocare(nod* cap) {
+
+	nod* aux = cap;
+	while (aux->next != cap) {
+
+		free(aux->info.producator);
+		nod* temp = aux->next;
+		free(aux);
+		aux = temp;
+
+	}
+
+	free(aux->info.producator);
+	free(aux);
+
+}
