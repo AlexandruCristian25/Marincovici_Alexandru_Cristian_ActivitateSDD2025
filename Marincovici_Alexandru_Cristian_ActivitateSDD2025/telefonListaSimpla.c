@@ -32,9 +32,32 @@ Telefon initializareTelefon(int id, const char* producator, float pret) {
 
 }
 
-typedef struct nod {
+//Inserare nod inceput
+nod* inserareInceput(nod* cap, Telefon t) {
 
-	Joc info;
-	struct nod* next;
+	nod* nou = (nod*)malloc(sizeof(nod));
+	nou->info = initializareTelefon(t.id, t.producator, t.pret);
+	nou->next = NULL;
+	if (cap == NULL) {
 
-}nod;
+		cap = nou;
+		nou->next = cap;
+
+	}
+	else {
+
+		nod* aux = cap;
+		while (aux->next != cap) {
+
+			aux = aux->next;
+
+		}
+
+		aux->next = nou;
+		aux->next = cap;
+
+	}
+
+	return cap;
+
+}
