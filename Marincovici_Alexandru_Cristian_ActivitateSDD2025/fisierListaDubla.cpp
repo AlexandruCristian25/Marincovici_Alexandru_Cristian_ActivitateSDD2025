@@ -152,4 +152,23 @@ void afisareFinal(LD lista) {
 
 }
 
+//Dezalocare
+void dezalocare(LD lista) {
+
+	if (lista.prim) {
+
+		nod* aux = lista.prim;
+		while (aux) {
+			free(aux->info.numeF);
+			free(aux->info.nrCopii);
+			nod* temp = aux->next;
+			free(aux);
+			aux = temp;
+
+		}
+
+	}
+
+}
+
 
