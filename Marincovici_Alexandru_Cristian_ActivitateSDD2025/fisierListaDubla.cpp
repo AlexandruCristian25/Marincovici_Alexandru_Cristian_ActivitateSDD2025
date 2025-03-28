@@ -171,4 +171,43 @@ void dezalocare(LD lista) {
 
 }
 
+//Afisare in main
+void main() {
+	int nr;
+	Fisier fs;
+	LD lista;
+	lista.prim = NULL;
+	lista.ultim = NULL;
 
+
+	char buffer[50];
+
+	FILE* f = fopen("fisier.txt", "r");
+	fscanf(f, "%d", &nr);
+	for (int i = 0; i < nr; i++) {
+
+		fscanf(f, "%u", &fs.id);
+		fscanf(f, "%s", buffer);
+		fs.numeF = (char*)malloc(sizeof(char) * strlen(buffer) + 1);
+		strcpy(fs.numeF, buffer);
+		fscanf(f, "%d", &fs.memorie);
+		fs.nrCopii = (int*)malloc(sizeof(int) * fs.memorie);
+		for (int j = 0; j < fs.memorie; j++) {
+
+			fscanf(f, "%d", &fs.nrCopii[j]);
+
+		}
+
+		lista = inserareFinal(lista, fs);
+		free(fs.numeF);
+		free(fs.nrCopii);
+
+	}
+
+	fclose(f);
+	afisareInceput(lista);
+	afisareFinal(lista);
+
+	dezalocare(lista);
+
+}
