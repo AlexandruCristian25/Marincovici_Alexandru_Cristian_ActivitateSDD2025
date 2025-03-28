@@ -49,4 +49,51 @@ typedef struct LD {
 
 }LD;
 
+//Inserare nod inceput si nod final
+
+void inserareInceput(LD* lista, Fisier fs) {
+
+	nod* nou = (nod*)malloc(sizeof(nod));
+	nou->prev = NULL;
+	nou->info = creareFisier(fs.id, fs.numeF, fs.memorie, fs.nrCopii);
+	nou->next = NULL;
+	if (lista->prim == NULL) {
+
+		lista->prim = nou;
+		lista->ultim = nou;
+
+	}
+	else {
+
+		nou->next = lista->prim;
+		lista->prim->prev = nou;
+		lista->prim = nou;
+
+	}
+
+}
+
+LD inserareFinal(LD lista, Fisier fs) {
+
+	nod* nou = (nod*)malloc(sizeof(nod));
+	nou->prev = NULL;
+	nou->info = creareFisier(fs.id, fs.numeF, fs.memorie, fs.nrCopii);
+	nou->next = NULL;
+	if (lista.prim == NULL) {
+
+		lista.prim = nou;
+		lista.ultim = nou;
+
+	}
+	else {
+
+		lista.ultim->next = nou;
+		nou->prev = lista.ultim;
+		lista.ultim = nou;
+
+	}
+	return lista;
+
+}
+
 
