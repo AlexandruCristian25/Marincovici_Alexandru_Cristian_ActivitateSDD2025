@@ -96,4 +96,60 @@ LD inserareFinal(LD lista, Fisier fs) {
 
 }
 
+//Afisare nod inceput si final
+void afisareInceput(LD lista) {
+
+	if (lista.prim) {
+
+		nod* aux = lista.prim;
+		while (aux) {
+
+			printf("Id: %u \n", aux->info.id);
+			printf("Nume fisier: %s \n", aux->info.numeF);
+			printf("Memorie: %d \n", aux->info.memorie);
+
+			for (int i = 0; i < aux->info.memorie; i++) {
+
+				printf("Nr copii: %d, ", aux->info.nrCopii[i]);
+
+			}
+			printf("\n\n");
+			aux = aux->next;
+
+		}
+
+	}
+	else {
+
+		printf("Lista este goala!");
+
+	}
+
+}
+
+void afisareFinal(LD lista) {
+
+	if (lista.ultim) {
+
+		nod* aux = lista.ultim;
+		while (aux) {
+
+			printf("Id: %u \n", aux->info.id);
+			printf("Nume fisier: %s \n", aux->info.numeF);
+			printf("Memorie: %d \n", aux->info.memorie);
+
+			for (int i = 0; i < aux->info.memorie; i++) {
+
+				printf("Nr copii: %d, ", aux->info.nrCopii[i]);
+
+			}
+			printf("\n\n");
+			aux = aux->prev;
+
+		}
+
+	}
+
+}
+
 
