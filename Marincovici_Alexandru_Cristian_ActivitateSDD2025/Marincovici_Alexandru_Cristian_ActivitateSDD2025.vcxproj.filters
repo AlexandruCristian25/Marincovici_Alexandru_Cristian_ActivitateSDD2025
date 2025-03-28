@@ -24,5 +24,8 @@
     <ClCompile Include="telefonListaSimpla.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="fisierListaDubla.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
