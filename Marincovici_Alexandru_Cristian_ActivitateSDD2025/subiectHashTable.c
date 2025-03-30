@@ -59,3 +59,18 @@ int inserareHT(HT tabela, Comanda c) {
     }
     return pozitie;
 }
+
+//Afisare tabelei de dispersie
+void afisareHT(HT tabela) {
+    for (int i = 0; i < tabela.dimensiune; i++) {
+        if (tabela.vector[i]) {
+            printf("Pozitie %d:\n", i);
+            nodLS* aux = tabela.vector[i];
+            while (aux) {
+                printf("Comanda %u lansata la %s, livrata pe %s, client %s, suma %.2f\n",
+                    aux->info.id, aux->info.dataLansare, aux->info.dataLivrare, aux->info.client, aux->info.suma);
+                aux = aux->next;
+            }
+        }
+    }
+}
