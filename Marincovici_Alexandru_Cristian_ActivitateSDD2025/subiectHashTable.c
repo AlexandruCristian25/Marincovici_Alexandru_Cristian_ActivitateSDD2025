@@ -90,3 +90,24 @@ void dezalocareHT(HT tabela) {
     }
     free(tabela.vector);
 }
+
+//Afisare in main
+void main() {
+    HT tabela;
+    tabela.dimensiune = 100;
+    tabela.vector = (nodLS**)calloc(tabela.dimensiune, sizeof(nodLS*));
+
+    char buffer[100];
+    char delimitator[] = ",";
+    char* token;
+
+    FILE* f = fopen("comenzi.txt", "r");
+    if (!f) {
+        printf("Eroare la deschiderea fisierului!\n");
+        return 1;
+    }
+
+    while (fgets(buffer, sizeof(buffer), f)) {
+        Comanda c;
+        token = strtok(buffer, delimitator);
+        `
