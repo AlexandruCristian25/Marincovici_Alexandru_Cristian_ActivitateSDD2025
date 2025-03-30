@@ -128,8 +128,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="activitateSDD.c" />
-    <ClCompile Include="fisierListaDubla.cpp" />
+    <ClCompile Include="fisierListaDubla.c" />
     <ClCompile Include="jocListaSimpla.c" />
+    <ClCompile Include="subiectHashTable.c" />
     <ClCompile Include="telefonListaSimpla.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

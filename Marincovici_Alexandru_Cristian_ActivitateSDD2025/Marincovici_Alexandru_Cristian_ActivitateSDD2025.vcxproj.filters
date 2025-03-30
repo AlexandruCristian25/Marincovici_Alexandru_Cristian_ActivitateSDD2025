@@ -24,7 +24,10 @@
     <ClCompile Include="telefonListaSimpla.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fisierListaDubla.cpp">
+    <ClCompile Include="fisierListaDubla.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="subiectHashTable.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

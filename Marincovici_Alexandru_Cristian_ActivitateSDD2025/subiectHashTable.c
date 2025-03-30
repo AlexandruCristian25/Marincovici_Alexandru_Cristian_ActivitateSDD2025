@@ -22,3 +22,17 @@ typedef struct HT {
     nodLS** vector;
 } HT;
 
+Comanda creareComanda(unsigned int id, const char* dataLansare,
+    const char* dataLivrare, const char* client, float suma) {
+    Comanda c;
+    c.id = id;
+    c.dataLansare = (char*)malloc(strlen(dataLansare) + 1);
+    strcpy(c.dataLansare, dataLansare);
+    c.dataLivrare = (char*)malloc(strlen(dataLivrare) + 1);
+    strcpy(c.dataLivrare, dataLivrare);
+    c.client = (char*)malloc(strlen(client) + 1);
+    strcpy(c.client, client);
+    c.suma = suma;
+    return c;
+}
+
