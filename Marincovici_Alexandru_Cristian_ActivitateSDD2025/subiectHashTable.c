@@ -36,3 +36,26 @@ Comanda creareComanda(unsigned int id, const char* dataLansare,
     return c;
 }
 
+//Crearea functiei de afisare dar si afisarea tabelei de dispersie
+int functieInserare(HT tabela, const char* dataLansare) {
+    return dataLansare[0] % tabela.dimensiune;
+}
+
+int inserareHT(HT tabela, Comanda c) {
+    int pozitie = functieInserare(tabela, c.dataLansare);
+    nodLS* nou = (nodLS*)malloc(sizeof(nodLS));
+    nou->info = creareComanda(c.id, c.dataLansare, c.dataLivrare, c.client, c.suma);
+    nou->next = NULL;
+
+    if (tabela.vector[pozitie] == NULL) {
+        tabela.vector[pozitie] = nou;
+    }
+    else {
+        nodLS* aux = tabela.vector[pozitie];
+        while (aux->next) {
+            aux = aux->next;
+        }
+        aux->next = nou;
+    }
+    return pozitie;
+}
