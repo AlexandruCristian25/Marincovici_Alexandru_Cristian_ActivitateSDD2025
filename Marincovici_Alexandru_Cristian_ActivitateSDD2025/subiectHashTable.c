@@ -74,3 +74,19 @@ void afisareHT(HT tabela) {
         }
     }
 }
+
+//Dezalocarea tabelei de dispersie
+void dezalocareHT(HT tabela) {
+    for (int i = 0; i < tabela.dimensiune; i++) {
+        nodLS* aux = tabela.vector[i];
+        while (aux) {
+            free(aux->info.dataLansare);
+            free(aux->info.dataLivrare);
+            free(aux->info.client);
+            nodLS* temp = aux;
+            aux = aux->next;
+            free(temp);
+        }
+    }
+    free(tabela.vector);
+}
