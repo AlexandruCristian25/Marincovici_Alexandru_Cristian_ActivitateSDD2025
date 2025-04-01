@@ -55,3 +55,15 @@ void modificaPret(Magazin* m, float noulPret) {
 	}
 
 }
+
+// Funcție pentru calculul prețului mediu al produselor
+float calculMediePreturi(Magazin m) {
+
+	if (m.nrProduse == 0) {
+
+		return 0;
+
+	}
+
+	return m.pretP / m.nrProduse;
+}
