@@ -30,5 +30,8 @@
     <ClCompile Include="subiectHashTable.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="taskuriSuplimentare.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
