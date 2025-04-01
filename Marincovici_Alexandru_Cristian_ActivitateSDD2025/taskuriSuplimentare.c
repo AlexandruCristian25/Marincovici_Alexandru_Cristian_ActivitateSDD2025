@@ -79,3 +79,18 @@ void dezalocare(Magazin* m) {
 	}
 
 }
+
+//Afisarea in main
+int main() {
+
+	Magazin m;
+	m = initializareMagazin(1, "Magazin1", 50, 14.36);
+	afisareMagazin(m);
+	modificaPret(&m, 12);
+	afisareMagazin(m);
+	printf("\nMedia preturilor: %.2f\n", calculMediePreturi(m));
+	dezalocare(&m);
+	afisareMagazin(m);
+	return 0;
+
+}
