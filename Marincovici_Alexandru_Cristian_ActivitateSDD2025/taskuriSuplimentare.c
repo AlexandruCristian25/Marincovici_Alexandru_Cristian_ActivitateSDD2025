@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
@@ -40,6 +40,17 @@ void afisareMagazin(Magazin m) {
 
 		printf("%d. Magazinul are %d de produse, iar pretul produsului este de %5.2f lei. \n",
 			m.cod, m.nrProduse, m.pretP);
+
+	}
+
+}
+
+// Funcție pentru modificarea prețului 
+void modificaPret(Magazin* m, float noulPret) {
+
+	if (noulPret > 0) {
+
+		m->pretP = noulPret;
 
 	}
 
