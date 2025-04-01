@@ -26,3 +26,21 @@ Magazin initializareMagazin(unsigned int cod, const char* denumire, int nrProdus
 	return m;
 
 }
+
+//Afisarea magazinului
+void afisareMagazin(Magazin m) {
+
+	if (m.denumire != NULL) {
+
+		printf("%d. Magazinul %s are %d de produse, iar pretul produsului este de %5.2f lei. \n",
+			m.cod, m.denumire, m.nrProduse, m.pretP);
+
+	}
+	else {
+
+		printf("%d. Magazinul are %d de produse, iar pretul produsului este de %5.2f lei. \n",
+			m.cod, m.nrProduse, m.pretP);
+
+	}
+
+}
