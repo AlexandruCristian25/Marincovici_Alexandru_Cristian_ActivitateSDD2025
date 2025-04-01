@@ -67,3 +67,15 @@ float calculMediePreturi(Magazin m) {
 
 	return m.pretP / m.nrProduse;
 }
+
+//Functia de dezalocare
+void dezalocare(Magazin* m) {
+
+	if (m->denumire != NULL) {
+
+		free(m->denumire);
+		m->denumire = NULL;
+
+	}
+
+}
