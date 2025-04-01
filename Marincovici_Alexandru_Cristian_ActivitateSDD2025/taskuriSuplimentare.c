@@ -13,3 +13,16 @@ typedef struct Magazin {
 	float pretP;
 
 }Magazin;
+
+//Initializare magazin
+Magazin initializareMagazin(unsigned int cod, const char* denumire, int nrProduse, float pretP) {
+
+	Magazin m;
+	m.cod = 1;
+	m.denumire = (char*)malloc(sizeof(char) * strlen(denumire) + 1);
+	strcpy(m.denumire, denumire);
+	m.nrProduse = nrProduse;
+	m.pretP = pretP;
+	return m;
+
+}
