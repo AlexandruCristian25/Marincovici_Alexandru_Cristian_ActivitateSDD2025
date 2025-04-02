@@ -97,6 +97,43 @@ Magazin* copiazaPrimeleElemente(Magazin* vector, int nrElemente,
 
 }
 
+//Functie de copiere a unui atribut conditionat dintr-un vector alocat dinamic intr-un vector nou
+void copiazaProduseScumpe(Magazin* vector, char nrElemente, float pretMinim, Magazin** vectorNou, int* dimensiune) {
+
+	*dimensiune = 0;
+	for (int i = 0; i < nrElemente; i++) {
+
+		if (vector[i].pretP >= pretMinim) {
+
+			(*dimensiune)++;
+
+		}
+
+	}
+
+	if ((*vectorNou) != NULL) {
+
+		free(*vectorNou);
+
+	}
+
+	*vectorNou = (Magazin*)malloc(sizeof(Magazin) * (*dimensiune));
+	int k = 0;
+	for (int i = 0; i < nrElemente; i++) {
+
+		if (vector[i].pretP >= pretMinim) {
+
+			(*vectorNou)[k] = vector[i];
+			(*vectorNou)[k].denumire = (char*)malloc(sizeof(char) * strlen(vector[i].denumire) + 1);
+			strcpy((*vectorNou)[k].denumire, vector[i].denumire);
+			k++;
+
+		}
+
+	}
+
+}
+
 //Functia de dezalocare
 void dezalocare(Magazin* m) {
 
