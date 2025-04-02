@@ -249,6 +249,52 @@ int main() {
 
 	afisareVector(magazine, nrMagazine);
 
+	Magazin* primeleMagazine = NULL;
+	int nrPrimeleMagazine = 2;
+	primeleMagazine = copiazaPrimeleElemente(magazine, nrMagazine, nrPrimeleMagazine);
+	printf("\n\n Primele magazine: \n");
+	afisareVector(primeleMagazine, nrPrimeleMagazine);
+
+	dezalocareVector(&primeleMagazine, &nrPrimeleMagazine);
+	afisareVector(primeleMagazine, nrPrimeleMagazine);
+
+	//Copiaza produse scumpe
+	Magazin* produseScumpe = NULL;
+	int nrProduseScumpe = 0;
+	copiazaProduseScumpe(magazine, nrMagazine, 4.36, &produseScumpe, &nrProduseScumpe);
+	printf("\n\nProduse scumpe: \n");
+	afisareVector(produseScumpe, nrProduseScumpe);
+	dezalocareVector(&produseScumpe, &nrProduseScumpe);
+
+	Magazin magazin = getPrimulProdusByMagazin(magazine, nrMagazine, "Auchan");
+	printf("\n\nMagazinul gasit:\n");
+	afisareMagazin(magazin);
+	if (magazin.denumire != NULL) {
+
+		free(magazin.denumire);
+		magazin.denumire = NULL;
+
+	}
+	dezalocareVector(&magazine, &nrMagazine);
+
+	//Concatenare doi vectori
+	Magazin vector1[2] = {
+	   initializareMagazin(1, "Auchan", 25, 9.99),
+	   initializareMagazin(2, "Carrefour", 36, 7.50)
+	};
+
+	Magazin vector2[3] = {
+		initializareMagazin(3, "MegaImage", 50, 3.25),
+		initializareMagazin(4, "Kaufland", 75, 1.20),
+		initializareMagazin(5, "LIDL", 58, 4.36)
+	};
+
+	int nrElementeTotal = 0;
+	Magazin* vectorConcatenat = concateneazaVectori(vector1, 2, vector2, 3, &nrElementeTotal);
+
+	printf("\n\nVector concatenat:\n");
+	afisareVector(vectorConcatenat, nrElementeTotal);
+	dezalocareVector(&vectorConcatenat, &nrElementeTotal);
 
 	return 0;
 
