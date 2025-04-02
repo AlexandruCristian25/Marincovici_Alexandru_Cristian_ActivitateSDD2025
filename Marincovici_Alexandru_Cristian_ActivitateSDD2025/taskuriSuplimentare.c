@@ -186,6 +186,14 @@ Magazin* concateneazaVectori(Magazin* vector1, int nrElemente1, Magazin* vector2
 	return vectorNou;
 }
 
+// Funcție pentru afișarea unui vector de obiecte Magazin
+void afisareVector(Magazin* vector, int nrElemente) {
+	for (int i = 0; i < nrElemente; i++) {
+		printf("%d. Magazinul %s are %d de produse, iar prețul produsului este de %.2f lei.\n",
+			vector[i].cod, vector[i].denumire, vector[i].nrProduse, vector[i].pretP);
+	}
+}
+
 //Functia de dezalocare
 void dezalocare(Magazin* m) {
 
