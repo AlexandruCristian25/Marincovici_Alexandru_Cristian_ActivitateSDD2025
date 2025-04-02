@@ -157,6 +157,35 @@ Magazin getPrimulProdusByMagazin(Magazin* vector, int nrElemente, const char* de
 
 }
 
+//Functia de concatenare a doi vectori
+Magazin* concateneazaVectori(Magazin* vector1, int nrElemente1, Magazin* vector2, int nrElemente2, int* nrElementeTotal) {
+	// Calculăm noua dimensiune a vectorului
+	*nrElementeTotal = nrElemente1 + nrElemente2;
+
+	// Alocăm dinamic memoria pentru noul vector
+	Magazin* vectorNou = (Magazin*)malloc(sizeof(Magazin) * (*nrElementeTotal));
+	if (vectorNou == NULL) {
+		printf("Eroare la alocarea memoriei!\n");
+		exit(1);
+	}
+
+	// Copiem primul vector
+	for (int i = 0; i < nrElemente1; i++) {
+		vectorNou[i] = vector1[i];
+		vectorNou[i].denumire = (char*)malloc(strlen(vector1[i].denumire) + 1);
+		strcpy(vectorNou[i].denumire, vector1[i].denumire);
+	}
+
+	// Copiem al doilea vector
+	for (int i = 0; i < nrElemente2; i++) {
+		vectorNou[nrElemente1 + i] = vector2[i];
+		vectorNou[nrElemente1 + i].denumire = (char*)malloc(strlen(vector2[i].denumire) + 1);
+		strcpy(vectorNou[nrElemente1 + i].denumire, vector2[i].denumire);
+	}
+
+	return vectorNou;
+}
+
 //Functia de dezalocare
 void dezalocare(Magazin* m) {
 
