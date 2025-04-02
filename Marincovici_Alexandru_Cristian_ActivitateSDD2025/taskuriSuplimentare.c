@@ -134,6 +134,29 @@ void copiazaProduseScumpe(Magazin* vector, char nrElemente, float pretMinim, Mag
 
 }
 
+//Functie de copiere celui de-al douilea atribut conditionat dintr-un vector alocat dinamic intr-un vector nou 
+Magazin getPrimulProdusByMagazin(Magazin* vector, int nrElemente, const char* denumire) {
+
+	Magazin m;
+	m.denumire = NULL;
+	for (int i = 0; i < nrElemente; i++) {
+
+		if (strcmp(vector[i].denumire, denumire) == 0) {
+
+			m = vector[i];
+			m.denumire = (char*)malloc(sizeof(char) * strlen(vector[i].denumire) + 1);
+			strcpy(m.denumire, vector[i].denumire);
+
+			return m;
+
+		}
+
+	}
+
+	return m;
+
+}
+
 //Functia de dezalocare
 void dezalocare(Magazin* m) {
 
