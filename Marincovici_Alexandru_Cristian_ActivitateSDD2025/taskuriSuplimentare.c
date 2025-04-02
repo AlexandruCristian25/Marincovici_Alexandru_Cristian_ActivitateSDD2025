@@ -68,6 +68,35 @@ float calculMediePreturi(Magazin m) {
 	return m.pretP / m.nrProduse;
 }
 
+//Funcita de afisare a vectorului
+void afisareVector(Magazin* vector, int nrElemente) {
+
+	for (int i = 0; i < nrElemente; i++) {
+
+		afisareMagazin(vector[i]);
+
+	}
+
+}
+
+//Functie de copiere a doua atribute dintr-un vector alocat dinamic intr-un vector nou 
+Magazin* copiazaPrimeleElemente(Magazin* vector, int nrElemente,
+	int nrElementeCopiate) {
+
+	Magazin* vectorNou = NULL;
+	vectorNou = (Magazin*)malloc(sizeof(Magazin) * nrElementeCopiate);
+	for (int i = 0; i < nrElementeCopiate; i++) {
+
+		vectorNou[i] = vector[i];
+		vectorNou[i].denumire = (char*)malloc(sizeof(char) * strlen(vector[i].denumire) + 1);
+		strcpy(vectorNou[i].denumire, vector[i].denumire);
+
+	}
+
+	return vectorNou;
+
+}
+
 //Functia de dezalocare
 void dezalocare(Magazin* m) {
 
@@ -91,6 +120,20 @@ int main() {
 	printf("\nMedia preturilor: %.2f\n", calculMediePreturi(m));
 	dezalocare(&m);
 	afisareMagazin(m);
+
+	//Vector alocat dinamic cu 5 obiecte
+	Magazin* magazine = NULL;
+	int nrMagazine = 5;
+	magazine = (Magazin*)malloc(sizeof(Magazin) * nrMagazine);
+	magazine[0] = initializareMagazin(1, "Auchan", 25, 9.99);
+	magazine[1] = initializareMagazin(2, "Carrefour", 36, 7.50);
+	magazine[2] = initializareMagazin(3, "MegaImage", 50, 3.25);
+	magazine[3] = initializareMagazin(4, "Kaufland", 75, 1.20);
+	magazine[4] = initializareMagazin(5, "LIDL", 58, 4.36);
+
+	afisareVector(magazine, nrMagazine);
+
+
 	return 0;
 
 }
