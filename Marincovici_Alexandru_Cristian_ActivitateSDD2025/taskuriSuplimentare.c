@@ -206,6 +206,25 @@ void dezalocare(Magazin* m) {
 
 }
 
+//Dezalocarea vectorului nou
+void dezalocareVector(Magazin** vector, int* nrElemente) {
+
+	for (int i = 0; i < (*nrElemente); i++) {
+
+		if ((*vector)[i].denumire != NULL) {
+
+			free((*vector)[i].denumire);
+
+		}
+
+	}
+
+	free(*vector);
+	*vector = NULL;
+	*nrElemente = 0;
+
+}
+
 //Afisarea in main
 int main() {
 
