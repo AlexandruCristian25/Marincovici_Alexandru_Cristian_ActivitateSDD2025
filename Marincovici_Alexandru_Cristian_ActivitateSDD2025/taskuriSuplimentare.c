@@ -204,6 +204,17 @@ void afisareMagazin(Magazin magazin) {
 
 }
 
+//Afisare vector de magazine
+void afisareVectorMagazin(Magazin* magazine, int nrMagazine) {
+
+	for (int i = 0; i < nrMagazine; i++) {
+
+		afisareMagazin(magazine[i]);
+
+	}
+
+}
+
 //Functie de salvare a unui obiect intr-un fisier text
 void salveazaMagazinInFisier(Magazin m, FILE* file) {
 	if (file != NULL && m.denumire != NULL) {
