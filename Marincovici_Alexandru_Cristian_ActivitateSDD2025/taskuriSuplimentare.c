@@ -194,6 +194,16 @@ void afisareVector(Magazin* vector, int nrElemente) {
 	}
 }
 
+//Afisare magazin
+void afisareMagazin(Magazin magazin) {
+
+	printf("Cod:%d\n", magazin.cod);
+	printf("Denumire:%s\n", magazin.denumire);
+	printf("Nr produse:%d\n", magazin.nrProduse);
+	printf("Pret produs:%.2f\n", magazin.pretP);
+
+}
+
 //Functie de salvare a unui obiect intr-un fisier text
 void salveazaMagazinInFisier(Magazin m, FILE* file) {
 	if (file != NULL && m.denumire != NULL) {
