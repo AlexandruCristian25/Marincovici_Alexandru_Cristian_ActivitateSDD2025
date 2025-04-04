@@ -241,6 +241,27 @@ void salveazaMagazinInFisier(Magazin m, FILE* file) {
 	}
 }
 
+// Functie pentru salvarea unui vector de obiect intr-un fisier text
+void salveazaVectorInFisier(Magazin* vector, int nrElemente, const char* numeFisier) {
+	FILE* file = fopen(numeFisier, "w");
+	if (file != NULL) {
+		for (int i = 0; i < nrElemente; i++) {
+			if (vector[i].denumire != NULL) {
+				fprintf(file, "%d,%s,%d,%.2f\n",
+					vector[i].cod,
+					vector[i].denumire,
+					vector[i].nrProduse,
+					vector[i].pretP);
+			}
+		}
+		fclose(file);
+		printf("Vectorul a fost salvat cu succes în fisierul %s.\n", numeFisier);
+	}
+	else {
+		printf("Eroare la deschiderea fisierului %s pentru scriere.\n", numeFisier);
+	}
+}
+
 //Functia de dezalocare
 void dezalocare(Magazin* m) {
 
