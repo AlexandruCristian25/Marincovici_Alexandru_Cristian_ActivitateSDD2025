@@ -194,6 +194,13 @@ void afisareVector(Magazin* vector, int nrElemente) {
 	}
 }
 
+//Functie de salvare a unui obiect intr-un fisier text
+void salveazaMagazinInFisier(Magazin m, FILE* file) {
+	if (file != NULL && m.denumire != NULL) {
+		fprintf(file, "%d,%s,%d,%.2f\n", m.cod, m.denumire, m.nrProduse, m.pretP);
+	}
+}
+
 //Functia de dezalocare
 void dezalocare(Magazin* m) {
 
