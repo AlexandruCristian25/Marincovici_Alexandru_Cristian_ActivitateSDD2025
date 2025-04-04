@@ -215,6 +215,25 @@ void afisareVectorMagazin(Magazin* magazine, int nrMagazine) {
 
 }
 
+//Citire date din fisier
+Magazin citireMagazinFisier(FILE* file) {
+
+	Magazin m;
+	char buffer[100];
+	char sep[4] = ",;\n";
+	fgets(buffer, 100, file);
+	m.cod = atoi(strtok(buffer, sep));
+	char* aux;
+	aux = strtok(NULL, sep);
+	m.denumire = (char*)malloc(sizeof(char) * strlen(aux) + 1);
+	strcpy(m.denumire, aux);
+	m.nrProduse = atoi(strtok(NULL, sep));
+	m.pretP = atof(strtok(NULL, sep));
+
+	return m;
+
+}
+
 //Functie de salvare a unui obiect intr-un fisier text
 void salveazaMagazinInFisier(Magazin m, FILE* file) {
 	if (file != NULL && m.denumire != NULL) {
