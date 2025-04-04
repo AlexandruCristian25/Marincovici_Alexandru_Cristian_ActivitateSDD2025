@@ -364,6 +364,21 @@ int main() {
 	afisareVector(vectorConcatenat, nrElementeTotal);
 	dezalocareVector(&vectorConcatenat, &nrElementeTotal);
 
+	// Salvare a unui obiect intr-un fisier text
+	FILE* fisier = fopen("magazin.txt", "w");
+	if (fisier != NULL) {
+		salveazaMagazinInFisier(m, fisier);
+		fclose(fisier);
+		printf("\nMagazinul a fost salvat cu succes în fisier.\n");
+	}
+	else {
+		printf("Eroare la deschiderea fisierului pentru scriere.\n");
+	}
+
+	// Salvarea unui vector de obiect intr-un fisier text
+	salveazaVectorInFisier(magazine, nrMagazine, "magazin.txt");
+
+
 	return 0;
 
 }
