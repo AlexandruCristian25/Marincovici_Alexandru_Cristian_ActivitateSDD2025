@@ -137,5 +137,24 @@ Spital getPrimaSectieBySpital(Spital* vector, int nrElemente,
 
 }
 
+//Dezalocare vectorului
+void dezalocareVector(Spital** vector, int* nrElemente) {
+
+	for (int i = 0; i < (*nrElemente); i++) {
+
+		if ((*vector)[i].nume != NULL) {
+
+			free((*vector)[i].nume);
+
+		}
+
+	}
+
+	free(*vector);
+	*vector = NULL;
+	*nrElemente = 0;
+
+}
+
 
 
