@@ -74,4 +74,43 @@ Spital* copiazaPrimeleElemente(Spital* vector, int nrElemente,
 
 }
 
+//Vector de copiere a anumitor elemente
+void copiazaSectii(Spital* vector, char nrElemente, int nrSectiiN,
+	Spital** vectorNou, int* dimensiune) {
+
+	*dimensiune = 0;
+	for (int i = 0; i < nrElemente; i++) {
+
+		if (vector[i].nrSectii >= nrSectiiN) {
+
+			*(dimensiune)++;
+
+		}
+
+	}
+
+	if ((*vectorNou) != NULL) {
+
+		free(*vectorNou);
+
+	}
+
+	*vectorNou = (Spital*)malloc(sizeof(Spital) * (*dimensiune));
+
+	int k = 0;
+	for (int i = 0; i < nrElemente; i++) {
+
+		if (vector[i].nrSectii >= nrSectiiN) {
+
+			(*vectorNou)[k] = vector[i];
+			(*vectorNou)[k].nume = (char*)malloc(sizeof(char) * strlen(vector[i].nume) + 1);
+			strcpy((*vectorNou)[k].nume, vector[i].nume);
+			k++;
+
+		}
+
+	}
+}
+
+
 
