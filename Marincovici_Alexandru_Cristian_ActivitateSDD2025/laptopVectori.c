@@ -56,3 +56,21 @@ void afisareVector(Laptop* vector, int nrElemente) {
 	}
 
 }
+
+//Vector de copiere a primelor elemente
+Laptop* copiazaPrimeleElemente(Laptop* vector, int nrElemente,
+	int nrElementeCopiate) {
+
+	Laptop* vectorNou = NULL;
+	vectorNou = (Laptop*)malloc(sizeof(Laptop) * nrElementeCopiate);
+	for (int i = 0; i < nrElementeCopiate; i++) {
+
+		vectorNou[i] = vector[i];
+		vectorNou[i].producator = (char*)malloc(sizeof(char) * (strlen(vector[i].producator) + 1));
+		strcpy(vectorNou[i].producator, vector[i].producator);
+
+	}
+
+	return vectorNou;
+
+}
