@@ -156,5 +156,51 @@ void dezalocareVector(Spital** vector, int* nrElemente) {
 
 }
 
+//Afisarea in main
+int main() {
+
+	Spital* spitale = NULL;
+	int nrSpitale = 3;
+	spitale = (Spital*)malloc(sizeof(Spital) * nrSpitale);
+	spitale[0] = initializareSpital(251, "Spital1", 7);
+	spitale[1] = initializareSpital(172, "Spital2", 10);
+	spitale[2] = initializareSpital(357, "Spital3", 9);
+
+	afisareVector(spitale, nrSpitale);
+
+	Spital* primeleSpitale = NULL;
+	int nrPrimeleSpitale = 2;
+	primeleSpitale = copiazaPrimeleElemente(spitale, nrSpitale,
+		nrPrimeleSpitale);
+
+	printf("\n\nPrimele spitale: \n");
+	afisareVector(primeleSpitale, nrPrimeleSpitale);
+	dezalocareVector(&primeleSpitale, &nrPrimeleSpitale);
+	afisareVector(primeleSpitale, nrPrimeleSpitale);
+
+	//Copiaza sectii dupa nr
+	Spital* sectii = NULL;
+	int nrSectii = 0;
+	copiazaSectii(spitale, nrSpitale, 9, &sectii, &nrSectii);
+	printf("\n\nNr sectii: \n");
+	afisareVector(sectii, nrSectii);
+	dezalocareVector(&sectii, &nrSectii);
+
+	Spital spital = getPrimaSectieBySpital(spitale, nrSpitale, "Spital2");
+	printf("\n\nSpitalul gasit: \n");
+	afisareSpital(spital);
+	if (spital.nume != NULL) {
+
+		free(spital.nume);
+		spital.nume = NULL;
+
+	}
+
+	dezalocareVector(&spital, &nrSpitale);
+
+	return 0;
+
+}
+
 
 
