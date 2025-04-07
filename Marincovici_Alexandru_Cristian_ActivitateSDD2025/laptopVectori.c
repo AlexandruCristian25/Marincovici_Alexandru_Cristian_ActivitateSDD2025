@@ -27,3 +27,21 @@ Laptop initializareLaptop(unsigned int id, const char* producator,
 	return l;
 
 }
+
+//Afisare laptop
+void afisareLaptop(Laptop l) {
+
+	if (l.producator != NULL) {
+
+		printf("\n%d Laptopul %s are %d RAM iar pretul este de %5.2f lei",
+			l.id, l.producator, l.RAM, l.pret);
+
+	}
+	else {
+
+		printf("\n%d Laptopul are %d RAM iar pretul este de %5.2f lei",
+			l.id, l.RAM, l.pret);
+
+	}
+
+}

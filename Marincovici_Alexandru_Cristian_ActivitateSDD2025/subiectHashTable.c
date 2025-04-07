@@ -110,4 +110,5 @@ void main() {
     while (fgets(buffer, sizeof(buffer), f)) {
         Comanda c;
         token = strtok(buffer, delimitator);
-        `
+    }
+}
