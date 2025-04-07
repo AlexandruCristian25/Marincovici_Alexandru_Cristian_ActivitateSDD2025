@@ -45,3 +45,15 @@ void afisareSpital(Spital s) {
 
 }
 
+//Afisare vector
+void afisareVector(Spital* vector, int nrElemente) {
+
+	for (int i = 0; i < nrElemente; i++) {
+
+		afisareSpital(vector[i]);
+
+	}
+
+}
+
+
