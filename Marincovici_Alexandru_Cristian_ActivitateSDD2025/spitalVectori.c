@@ -25,3 +25,23 @@ Spital initializareSpital(unsigned int codS,
 	return s;
 
 }
+
+
+//Afisare spital
+void afisareSpital(Spital s) {
+
+	if (s.nume != NULL) {
+
+		printf("%d este codul sectiei al spitalului %s iar numarul sectiilor este de %d sectii\n",
+			s.codS, s.nume, s.nrSectii);
+
+	}
+	else {
+
+		printf("%d este codul sectiei al spitaluluiiar numarul sectiilor este de %d sectii\n",
+			s.codS, s.nrSectii);
+
+	}
+
+}
+
