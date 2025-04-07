@@ -56,4 +56,22 @@ void afisareVector(Spital* vector, int nrElemente) {
 
 }
 
+//Vector de copiere a primelor elemente
+Spital* copiazaPrimeleElemente(Spital* vector, int nrElemente,
+	int nrElementeCopiate) {
+
+	Spital* vectorNou = NULL;
+	vectorNou = (Spital*)malloc(sizeof(Spital) * nrElementeCopiate);
+	for (int i = 0; i < nrElementeCopiate; i++) {
+
+		vectorNou[i] = vector[i];
+		vectorNou[i].nume = (char*)malloc(sizeof(char) * (strlen(vector[i].nume) + 1));
+		strcpy(vectorNou[i].nume, vector[i].nume);
+
+	}
+
+	return vectorNou;
+
+}
+
 
