@@ -110,6 +110,31 @@ void copiazaSectii(Spital* vector, char nrElemente, int nrSectiiN,
 		}
 
 	}
+
+}
+
+//Vector de copiere a unui element conditionat
+Spital getPrimaSectieBySpital(Spital* vector, int nrElemente,
+	const char* nume) {
+
+	Spital s;
+	s.nume = NULL;
+	for (int i = 0; i < nrElemente; i++) {
+
+		if (strcmp(vector[i].nume, nume) == 0) {
+
+			s = vector[i];
+			s.nume = (char*)malloc(sizeof(char) * strlen(vector[i].nume) + 1);
+			strcpy(s.nume, vector[i].nume);
+
+			return s;
+
+		}
+
+	}
+
+	return s;
+
 }
 
 
