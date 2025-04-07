@@ -74,3 +74,42 @@ Laptop* copiazaPrimeleElemente(Laptop* vector, int nrElemente,
 	return vectorNou;
 
 }
+
+//Vector de copiere a anumitor elemente
+void copiazaLaptop(Laptop* vector, char nrElemente, float pretMinim,
+	Laptop** vectorNou, int* dimensiune) {
+
+	*dimensiune = 0;
+	for (int i = 0; i < nrElemente; i++) {
+
+		if (vector[i].pret >= pretMinim) {
+
+			(*dimensiune)++;
+
+		}
+
+	}
+
+	if ((*vectorNou) != NULL) {
+
+		free(*vectorNou);
+
+	}
+
+	*vectorNou = (Laptop*)malloc(sizeof(Laptop) * (*dimensiune));
+
+	int k = 0;
+	for (int i = 0; i < nrElemente; i++) {
+
+		if (vector[i].pret >= pretMinim) {
+
+			(*vectorNou)[k] = vector[i];
+			(*vectorNou)[k].producator = (char*)malloc(sizeof(char) * strlen(vector[i].producator) + 1);
+			strcpy((*vectorNou)[k].producator, vector[i].producator);
+			k++;
+
+		}
+
+	}
+
+}
