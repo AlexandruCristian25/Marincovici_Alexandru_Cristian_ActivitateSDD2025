@@ -155,3 +155,49 @@ void dezalocareVector(Laptop** vector, int* nrElemente) {
 	*nrElemente = 0;
 
 }
+
+//Afisarea in main
+int main() {
+
+	Laptop* laptopuri = NULL;
+	int nrLaptopuri = 3;
+	laptopuri = (Laptop*)malloc(sizeof(Laptop) * nrLaptopuri);
+	laptopuri[0] = initializareLaptop(1, "Acer", 8, 1299.99);
+	laptopuri[1] = initializareLaptop(2, "ASUS", 16, 3599.99);
+	laptopuri[2] = initializareLaptop(3, "Alien", 8, 2299.99);
+
+	afisareVector(laptopuri, nrLaptopuri);
+
+	Laptop* primeleLaptopuri = NULL;
+	int nrPrimeleLaptopuri = 2;
+	primeleLaptopuri = copiazaPrimeleElemente(laptopuri, nrLaptopuri,
+		nrPrimeleLaptopuri);
+	printf("\n\nPrimele laptopuri: \n");
+	afisareVector(primeleLaptopuri, nrPrimeleLaptopuri);
+	dezalocareVector(&primeleLaptopuri, &nrPrimeleLaptopuri);
+	afisareVector(primeleLaptopuri, nrPrimeleLaptopuri);
+
+	//Copiaza laptop dupa pret
+	Laptop* laptopuriScumpe = NULL;
+	int nrLaptopuriScumpe = 0;
+	copiazaLaptop(laptopuri, nrLaptopuri, 2299.99,
+		&laptopuriScumpe, &nrLaptopuriScumpe);
+	printf("\n\nLaptopuri scumpe: \n");
+	afisareVector(laptopuriScumpe, nrLaptopuriScumpe);
+	dezalocareVector(&laptopuriScumpe, &nrLaptopuriScumpe);
+
+	Laptop laptop = getPrimulLaptop(laptopuri, nrLaptopuri, "ASUS");
+	printf("\n\nLaptopul gasit: \n");
+	afisareLaptop(laptop);
+	if (laptop.producator != NULL) {
+
+		free(laptop.producator);
+		laptop.producator = NULL;
+
+	}
+
+	dezalocareVector(&laptopuri, &nrLaptopuri);
+
+	return 0;
+
+}
