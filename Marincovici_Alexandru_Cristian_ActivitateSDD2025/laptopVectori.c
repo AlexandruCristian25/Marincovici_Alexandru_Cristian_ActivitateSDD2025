@@ -113,3 +113,26 @@ void copiazaLaptop(Laptop* vector, char nrElemente, float pretMinim,
 	}
 
 }
+
+//Vector de copiere a unui element conditionat
+Laptop getPrimulLaptop(Laptop* vector, int nrElemente, const char* producator) {
+
+	Laptop l;
+	l.producator = NULL;
+	for (int i = 0; i < nrElemente; i++) {
+
+		if (strcmp(vector[i].producator, producator) == 0) {
+
+			l = vector[i];
+			l.producator = (char*)malloc(sizeof(char) * strlen(vector[i].producator) + 1);
+			strcpy(l.producator, vector[i].producator);
+
+			return l;
+
+		}
+
+	}
+
+	return l;
+
+}
