@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="activitateSDD.c" />
+    <ClCompile Include="comandaHashTable.c" />
     <ClCompile Include="fisierListaDubla.c" />
     <ClCompile Include="jocListaSimpla.c" />
     <ClCompile Include="laptopVectori.c" />
