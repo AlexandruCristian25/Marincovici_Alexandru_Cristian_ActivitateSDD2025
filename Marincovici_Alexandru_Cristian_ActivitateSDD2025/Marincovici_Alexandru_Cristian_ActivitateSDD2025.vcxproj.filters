@@ -36,5 +36,8 @@
     <ClCompile Include="laptopVectori.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="spitalVectori.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
