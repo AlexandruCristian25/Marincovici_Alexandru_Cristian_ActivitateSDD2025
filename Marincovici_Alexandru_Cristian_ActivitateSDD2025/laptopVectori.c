@@ -45,3 +45,14 @@ void afisareLaptop(Laptop l) {
 	}
 
 }
+
+//Afisare vector
+void afisareVector(Laptop* vector, int nrElemente) {
+
+	for (int i = 0; i < nrElemente; i++) {
+
+		afisareLaptop(vector[i]);
+
+	}
+
+}
