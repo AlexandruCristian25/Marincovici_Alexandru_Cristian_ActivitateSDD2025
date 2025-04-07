@@ -136,3 +136,22 @@ Laptop getPrimulLaptop(Laptop* vector, int nrElemente, const char* producator) {
 	return l;
 
 }
+
+//Dezalocarea vectorului
+void dezalocareVector(Laptop** vector, int* nrElemente) {
+
+	for (int i = 0; i < (*nrElemente); i++) {
+
+		if ((*vector)[i].producator != NULL) {
+
+			free((*vector)[i].producator);
+
+		}
+
+	}
+
+	free(*vector);
+	*vector = NULL;
+	*nrElemente = 0;
+
+}
