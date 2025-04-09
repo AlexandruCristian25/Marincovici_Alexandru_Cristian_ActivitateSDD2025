@@ -76,3 +76,29 @@ void afisareListaMagazin(Nod* cap) {
 	}
 
 }
+
+// Adăugare magazin la final
+void adaugaMagazinInLista(Nod** cap, Magazin magazinNou) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->info = magazinNou;
+	nou->next = NULL;
+
+	if (*cap) {
+
+		Nod* p = *cap;
+		while (p->next != NULL) {
+
+			p = p->next;
+
+		}
+
+		p->next = nou;
+	}
+	else {
+
+		*cap = nou;
+
+	}
+
+}
