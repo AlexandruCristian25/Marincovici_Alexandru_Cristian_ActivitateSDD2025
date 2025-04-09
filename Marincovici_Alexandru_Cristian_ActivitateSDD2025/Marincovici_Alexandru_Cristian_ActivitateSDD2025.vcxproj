@@ -131,6 +131,7 @@
     <ClCompile Include="comandaHashTable.c" />
     <ClCompile Include="fisierListaDubla.c" />
     <ClCompile Include="jocListaSimpla.c" />
+    <ClCompile Include="laptopFunctii.c" />
     <ClCompile Include="laptopVectori.c" />
     <ClCompile Include="spitalVectori.c" />
     <ClCompile Include="subiectHashTable.c" />

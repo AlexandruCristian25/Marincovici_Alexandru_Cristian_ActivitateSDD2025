@@ -42,5 +42,8 @@
     <ClCompile Include="comandaHashTable.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="laptopFunctii.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
