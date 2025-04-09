@@ -209,3 +209,48 @@ void inserareSortataDupaPret(Nod** cap, Magazin m) {
 	curent->next = nou;
 
 }
+
+// Functie de salvare a obiectelor intr-un vector daca nrProduse > X
+Magazin* magazinFiltrat(Nod* cap, int prag, int* dimVector) {
+
+	*dimVector = 0;
+	Nod* temp = cap;
+
+	while (temp) {
+
+		if (temp->info.nrProduse > prag)
+			(*dimVector)++;
+		temp = temp->next;
+
+	}
+
+	if (*dimVector == 0) {
+
+		return NULL;
+
+	}
+
+	Magazin* vector = (Magazin*)malloc(sizeof(Magazin) * (*dimVector));
+	temp = cap;
+	int k = 0;
+
+	while (temp) {
+
+		if (temp->info.nrProduse > prag) {
+
+			vector[k].cod = temp->info.cod;
+			vector[k].denumire = (char*)malloc(strlen(temp->info.denumire) + 1);
+			strcpy(vector[k].denumire, temp->info.denumire);
+			vector[k].nrProduse = temp->info.nrProduse;
+			vector[k].pretP = temp->info.pretP;
+			k++;
+
+		}
+
+		temp = temp->next;
+
+	}
+
+	return vector;
+
+}
