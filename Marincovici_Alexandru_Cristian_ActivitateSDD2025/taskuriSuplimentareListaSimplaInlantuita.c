@@ -180,4 +180,32 @@ void stergereNodPozitie(Nod** cap, int pozitie) {
 	temp->next = nodDeSters->next;
 	free(nodDeSters->info.denumire);
 	free(nodDeSters);
+
+}
+
+// Functie de inserare a elementelor sortate dupa pret
+void inserareSortataDupaPret(Nod** cap, Magazin m) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->info = m;
+	nou->next = NULL;
+
+	if (*cap == NULL || (*cap)->info.pretP > m.pretP) {
+
+		nou->next = *cap;
+		*cap = nou;
+		return;
+
+	}
+
+	Nod* curent = *cap;
+	while (curent->next != NULL && curent->next->info.pretP < m.pretP) {
+
+		curent = curent->next;
+
+	}
+
+	nou->next = curent->next;
+	curent->next = nou;
+
 }
