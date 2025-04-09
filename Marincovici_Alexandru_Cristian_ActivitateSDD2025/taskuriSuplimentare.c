@@ -278,6 +278,18 @@ Magazin** creeazaMatrice(Magazin* magazine, int** dimensiuni, int nrStructuri, i
 
 }
 
+// Afișare matrice
+void afisareMatrice(Magazin** matrice, int* dimensiuni, int linii) {
+
+	for (int i = 0; i < linii; i++) {
+
+		printf("\nCategorie %d:\n", i + 1);
+		afisareVector(matrice[i], dimensiuni[i]);
+
+	}
+
+}
+
 //Functia de dezalocare
 void dezalocare(Magazin* m) {
 
