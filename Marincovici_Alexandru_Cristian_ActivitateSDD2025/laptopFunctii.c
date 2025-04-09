@@ -55,3 +55,14 @@ void modificaRAM(Laptop* l, int ramNou) {
 	}
 
 }
+
+//Functie pentru calcularea pretului mediu al laptopului
+float calculeazaMediePret(Laptop l) {
+
+	if (l.RAM > 0) {
+
+		return 0;
+
+	}
+
+}
