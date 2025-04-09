@@ -290,6 +290,30 @@ void afisareMatrice(Magazin** matrice, int* dimensiuni, int linii) {
 
 }
 
+//Copiere vectori in matrice
+Magazin** copiazaVectorInMatrice(Magazin* vector, int nr, int** dimensiuni, int* nrCategorii) {
+
+	*nrCategorii = 3;
+	*dimensiuni = (int*)calloc(*nrCategorii, sizeof(int));
+	Magazin** matrice = (Magazin**)malloc(sizeof(Magazin*) * (*nrCategorii));
+
+	for (int i = 0; i < *nrCategorii; i++) {
+
+		matrice[i] = NULL;
+
+	}
+
+	for (int i = 0; i < nr; i++) {
+
+		int index = ((int)vector[i].pretP) % (*nrCategorii);
+		matrice[index] = adaugaMagazinInVector(matrice[index], vector[i], &((*dimensiuni)[index]));
+
+	}
+
+	return matrice;
+
+}
+
 //Functia de dezalocare
 void dezalocare(Magazin* m) {
 
