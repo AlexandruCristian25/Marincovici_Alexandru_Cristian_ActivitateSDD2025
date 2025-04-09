@@ -151,3 +151,33 @@ void dezalocareListaMagazine(Nod** cap, int* nrMagazine) {
 	}
 
 }
+
+// Stergere nod de pe pozitie
+void stergereNodPozitie(Nod** cap, int pozitie) {
+
+	if (*cap == NULL || pozitie < 0) return;
+
+	Nod* temp = *cap;
+
+	if (pozitie == 0) {
+
+		*cap = (*cap)->next;
+		free(temp->info.denumire);
+		free(temp);
+		return;
+
+	}
+
+	for (int i = 0; temp != NULL && i < pozitie - 1; i++) {
+
+		temp = temp->next;
+
+	}
+
+	if (temp == NULL || temp->next == NULL) return;
+
+	Nod* nodDeSters = temp->next;
+	temp->next = nodDeSters->next;
+	free(nodDeSters->info.denumire);
+	free(nodDeSters);
+}
