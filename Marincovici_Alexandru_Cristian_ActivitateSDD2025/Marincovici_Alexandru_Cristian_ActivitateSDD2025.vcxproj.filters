@@ -45,5 +45,8 @@
     <ClCompile Include="laptopFunctii.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="taskuriSuplimentareListaSimplaInlantuita.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

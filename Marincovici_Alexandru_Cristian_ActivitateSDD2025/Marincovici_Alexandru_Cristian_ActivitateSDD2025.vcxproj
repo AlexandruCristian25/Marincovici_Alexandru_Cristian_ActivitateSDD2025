@@ -136,6 +136,7 @@
     <ClCompile Include="spitalVectori.c" />
     <ClCompile Include="subiectHashTable.c" />
     <ClCompile Include="taskuriSuplimentare.c" />
+    <ClCompile Include="taskuriSuplimentareListaSimplaInlantuita.c" />
     <ClCompile Include="telefonListaSimpla.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
