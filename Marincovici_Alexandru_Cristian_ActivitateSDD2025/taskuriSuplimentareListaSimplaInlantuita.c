@@ -56,3 +56,11 @@ Magazin citireMagazinFisier(FILE* f) {
 	return m;
 
 }
+
+// Nod listă simplă
+typedef struct Nod {
+
+	Magazin info;
+	struct Nod* next;
+
+} Nod;
