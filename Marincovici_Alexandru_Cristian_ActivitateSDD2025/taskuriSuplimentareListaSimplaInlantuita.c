@@ -102,3 +102,32 @@ void adaugaMagazinInLista(Nod** cap, Magazin magazinNou) {
 	}
 
 }
+
+// Citire listă din fișier
+Nod* citireListaMagazineDinFisier(const char* numeFisier) {
+
+	Nod* cap = NULL;
+	FILE* f = fopen(numeFisier, "r");
+	if (f) {
+
+		while (!feof(f)) {
+
+			Magazin m = citireMagazinFisier(f);
+
+			if (m.denumire != NULL) {
+
+				adaugaMagazinInLista(&cap, m);
+
+			}
+		}
+
+		fclose(f);
+	}
+	else {
+
+		printf("Fisierul nu a putut fi deschis.\n");
+
+	}
+
+	return cap;
+}
