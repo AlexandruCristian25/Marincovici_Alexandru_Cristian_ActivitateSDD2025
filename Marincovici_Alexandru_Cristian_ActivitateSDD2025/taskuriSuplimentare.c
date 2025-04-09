@@ -262,6 +262,22 @@ void salveazaVectorInFisier(Magazin* vector, int nrElemente, const char* numeFis
 	}
 }
 
+// Creează matrice
+Magazin** creeazaMatrice(Magazin* magazine, int** dimensiuni, int nrStructuri, int* nrCategorii) {
+
+	*nrCategorii = 3;
+	*dimensiuni = (int*)calloc(*nrCategorii, sizeof(int));
+	Magazin** matrice = (Magazin**)malloc(sizeof(Magazin*) * (*nrCategorii));
+	for (int i = 0; i < *nrCategorii; i++) matrice[i] = NULL;
+
+	for (int i = 0; i < nrStructuri; i++) {
+		int index = magazine[i].nrProduse % (*nrCategorii);
+		matrice[index] = adaugaMagazinInVector(matrice[index], magazine[i], &((*dimensiuni)[index]));
+	}
+	return matrice;
+
+}
+
 //Functia de dezalocare
 void dezalocare(Magazin* m) {
 
