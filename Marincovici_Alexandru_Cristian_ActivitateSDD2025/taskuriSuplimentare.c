@@ -468,6 +468,75 @@ int main() {
 	// Salvarea unui vector de obiect intr-un fisier text
 	salveazaVectorInFisier(magazine, nrMagazine, "magazin.txt");
 
+	FILE* f = fopen("magazin.txt", "r");
+	Magazin* dinFisier = NULL;
+	int nrDinFisier = 0;
+	if (f) {
+		char buffer[100];
+		dinFisier = (Magazin*)malloc(sizeof(Magazin) * 100);
+
+		while (fgets(buffer, sizeof(buffer), f)) {
+
+			Magazin m;
+			char* token = strtok(buffer, ",;\n");
+			if (!token) continue;
+			m.cod = atoi(token);
+
+			token = strtok(NULL, ",;\n");
+			if (!token) continue;
+			m.denumire = (char*)malloc(strlen(token) + 1);
+			strcpy(m.denumire, token);
+
+			token = strtok(NULL, ",;\n");
+			if (!token) continue;
+			m.nrProduse = atoi(token);
+
+			token = strtok(NULL, ",;\n");
+			if (!token) continue;
+			m.pretP = (float)atof(token);
+
+			dinFisier[nrDinFisier++] = m;
+
+		}
+
+		fclose(f);
+	}
+
+	int* dim;
+	int nrCat;
+	Magazin** matrice = creeazaMatrice(dinFisier, &dim, nrDinFisier, &nrCat);
+	printf("\nMatricea categorii:\n");
+	afisareMatrice(matrice, dim, nrCat);
+
+	for (int i = 0; i < nrCat; i++) dezalocareVector(&matrice[i], &dim[i]);
+	free(matrice);
+	free(dim);
+	for (int i = 0; i < nrMagazine; i++) dezalocare(&magazine[i]);
+	free(magazine);
+	free(dinFisier);
+
+	//Afisare matrice
+	int* dimMatrice = NULL;
+	int nrCategorii = 0;
+	Magazin** matriceNoua = copiazaVectorInMatrice(dinFisier, nrDinFisier, &dimMatrice, &nrCategorii);
+
+	printf("\nMatrice inainte de sortare:\n");
+	afisareMatriceMagazin(matriceNoua, dimMatrice, nrCategorii);
+
+	sorteazaLiniiDupaDimensiune(&matriceNoua, &dimMatrice, nrCategorii);
+
+	printf("\nMatrice dupa sortare (dupa nr elemente per linie):\n");
+	afisareMatriceMagazin(matriceNoua, dimMatrice, nrCategorii);
+
+	// eliberare
+	for (int i = 0; i < nrCategorii; i++) {
+
+		dezalocareVector(&matriceNoua[i], &dimMatrice[i]);
+
+	}
+
+	free(matriceNoua);
+	free(dimMatrice);
 
 	return 0;
 
