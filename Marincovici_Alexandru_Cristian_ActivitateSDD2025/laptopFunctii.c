@@ -66,3 +66,15 @@ float calculeazaMediePret(Laptop l) {
 	}
 
 }
+
+//Functia de dezalocare
+void dezalocare(Laptop* l) {
+
+	if (l->producator != NULL) {
+
+		free(l->producator);
+		l->producator = NULL;
+
+	}
+
+}
