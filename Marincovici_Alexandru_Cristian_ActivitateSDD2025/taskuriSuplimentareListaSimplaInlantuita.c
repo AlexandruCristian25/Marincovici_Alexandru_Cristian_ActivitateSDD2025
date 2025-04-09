@@ -64,3 +64,15 @@ typedef struct Nod {
 	struct Nod* next;
 
 } Nod;
+
+// Afișare listă magazine
+void afisareListaMagazin(Nod* cap) {
+
+	while (cap != NULL) {
+
+		afisareMagazin(cap->info);
+		cap = cap->next;
+
+	}
+
+}
