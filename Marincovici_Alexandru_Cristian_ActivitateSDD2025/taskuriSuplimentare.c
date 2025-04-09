@@ -339,6 +339,19 @@ void sorteazaLiniiDupaDimensiune(Magazin*** matrice, int** dimensiuni, int nrCat
 
 }
 
+
+// Afisarea matricei magazinului
+void afisareMatriceMagazin(Magazin** matrice, int* dimensiuni, int nrCategorii) {
+
+	for (int i = 0; i < nrCategorii; i++) {
+
+		printf("Cluster %d (%d elemente):\n", i + 1, dimensiuni[i]);
+		afisareVector(matrice[i], dimensiuni[i]);
+
+	}
+
+}
+
 //Functia de dezalocare
 void dezalocare(Magazin* m) {
 
