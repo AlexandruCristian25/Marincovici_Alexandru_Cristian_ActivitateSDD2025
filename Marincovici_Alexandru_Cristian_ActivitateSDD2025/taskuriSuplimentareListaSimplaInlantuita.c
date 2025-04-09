@@ -131,3 +131,23 @@ Nod* citireListaMagazineDinFisier(const char* numeFisier) {
 
 	return cap;
 }
+
+// Dezalocare listă
+void dezalocareListaMagazine(Nod** cap, int* nrMagazine) {
+
+	while (*cap) {
+
+		Nod* p = *cap;
+		*cap = p->next;
+		if (p->info.denumire) {
+
+			free(p->info.denumire);
+
+		}
+
+		free(p);
+		(*nrMagazine)++;
+
+	}
+
+}
