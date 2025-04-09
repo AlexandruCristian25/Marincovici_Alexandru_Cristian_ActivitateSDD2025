@@ -78,3 +78,18 @@ void dezalocare(Laptop* l) {
 	}
 
 }
+
+//Afisarea in main
+int main() {
+
+	Laptop l;
+	l = initializareLaptop(1, "ASUS", 16, 3599.99);
+	afisareLaptop(l);
+	printf("\n\n");
+
+	afisareLaptop(l);
+	printf("\nMedia pretului este de: \n", calculeazaMediePret(l));
+	dezalocare(&l);
+	afisareLaptop(l);
+
+}
