@@ -314,6 +314,31 @@ Magazin** copiazaVectorInMatrice(Magazin* vector, int nr, int** dimensiuni, int*
 
 }
 
+//Sortarea liniilor dupa dimensiunea matricei
+void sorteazaLiniiDupaDimensiune(Magazin*** matrice, int** dimensiuni, int nrCategorii) {
+
+	for (int i = 0; i < nrCategorii - 1; i++) {
+
+		for (int j = i + 1; j < nrCategorii; j++) {
+
+			if ((*dimensiuni)[i] > (*dimensiuni)[j]) {
+
+				Magazin* temp = (*matrice)[i];
+				(*matrice)[i] = (*matrice)[j];
+				(*matrice)[j] = temp;
+
+				int tempDim = (*dimensiuni)[i];
+				(*dimensiuni)[i] = (*dimensiuni)[j];
+				(*dimensiuni)[j] = tempDim;
+
+			}
+
+		}
+
+	}
+
+}
+
 //Functia de dezalocare
 void dezalocare(Magazin* m) {
 
