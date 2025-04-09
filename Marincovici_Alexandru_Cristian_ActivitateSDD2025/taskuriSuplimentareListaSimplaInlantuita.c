@@ -254,3 +254,31 @@ Magazin* magazinFiltrat(Nod* cap, int prag, int* dimVector) {
 	return vector;
 
 }
+
+// Functia de interschimbare a elementelor dupa pozitie
+void interschimbaPozitii(Nod* cap, int poz1, int poz2) {
+
+	if (poz1 == poz2 || poz1 < 0 || poz2 < 0) return;
+
+	Nod* node1 = NULL, * node2 = NULL;
+	Nod* temp = cap;
+	int index = 0;
+
+	while (temp) {
+
+		if (index == poz1) node1 = temp;
+		if (index == poz2) node2 = temp;
+		temp = temp->next;
+		index++;
+
+	}
+
+	if (node1 && node2) {
+
+		Magazin aux = node1->info;
+		node1->info = node2->info;
+		node2->info = aux;
+
+	}
+
+}
