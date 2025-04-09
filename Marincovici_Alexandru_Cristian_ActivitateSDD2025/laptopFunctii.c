@@ -44,3 +44,14 @@ void afisareLaptop(Laptop l) {
 	}
 
 }
+
+//Functia pentru modificarea RAM-ului
+void modificaRAM(Laptop* l, int ramNou) {
+
+	if (ramNou > 0) {
+
+		l->RAM = ramNou;
+
+	}
+
+}
