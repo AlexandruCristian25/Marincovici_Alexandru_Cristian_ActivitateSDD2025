@@ -282,3 +282,42 @@ void interschimbaPozitii(Nod* cap, int poz1, int poz2) {
 	}
 
 }
+
+//Afisarea in main
+int main() {
+
+	Nod* cap = citireListaMagazineDinFisier("magazin.txt");
+	afisareListaMagazin(cap);
+
+	//Stergere nod de pe pozitia 1
+	printf("\nDupa stergere nod la pozitia 1:\n");
+	stergereNodPozitie(&cap, 1);
+	afisareListaMagazin(cap);
+
+	// Inserare unui element sortat dupa pret
+	printf("\nDupa inserare sortata:\n");
+	Magazin m = initializareMagazin(11, "Magazin1", 30, 5.25f);
+	inserareSortataDupaPret(&cap, m);
+	afisareListaMagazin(cap);
+
+	// Salvare magazin cu nrProduse > 20 in vector
+	printf("\nMagazine cu nrProduse > 20:\n");
+	int dimVector = 0;
+	Magazin* vector = magazinFiltrat(cap, 20, &dimVector);
+	for (int i = 0; i < dimVector; i++) {
+		afisareMagazin(vector[i]);
+		free(vector[i].denumire);
+	}
+	free(vector);
+
+	// Interschimbare pozitia 0 si 2
+	printf("\nDupa interschimbare pozitia 0 cu 2:\n");
+	interschimbaPozitii(cap, 0, 2);
+	afisareListaMagazin(cap);
+
+	int nrMagazine = 0;
+	dezalocareListaMagazine(&cap, &nrMagazine);
+
+	return 0;
+
+}
