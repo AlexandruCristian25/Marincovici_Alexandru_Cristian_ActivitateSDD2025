@@ -69,3 +69,15 @@ void afisareLaptop(Laptop laptop) {
     printf("Pret: %.2f lei\n\n", laptop.pret);
 
 }
+
+// Functia de afisare a listei de laptopuri
+void afisareListaLaptopuri(Nod* cap) {
+
+    while (cap) {
+
+        afisareLaptop(cap->info);
+        cap = cap->next;
+
+    }
+
+}
