@@ -81,3 +81,30 @@ void afisareListaLaptopuri(Nod* cap) {
     }
 
 }
+
+// Functia de adaugare a unui laptop in lista
+void adaugaLaptopInLista(Nod** cap, Laptop laptopNou) {
+
+    Nod* nou = (Nod*)malloc(sizeof(Nod));
+    nou->info = laptopNou;
+    nou->next = NULL;
+
+    if (*cap == NULL) {
+
+        *cap = nou;
+
+    }
+    else {
+
+        Nod* p = *cap;
+        while (p->next) {
+
+            p = p->next;
+
+        }
+
+        p->next = nou;
+
+    }
+
+}
