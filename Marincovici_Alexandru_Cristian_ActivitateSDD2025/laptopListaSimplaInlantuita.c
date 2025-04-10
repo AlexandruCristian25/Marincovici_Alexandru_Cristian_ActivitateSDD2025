@@ -5,8 +5,56 @@
 
 // Creare structura Laptop
 typedef struct Laptop {
+
     unsigned int id;
     char* producator;
     int RAM;
     float pret;
+
 } Laptop;
+
+typedef struct Nod {
+
+    Laptop info;
+    struct Nod* next;
+
+} Nod;
+
+// Functie de citire a unui laptop din fisier
+Laptop citireLaptopDinFisier(FILE* f) {
+
+    char buffer[128];
+    Laptop l1 = { 0, NULL, 0, 0.0f };
+
+    if (fgets(buffer, sizeof(buffer), f)) {
+
+        char* token;
+        const char* sep = ",\n";
+        token = strtok(buffer, sep);
+        if (token) l1.id = atoi(token);
+        token = strtok(NULL, sep);
+
+        if (token) {
+
+            l1.producator = (char*)malloc(strlen(token) + 1);
+            strcpy(l1.producator, token);
+
+        }
+
+        token = strtok(NULL, sep);
+        if (token) {
+
+            l1.RAM = atoi(token);
+
+        }
+        token = strtok(NULL, sep);
+
+        if (token) {
+
+            l1.pret = atof(token);
+
+        }
+    }
+
+    return l1;
+}
