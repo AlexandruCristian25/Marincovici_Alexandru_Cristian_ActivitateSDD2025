@@ -157,3 +157,22 @@ void dezalocareListaMasini(Nod** cap) {
     }
 
 }
+
+// Calculare pret mediu
+float calculeazaPretMediu(Nod* cap) {
+
+    float suma = 0.0f;
+    int contor = 0;
+
+    while (cap) {
+
+        suma += cap->info.pret;
+        contor++;
+        cap = cap->next;
+
+    }
+
+    return suma / contor;
+
+}
+
