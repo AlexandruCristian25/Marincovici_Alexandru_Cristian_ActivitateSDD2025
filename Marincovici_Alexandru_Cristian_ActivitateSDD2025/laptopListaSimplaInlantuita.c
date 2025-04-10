@@ -176,3 +176,23 @@ float calculeazaPretMediu(Nod* cap) {
 
 }
 
+// Afisare in main
+int main() {
+
+    Nod* cap = citireListaLaptopuriDinFisier("laptop.txt");
+
+    printf("=== Lista Laptopuri ===\n");
+    afisareListaLaptopuri(cap);
+
+    float pretMediu = calculeazaPretMediu(cap);
+    printf("Pretul mediu este de: %.2f lei\n", pretMediu);
+
+    dezalocareListaMasini(&cap);
+
+    printf("\n=== Lista dupa dezalocare ===\n");
+    afisareListaLaptopuri(cap);
+
+    return 0;
+
+}
+
