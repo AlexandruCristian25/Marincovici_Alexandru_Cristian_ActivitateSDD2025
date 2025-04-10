@@ -57,4 +57,15 @@ Laptop citireLaptopDinFisier(FILE* f) {
     }
 
     return l1;
+
+}
+
+// Functia de afisare Laptop
+void afisareLaptop(Laptop laptop) {
+
+    printf("Id: %d\n", laptop.id);
+    printf("Producator: %s\n", laptop.producator);
+    printf("RAM: %d GB\n", laptop.RAM);
+    printf("Pret: %.2f lei\n\n", laptop.pret);
+
 }
