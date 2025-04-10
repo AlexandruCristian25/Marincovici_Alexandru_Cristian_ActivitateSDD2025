@@ -138,3 +138,22 @@ Nod* citireListaLaptopuriDinFisier(const char* numeFisier) {
     return cap;
 
 }
+
+// Dezalocare lista
+void dezalocareListaMasini(Nod** cap) {
+
+    while (*cap) {
+
+        Nod* p = *cap;
+        *cap = p->next;
+        if (p->info.producator) {
+
+            free(p->info.producator);
+
+        }
+
+        free(p);
+
+    }
+
+}
