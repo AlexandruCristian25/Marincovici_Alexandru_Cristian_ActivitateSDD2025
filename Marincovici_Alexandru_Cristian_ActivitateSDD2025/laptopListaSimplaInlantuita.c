@@ -108,3 +108,33 @@ void adaugaLaptopInLista(Nod** cap, Laptop laptopNou) {
     }
 
 }
+
+// Citirea listei din fisier
+Nod* citireListaLaptopuriDinFisier(const char* numeFisier) {
+
+    Nod* cap = NULL;
+    FILE* f = fopen(numeFisier, "r");
+
+    if (f) {
+
+        while (!feof(f)) {
+
+            Laptop l = citireLaptopDinFisier(f);
+            if (l.producator) {
+
+                adaugaLaptopInLista(&cap, l);
+
+            }
+
+        }
+        fclose(f);
+    }
+    else {
+
+        printf("Nu s-a putut deschide fisierul %s\n", numeFisier);
+
+    }
+
+    return cap;
+
+}
