@@ -114,4 +114,29 @@ void adaugaBlocInLista(Nod** cap, Bloc blocNou) {
 
 }
 
+// Citirea listei din fisier
+Nod* citireaListaBlocuriDinFisier(const char* numeFisier) {
+
+	Nod* cap = NULL;
+	FILE* f = fopen(numeFisier, "r");
+	if (f) {
+
+		while (!feof(f)) {
+
+			Bloc b = citireBlocDinFisier(f);
+			if (b.numeBloc) {
+
+				adaugaBlocInLista(&cap, b);
+
+			}
+
+		}
+		fclose(f);
+
+	}
+
+	return cap;
+
+}
+
 
