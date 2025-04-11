@@ -20,3 +20,49 @@ typedef struct Nod {
 	struct Nod* next;
 
 }Nod;
+
+// Functie de citire a unui animal din fisier
+Animal citireAnimalDinFisier(FILE* f) {
+
+	char buffer[100];
+	Animal a;
+
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token;
+		const char* sep = ",\n";
+		token = strtok(buffer, sep);
+		if (token) {
+
+			a.id = atoi(token);
+
+		}
+		token = strtok(NULL, sep);
+
+		if (token) {
+
+			a.nume = (char*)malloc(strlen(token) + 1);
+			strcpy(a.nume, token);
+
+		}
+		token = strtok(NULL, sep);
+
+		if (token) {
+
+			a.nrBuc = atoi(token);
+
+		}
+		token = strtok(NULL, sep);
+
+		if (token) {
+
+			a.pret = atof(token);
+
+		}
+
+
+	}
+
+	return a;
+
+}
