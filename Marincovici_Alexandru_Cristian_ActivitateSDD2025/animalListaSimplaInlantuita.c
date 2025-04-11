@@ -115,3 +115,30 @@ void adaugareAnimalInLista(Nod** cap, Animal animalNou) {
 	}
 
 }
+
+// Citirea listei din fisier
+Nod* citireListaAnimaleDinFisier(const char* numeFisier) {
+
+	Nod* cap = NULL;
+	FILE* f = fopen(numeFisier, "r");
+
+	if (f) {
+
+		while (!feof(f)) {
+
+			Animal a = citireAnimalDinFisier(f);
+			if (a.nume) {
+
+				adaugareAnimalInLista(&cap, a);
+
+			}
+
+		}
+
+		fclose(f);
+
+	}
+
+	return cap;
+
+}
