@@ -75,4 +75,16 @@ void afisareBloc(Bloc bloc) {
 
 }
 
+// Functia de afisare a listei de blocuri
+void afisareListaBlocuri(Nod* cap) {
+
+	while (cap) {
+
+		afisareBloc(cap->info);
+		cap = cap->next;
+
+	}
+
+}
+
 
