@@ -88,3 +88,30 @@ void afisareListaAnimale(Nod* cap) {
 	}
 
 }
+
+// Functia de adaugare a unui animal in lista
+void adaugareAnimalInLista(Nod** cap, Animal animalNou) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->info = animalNou;
+	nou->next = NULL;
+
+	if (*cap == NULL) {
+
+		*cap = nou;
+
+	}
+	else {
+
+		Nod* p = *cap;
+		while (p->next) {
+
+			p = p->next;
+
+		}
+
+		p->next = nou;
+
+	}
+
+}
