@@ -139,4 +139,23 @@ Nod* citireaListaBlocuriDinFisier(const char* numeFisier) {
 
 }
 
+// Dezalocare lista
+void dezalocareListaBlocuri(Nod** cap) {
+
+	while (*cap) {
+
+		Nod* p = *cap;
+		*cap = p->next;
+		if (p->info.numeBloc) {
+
+			free(p->info.numeBloc);
+
+		}
+
+		free(p);
+
+	}
+
+}
+
 
