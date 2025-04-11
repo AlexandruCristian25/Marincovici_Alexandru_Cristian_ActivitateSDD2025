@@ -171,3 +171,18 @@ void dezalocareListaZoo(Nod** cap) {
 
 }
 
+// Afisare in main
+int main() {
+
+	Nod* cap = citireListaZooDinFisier("zoo.txt");
+	printf("=== Lista ZOO ===\n");
+	afisareListaZoo(cap);
+	dezalocareListaZoo(&cap);
+
+	printf("\n=== Lista dupa dezalocare ===\n");
+	afisareListaZoo(cap);
+
+	return 0;
+
+}
+
