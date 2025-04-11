@@ -74,3 +74,14 @@ Zoo citireZooDinFisier(FILE* f) {
 
 	return z1;
 }
+
+// Functia de afisare Zoo
+void afisareZoo(Zoo zoo) {
+
+	printf("Id: %d\n", zoo.id);
+	printf("Nume: %s\n", zoo.nume);
+	printf("Nr animale: %d\n", zoo.nrAnimale);
+	printf("Nr angajati: %d\n", zoo.nrAngajati);
+	printf("Pret bilet: %.2f\n", zoo.pretBilet);
+
+}
