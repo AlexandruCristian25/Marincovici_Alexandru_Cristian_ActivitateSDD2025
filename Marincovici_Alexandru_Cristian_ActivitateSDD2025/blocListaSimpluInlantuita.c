@@ -158,4 +158,20 @@ void dezalocareListaBlocuri(Nod** cap) {
 
 }
 
+// Afisare in main
+int main() {
+
+	Nod* cap = citireaListaBlocuriDinFisier("bloc.txt");
+
+	printf("==== Lisat blocuri ===== \n");
+	afisareListaBlocuri(cap);
+	dezalocareListaBlocuri(&cap);
+
+	printf("\n==== Lista dupa dezalocare ===== \n");
+	afisareListaBlocuri(cap);
+
+	return 0;
+
+}
+
 
