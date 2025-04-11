@@ -87,4 +87,31 @@ void afisareListaBlocuri(Nod* cap) {
 
 }
 
+// Functia de adaugare a unui bloc in lista
+void adaugaBlocInLista(Nod** cap, Bloc blocNou) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->info = blocNou;
+	nou->next = NULL;
+
+	if (*cap == NULL) {
+
+		*cap = nou;
+
+	}
+	else {
+
+		Nod* p = *cap;
+		while (p->next) {
+
+			p = p->next;
+
+		}
+
+		p->next = nou;
+
+	}
+
+}
+
 
