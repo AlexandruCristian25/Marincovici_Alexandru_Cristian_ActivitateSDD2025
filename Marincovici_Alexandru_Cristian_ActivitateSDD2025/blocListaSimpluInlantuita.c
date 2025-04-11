@@ -65,3 +65,14 @@ Bloc citireBlocDinFisier(FILE* f) {
 
 }
 
+// Functia de afisare Bloc
+void afisareBloc(Bloc bloc) {
+
+	printf("Nr bloc: %d\n", bloc.nrBloc);
+	printf("Nume bloc: %s\n", bloc.numeBloc);
+	printf("Nr apartamente: %d\n", bloc.nrApartamente);
+	printf("Nr locuitori: %d\n", bloc.nrLocuitori);
+
+}
+
+
