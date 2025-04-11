@@ -23,15 +23,19 @@ typedef struct Nod {
 // Functie de citire a unui laptop din fisier
 Laptop citireLaptopDinFisier(FILE* f) {
 
-    char buffer[128];
-    Laptop l1 = { 0, NULL, 0, 0.0f };
+    char buffer[100];
+    Laptop l1;
 
     if (fgets(buffer, sizeof(buffer), f)) {
 
         char* token;
         const char* sep = ",\n";
         token = strtok(buffer, sep);
-        if (token) l1.id = atoi(token);
+        if (token) {
+
+            l1.id = atoi(token);
+
+        }
         token = strtok(NULL, sep);
 
         if (token) {
@@ -140,7 +144,7 @@ Nod* citireListaLaptopuriDinFisier(const char* numeFisier) {
 }
 
 // Dezalocare lista
-void dezalocareListaMasini(Nod** cap) {
+void dezalocareListaLaptopuri(Nod** cap) {
 
     while (*cap) {
 

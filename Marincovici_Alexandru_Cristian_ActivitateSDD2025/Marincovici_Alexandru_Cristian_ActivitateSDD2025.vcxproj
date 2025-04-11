@@ -139,6 +139,7 @@
     <ClCompile Include="taskuriSuplimentare.c" />
     <ClCompile Include="taskuriSuplimentareListaSimplaInlantuita.c" />
     <ClCompile Include="telefonListaSimpla.c" />
+    <ClCompile Include="ZooListaSimplaInlantuita.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

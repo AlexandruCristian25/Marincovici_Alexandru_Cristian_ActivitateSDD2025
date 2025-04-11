@@ -51,5 +51,8 @@
     <ClCompile Include="laptopListaSimplaInlantuita.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ZooListaSimplaInlantuita.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
