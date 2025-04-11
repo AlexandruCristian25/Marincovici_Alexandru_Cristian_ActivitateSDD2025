@@ -143,7 +143,7 @@ Nod* citireListaAnimaleDinFisier(const char* numeFisier) {
 
 }
 
-//Dezalocare lista
+// Dezalocare lista
 void dezalocareListaAnimale(Nod** cap) {
 
 	while (*cap) {
@@ -159,5 +159,23 @@ void dezalocareListaAnimale(Nod** cap) {
 		free(p);
 
 	}
+
+}
+
+// Calculeaza pret mediu
+float calculeazaPretMediu(Nod* cap) {
+
+	float suma = 0.0f;
+	int contor = 0;
+
+	while (cap) {
+
+		suma += cap->info.pret;
+		contor++;
+		cap = cap->next;
+
+	}
+
+	return suma / contor;
 
 }
