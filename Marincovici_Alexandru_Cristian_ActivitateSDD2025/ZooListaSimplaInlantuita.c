@@ -124,3 +124,31 @@ void adaugaZooInLista(Nod** cap, Zoo zooNou) {
 	}
 
 }
+
+// Citire lista din fisier
+Nod* citireListaZooDinFisier(const char* numeFisier) {
+
+	Nod* cap = NULL;
+	FILE* f = fopen(numeFisier, "r");
+
+	if (f) {
+
+		while (!feof(f)) {
+
+			Zoo z = citireZooDinFisier(f);
+			if (z.nume) {
+
+				adaugaZooInLista(&cap, z);
+
+			}
+
+		}
+
+		fclose(f);
+
+	}
+
+	return cap;
+
+}
+
