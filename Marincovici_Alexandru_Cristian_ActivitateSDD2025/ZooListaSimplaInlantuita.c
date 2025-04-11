@@ -97,3 +97,30 @@ void afisareListaZoo(Nod* cap) {
 	}
 
 }
+
+// Funcita de adaugare a unui element in lista
+void adaugaZooInLista(Nod** cap, Zoo zooNou) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->info = zooNou;
+	nou->next = NULL;
+
+	if (*cap == NULL) {
+
+		*cap = nou;
+
+	}
+	else {
+
+		Nod* p = *cap;
+		while (p->next) {
+
+			p = p->next;
+
+		}
+
+		p->next = nou;
+
+	}
+
+}
