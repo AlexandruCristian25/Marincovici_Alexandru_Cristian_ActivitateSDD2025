@@ -19,3 +19,49 @@ typedef struct Nod {
 
 
 }Nod;
+
+// Functie de citire a unui Bloc din fisier
+Bloc citireBlocDinFisier(FILE* f) {
+
+	char buffer[100];
+	Bloc b;
+
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token;
+		const char* sep = ",\n";
+		token = strtok(buffer, sep);
+		if (token) {
+
+			b.nrBloc = atoi(token);
+
+		}
+		token = strtok(NULL, sep);
+
+		if (token) {
+
+			b.numeBloc = (char*)malloc(strlen(token) + 1);
+			strcpy(b.numeBloc, token);
+
+		}
+		token = strtok(NULL, sep);
+
+		if (token) {
+
+			b.nrApartamente = atoi(token);
+
+		}
+		token = strtok(NULL, sep);
+
+		if (token) {
+
+			b.nrLocuitori = atoi(token);
+
+		}
+
+	}
+
+	return b;
+
+}
+
