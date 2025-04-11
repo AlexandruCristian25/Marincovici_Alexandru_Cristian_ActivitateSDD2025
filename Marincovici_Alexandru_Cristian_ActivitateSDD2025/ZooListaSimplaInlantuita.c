@@ -85,3 +85,15 @@ void afisareZoo(Zoo zoo) {
 	printf("Pret bilet: %.2f\n", zoo.pretBilet);
 
 }
+
+// Functia de afisare a listei
+void afisareListaZoo(Nod* cap) {
+
+	while (cap) {
+
+		afisareZoo(cap->info);
+		cap = cap->next;
+
+	}
+
+}
