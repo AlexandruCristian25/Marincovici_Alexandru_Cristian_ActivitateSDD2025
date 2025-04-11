@@ -152,3 +152,22 @@ Nod* citireListaZooDinFisier(const char* numeFisier) {
 
 }
 
+// Dezalocare lista
+void dezalocareListaZoo(Nod** cap) {
+
+	while (*cap) {
+
+		Nod* p = *cap;
+		*cap = p->next;
+		if (p->info.nume) {
+
+			free(p->info.nume);
+
+		}
+
+		free(p);
+
+	}
+
+}
+
