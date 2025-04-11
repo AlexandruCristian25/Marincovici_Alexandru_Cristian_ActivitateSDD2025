@@ -66,3 +66,13 @@ Animal citireAnimalDinFisier(FILE* f) {
 	return a;
 
 }
+
+// Functia de afisare
+void afisareAnimal(Animal animal) {
+
+	printf("Id: %d\n", animal.id);
+	printf("Nume: %s\n", animal.nume);
+	printf("Nr buc: %d\n", animal.nrBuc);
+	printf("Pret: %.2f\n", animal.pret);
+
+}
