@@ -76,3 +76,15 @@ void afisareAnimal(Animal animal) {
 	printf("Pret: %.2f\n", animal.pret);
 
 }
+
+// Functia de afisare a listei de animale
+void afisareListaAnimale(Nod* cap) {
+
+	while (cap) {
+
+		afisareAnimal(cap->info);
+		cap = cap->next;
+
+	}
+
+}
