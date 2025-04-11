@@ -179,3 +179,22 @@ float calculeazaPretMediu(Nod* cap) {
 	return suma / contor;
 
 }
+
+// Afisare in main
+int main() {
+
+	Nod* cap = citireListaAnimaleDinFisier("animal.txt");
+
+	printf("====== Lista animale =======\n");
+	afisareListaAnimale(cap);
+
+	float pretMediu = calculeazaPretMediu(cap);
+	printf("Pretul mediu este de %.2f lei\n", pretMediu);
+	dezalocareListaAnimale(&cap);
+
+	printf("====== Lista animale dupa dezalocare =======\n");
+	afisareListaAnimale(cap);
+
+	return 0;
+
+}
