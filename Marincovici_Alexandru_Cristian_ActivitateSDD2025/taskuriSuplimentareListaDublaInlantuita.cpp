@@ -243,3 +243,48 @@ void stergePozitie(ListaDubla* lista, int pozitie) {
 	lista->nrNoduri--;
 
 }
+
+// Inserare sortata crescator dupa cod
+void inserareSortata(ListaDubla* lista, Magazin magazinNou) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->magazin = magazinNou;
+	nou->next = nou->prev = NULL;
+
+	if (!lista->first) {
+
+		lista->first = lista->last = nou;
+
+	}
+	else {
+
+		Nod* p = lista->first;
+		while (p && p->magazin.cod < magazinNou.cod) p = p->next;
+		if (!p) {
+
+			nou->prev = lista->last;
+			lista->last->next = nou;
+			lista->last = nou;
+
+		}
+		else if (!p->prev) {
+
+			nou->next = p;
+			p->prev = nou;
+			lista->first = nou;
+
+		}
+		else {
+
+			nou->next = p;
+			nou->prev = p->prev;
+			p->prev->next = nou;
+			p->prev = nou;
+
+		}
+
+	}
+
+	lista->nrNoduri++;
+
+}
