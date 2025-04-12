@@ -368,3 +368,31 @@ void afisareListaSimpla(NodSimplu* cap) {
 	}
 
 }
+
+void dezalocareListaSimpla(NodSimplu** cap) {
+
+	while (*cap) {
+
+		NodSimplu* aux = *cap;
+		*cap = (*cap)->next;
+		free(aux->magazin.denumire);
+		free(aux);
+
+	}
+
+}
+
+// Interschimbare elemente pe pozitii
+void interschimbaPozitii(ListaDubla* lista, int p1, int p2) {
+
+	if (p1 < 0 || p2 < 0 || p1 >= lista->nrNoduri || p2 >= lista->nrNoduri || p1 == p2) return;
+
+	Nod* n1 = lista->first, * n2 = lista->first;
+	for (int i = 0; i < p1; i++) n1 = n1->next;
+	for (int i = 0; i < p2; i++) n2 = n2->next;
+
+	Magazin temp = n1->magazin;
+	n1->magazin = n2->magazin;
+	n2->magazin = temp;
+
+}
