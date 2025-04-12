@@ -64,3 +64,13 @@ Magazin citireMagazinFisier(FILE* f) {
 	return m;
 
 }
+
+// Functia de afisare a magazinului
+void afisareMagazin(Magazin magazin) {
+
+	printf("Cod: %d\n", magazin.cod);
+	printf("Denumire: %s\n", magazin.denumire);
+	printf("Nr produse: %d\n", magazin.nrProduse);
+	printf("Pret: %.2f\n", magazin.pretP);
+
+}
