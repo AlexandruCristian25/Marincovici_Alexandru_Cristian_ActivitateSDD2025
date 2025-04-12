@@ -177,3 +177,27 @@ ListaDubla citireLDMagazineDinFisier(const char* numeFisier) {
 	return lista;
 
 }
+
+// Functia de dezalocare a listei dublu inlantuite
+void dezalocareLista(ListaDubla* lista) {
+
+	Nod* p = lista->first;
+	while (p) {
+
+		Nod* aux = p;
+		p = p->next;
+		if (aux->magazin.denumire != NULL) {
+
+			free(aux->magazin.denumire);
+
+		}
+
+		free(aux);
+
+	}
+
+	lista->first = NULL;
+	lista->last = NULL;
+	lista->nrNoduri = 0;
+
+}
