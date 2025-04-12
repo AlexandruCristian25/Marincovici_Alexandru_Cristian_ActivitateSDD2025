@@ -157,3 +157,23 @@ void adaugaLaInceputtInLista(ListaDubla* lista, Magazin magazinNou) {
 	lista->nrNoduri++;
 
 }
+
+// Functie de citire a elemtentelor din fisier
+ListaDubla citireLDMagazineDinFisier(const char* numeFisier) {
+
+	FILE* f = fopen(numeFisier, "r");
+	ListaDubla lista;
+	lista.first = NULL;
+	lista.last = NULL;
+	lista.nrNoduri = 0;
+
+	while (!feof(f)) {
+
+		adaugaLaFinaltInLista(&lista, citireMagazinFisier(f));
+
+	}
+
+	fclose(f);
+	return lista;
+
+}
