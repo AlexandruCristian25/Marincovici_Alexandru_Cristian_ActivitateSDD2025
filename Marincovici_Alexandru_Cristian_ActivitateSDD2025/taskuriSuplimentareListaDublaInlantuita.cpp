@@ -396,3 +396,44 @@ void interschimbaPozitii(ListaDubla* lista, int p1, int p2) {
 	n2->magazin = temp;
 
 }
+
+//Afisare in main
+int main() {
+
+	ListaDubla lista = citireLDMagazineDinFisier("magazin.txt");
+	afisareListaMagazineInceput(lista);
+	ListaDubla lista = citireLDMagazineDinFisier("magazin.txt");
+
+	printf("\n ======= Afisare lista de la sfarsit ============\n");
+	afisareListaMagazineSfarsit(lista);
+
+	printf("\n ======= Calculare pret mediu al magazinelor ============\n");
+	printf("\nPretul mediu al magazinelor este de %.2f lei\n", calculeazaPretMediu(lista));
+
+	printf("Lista crescator (dupa cod):\n");
+	afisareCrescator(lista);
+
+	printf("\nLista descrescator:\n");
+	afisareDescrescator(lista);
+
+	printf("\nStergere pozitie 1:\n");
+	stergePozitie(&lista, 1);
+	afisareCrescator(lista);
+
+	printf("\nInterchimbare pozitiile 0 si 1:\n");
+	interschimbaPozitii(&lista, 0, 1);
+	afisareCrescator(lista);
+
+	printf("\nPretul mediu: %.2f\n", calculeazaPretMediu(lista));
+
+	printf("\nLista simpla cu magazine cu peste 10 produse:\n");
+	NodSimplu* listaSimpla = salvareMagazineFiltrate(lista, 10);
+	afisareListaSimpla(listaSimpla);
+
+	printf("\n ======= Dezalocare lista ============\n");
+	dezalocareLista(&lista);
+	dezalocareListaSimpla(&listaSimpla);
+
+	return 0;
+
+}
