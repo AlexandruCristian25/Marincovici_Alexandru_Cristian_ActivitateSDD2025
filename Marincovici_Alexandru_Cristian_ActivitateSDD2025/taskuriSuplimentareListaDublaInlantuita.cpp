@@ -74,3 +74,12 @@ void afisareMagazin(Magazin magazin) {
 	printf("Pret: %.2f\n", magazin.pretP);
 
 }
+
+// Creare Structura lista dubla
+typedef struct ListaDubla {
+
+	Nod* first;
+	Nod* last;
+	int nrNoduri;
+
+} ListaDubla;
