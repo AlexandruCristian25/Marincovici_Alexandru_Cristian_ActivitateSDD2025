@@ -318,3 +318,53 @@ void afisareDescrescator(ListaDubla lista) {
 	}
 
 }
+
+// Salvare in lista simpla cu deep copy
+typedef struct NodSimplu {
+
+	Magazin magazin;
+	struct NodSimplu* next;
+
+} NodSimplu;
+
+NodSimplu* salvareMagazineFiltrate(ListaDubla lista, int pragProduse) {
+
+	NodSimplu* cap = NULL, * ultim = NULL;
+	Nod* p = lista.first;
+
+	while (p) {
+
+		if (p->magazin.nrProduse > pragProduse) {
+
+			NodSimplu* nou = (NodSimplu*)malloc(sizeof(NodSimplu));
+			nou->magazin = initializareMagazin(p->magazin.cod, p->magazin.denumire, p->magazin.nrProduse, p->magazin.pretP);
+			nou->next = NULL;
+
+			if (!cap) cap = ultim = nou;
+
+			else {
+
+				ultim->next = nou;
+				ultim = nou;
+			}
+
+		}
+
+		p = p->next;
+
+	}
+
+	return cap;
+
+}
+
+void afisareListaSimpla(NodSimplu* cap) {
+
+	while (cap) {
+
+		afisareMagazin(cap->magazin);
+		cap = cap->next;
+
+	}
+
+}
