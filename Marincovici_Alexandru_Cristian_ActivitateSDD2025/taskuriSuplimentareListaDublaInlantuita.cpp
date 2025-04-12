@@ -288,3 +288,21 @@ void inserareSortata(ListaDubla* lista, Magazin magazinNou) {
 	lista->nrNoduri++;
 
 }
+
+// Afisare crescator si descrescator
+void afisareMagazin(Magazin magazin) {
+	printf("Cod: %d, Denumire: %s, NrProduse: %d, Pret: %.2f\n",
+		magazin.cod, magazin.denumire, magazin.nrProduse, magazin.pretP);
+}
+
+void afisareCrescator(ListaDubla lista) {
+
+	Nod* p = lista.first;
+	while (p) {
+
+		afisareMagazin(p->magazin);
+		p = p->next;
+
+	}
+
+}
