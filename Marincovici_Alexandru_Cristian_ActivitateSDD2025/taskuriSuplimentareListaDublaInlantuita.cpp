@@ -132,3 +132,28 @@ void adaugaLaFinaltInLista(ListaDubla* lista, Magazin magazinNou) {
 	lista->last = nou;
 	lista->nrNoduri++;
 }
+
+// Functie de adaugare a unui element la inceputul listei
+void adaugaLaInceputtInLista(ListaDubla* lista, Magazin magazinNou) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->magazin = magazinNou; // shalow copy
+	nou->next = lista->first;
+	nou->prev = NULL;
+
+	if (lista->first != NULL) {
+
+		lista->first->prev = nou;
+
+	}
+	else {
+
+
+		lista->last = nou;
+
+	}
+
+	lista->first = nou;
+	lista->nrNoduri++;
+
+}
