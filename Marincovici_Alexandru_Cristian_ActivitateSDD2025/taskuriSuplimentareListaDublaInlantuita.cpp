@@ -109,3 +109,26 @@ void afisareListaMagazineSfarsit(ListaDubla lista) {
 	}
 
 }
+
+// Functie de adaugare a unui element la finalul listei 
+void adaugaLaFinaltInLista(ListaDubla* lista, Magazin magazinNou) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->magazin = magazinNou; // shalow copy
+	nou->next = NULL;
+	nou->prev = lista->last;
+
+	if (lista->last != NULL) {
+
+		lista->last->next = nou;
+
+	}
+	else {
+
+		lista->first = nou;
+
+	}
+
+	lista->last = nou;
+	lista->nrNoduri++;
+}
