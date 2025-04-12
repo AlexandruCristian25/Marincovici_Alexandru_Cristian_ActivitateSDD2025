@@ -201,3 +201,25 @@ void dezalocareLista(ListaDubla* lista) {
 	lista->nrNoduri = 0;
 
 }
+
+//Functie de calculare al pretului mediu
+float calculeazaPretMediu(ListaDubla lista) {
+
+	if (lista.nrNoduri > 0) {
+
+		float suma = 0;
+		Nod* p = lista.first;
+		while (p) {
+
+			suma += p->magazin.pretP;
+			p = p->next;
+
+		}
+
+		return suma / lista.nrNoduri;
+
+	}
+
+	return 0;
+
+}
