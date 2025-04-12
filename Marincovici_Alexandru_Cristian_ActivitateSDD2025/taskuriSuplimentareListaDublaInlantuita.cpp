@@ -223,3 +223,23 @@ float calculeazaPretMediu(ListaDubla lista) {
 	return 0;
 
 }
+
+// Functie de stergere a pozitiei
+void stergePozitie(ListaDubla* lista, int pozitie) {
+
+	if (pozitie < 0 || pozitie >= lista->nrNoduri) return;
+
+	Nod* p = lista->first;
+	for (int i = 0; i < pozitie; i++) p = p->next;
+
+	if (p->prev) p->prev->next = p->next;
+	else lista->first = p->next;
+
+	if (p->next) p->next->prev = p->prev;
+	else lista->last = p->prev;
+
+	free(p->magazin.denumire);
+	free(p);
+	lista->nrNoduri--;
+
+}
