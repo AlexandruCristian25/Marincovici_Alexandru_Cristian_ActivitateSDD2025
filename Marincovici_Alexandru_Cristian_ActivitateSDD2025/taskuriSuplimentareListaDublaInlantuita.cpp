@@ -306,3 +306,15 @@ void afisareCrescator(ListaDubla lista) {
 	}
 
 }
+
+void afisareDescrescator(ListaDubla lista) {
+
+	Nod* p = lista.last;
+	while (p) {
+
+		afisareMagazin(p->magazin);
+		p = p->prev;
+
+	}
+
+}
