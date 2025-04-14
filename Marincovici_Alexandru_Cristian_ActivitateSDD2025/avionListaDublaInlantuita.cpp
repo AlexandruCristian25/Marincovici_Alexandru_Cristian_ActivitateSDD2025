@@ -78,3 +78,12 @@ void afisareAvion(Avion avion) {
 
 }
 
+// Creare structura lista dubla
+typedef struct ListaDubla {
+
+	Nod* first;
+	Nod* last;
+	int nrNoduri;
+
+}ListaDubla;
+
