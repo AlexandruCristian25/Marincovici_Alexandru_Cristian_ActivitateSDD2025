@@ -68,4 +68,13 @@ Avion citireAvionFisier(FILE* f) {
 
 }
 
+// Functia de afisare a avionului
+void afisareAvion(Avion avion) {
+
+	printf("Id: %d\n", avion.id);
+	printf("Nume: %s\n", avion.nume);
+	printf("Nr pasageri: %d\n", avion.nrPasageri);
+	printf("Pret: %.2f\n", avion.pret);
+
+}
 
