@@ -25,3 +25,51 @@ Mancare initializareMancare(unsigned int cod, const char* nume, int nrIngredient
 	return m;
 
 }
+
+typedef struct Nod {
+
+	Mancare mancare;
+	struct Nod* next;
+	struct Nod* prev;
+
+}Nod;
+
+// Citire din fisier
+Mancare citireMancareInFisier(FILE* f) {
+
+	char buffer[100];
+	Mancare m = { 0,NULL,0 };
+
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token = strtok(buffer, ",;\n");
+		if (token == NULL) {
+
+			return m;
+
+		}
+		m.cod = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return m;
+
+		}
+		m.nume = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(m.nume, token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return m;
+
+		}
+		m.nrIngrediente = atoi(token);
+
+	}
+
+	return m;
+
+}
+
