@@ -37,3 +37,35 @@ typedef struct Nod {
 
 }Nod;
 
+// Citire din fisier
+Avion citireAvionFisier(FILE* f) {
+
+	char buffer[100];
+	Avion a = { 0, NULL, 0, 0.0f };
+
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token = strtok(buffer, ",;\n");
+		if (token == NULL) return a;
+		a.id = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) return a;
+		a.nume = (char*)malloc(strlen(token) + 1);
+		strcpy(a.nume, token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) return a;
+		a.nrPasageri = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) return a;
+		a.pret = (float)atof(token);
+
+	}
+
+	return a;
+
+}
+
+
