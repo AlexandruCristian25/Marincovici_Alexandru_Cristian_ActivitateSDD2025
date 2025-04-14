@@ -161,5 +161,26 @@ void adaugaLaInceputlInLista(ListaDubla* lista, Avion avionNou) {
 
 }
 
+// Functie de ctitire a elementelor din fisier
+ListaDubla citireLDAvionDinFisier(const char* numeFisier) {
+
+	FILE* f = fopen(numeFisier, "r");
+	ListaDubla lista;
+	lista.first = NULL;
+	lista.last = NULL;
+	lista.nrNoduri = 0;
+
+	while (!feof(f)) {
+
+		adaugaLaFinalInLista(&lista, citireAvionFisier(f));
+
+	}
+
+	fclose(f);
+	return lista;
+
+}
+
+
 
 
