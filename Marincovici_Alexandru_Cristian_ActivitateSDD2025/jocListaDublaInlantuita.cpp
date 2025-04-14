@@ -228,3 +228,20 @@ void dezalocareLista(ListaDubla* lista) {
 	lista->nrNoduri = 0;
 
 }
+
+// Afisare in main
+int main() {
+
+	ListaDubla lista = citireLDFisier("joc.txt");
+	afisareListaJocInceput(lista);
+
+	printf("\n=============== Afisare lista de la sfarsit ==============\n");
+	afisareListaJocSfarsit(lista);
+
+	dezalocareLista(&lista);
+	printf("\n=============== Afisare lista dupa dezalocare ==============\n");
+	afisareListaJocSfarsit(lista);
+
+	return 0;
+
+}
