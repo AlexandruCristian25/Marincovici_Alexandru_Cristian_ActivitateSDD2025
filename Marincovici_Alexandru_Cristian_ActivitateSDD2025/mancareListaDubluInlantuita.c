@@ -209,3 +209,15 @@ void dezalocareLista(ListaDubla* lista) {
 
 }
 
+// Afisare in main
+int main() {
+
+	ListaDubla lista = citireLDFisier("mancare.txt");
+	afisareListaInceput(lista);
+
+
+
+	return 0;
+
+}
+
