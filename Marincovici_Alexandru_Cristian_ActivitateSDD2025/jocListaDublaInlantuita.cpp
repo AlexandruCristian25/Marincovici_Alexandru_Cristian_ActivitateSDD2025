@@ -198,3 +198,33 @@ ListaDubla citireLDFisier(const char* numeFisier) {
 	return lista;
 
 }
+
+// Functia de dezalocare a lisatei dublu inlantuite
+void dezalocareLista(ListaDubla* lista) {
+
+	Nod* p = lista->first;
+	while (p) {
+
+		Nod* aux = p;
+		p = p->next;
+		if (aux->joc.nume != NULL) {
+
+			free(aux->joc.nume);
+
+		}
+
+		if (aux->joc.producator != NULL) {
+
+			free(aux->joc.producator);
+
+		}
+
+		free(aux);
+
+	}
+
+	lista->first = NULL;
+	lista->last = NULL;
+	lista->nrNoduri = 0;
+
+}
