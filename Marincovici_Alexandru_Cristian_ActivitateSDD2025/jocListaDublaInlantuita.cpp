@@ -85,3 +85,13 @@ Joc citireDinFisier(FILE* f) {
 	return j;
 
 }
+
+// Functia de afisare a jocului
+void afisareJoc(Joc joc) {
+
+	printf("Id: %d\n", joc.id);
+	printf("Nume: %s\n", joc.nume);
+	printf("Nr copii: %d\n", joc.nrCopii);
+	printf("Producator: %s\n", joc.producator);
+
+}
