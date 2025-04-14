@@ -37,3 +37,51 @@ typedef struct Nod {
 	struct Nod* prev;
 
 }Nod;
+
+// Citire din fisier
+Joc citireDinFisier(FILE* f) {
+
+	char buffer[100];
+	Joc j = { 0,NULL,0,NULL };
+
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token = strtok(buffer, ",;\n");
+		if (token == NULL) {
+
+			return j;
+
+		}
+		j.id = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return j;
+
+		}
+		j.nume = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(j.nume, token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return j;
+
+		}
+		j.nrCopii = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return j;
+
+		}
+		j.producator = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(j.producator, token);
+
+	}
+
+	return j;
+
+}
