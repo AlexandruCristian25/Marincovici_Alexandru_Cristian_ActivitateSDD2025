@@ -73,3 +73,11 @@ Mancare citireMancareInFisier(FILE* f) {
 
 }
 
+// Functia de afisare
+void afisareMancare(Mancare mancare) {
+
+	printf("Cod: %d\n", mancare.cod);
+	printf("Cod: %s\n", mancare.nume);
+	printf("Nume: %s\n", mancare.nrIngrediente);
+
+}
