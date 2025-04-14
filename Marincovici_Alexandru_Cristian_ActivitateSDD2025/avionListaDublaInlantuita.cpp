@@ -137,5 +137,29 @@ void adaugaLaFinalInLista(ListaDubla* lista, Avion avionNou) {
 
 }
 
+// Functie de adaugare a unui element la inceputul listei
+void adaugaLaInceputlInLista(ListaDubla* lista, Avion avionNou) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->avion = avionNou;
+	nou->next = lista->first;
+	nou->prev = NULL;
+
+	if (lista->first != NULL) {
+
+		lista->first->prev = nou;
+
+	}
+	else {
+
+		lista->last = nou;
+
+	}
+
+	lista->first = nou;
+	lista->nrNoduri++;
+
+}
+
 
 
