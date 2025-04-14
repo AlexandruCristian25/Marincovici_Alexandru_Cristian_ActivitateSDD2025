@@ -81,3 +81,12 @@ void afisareMancare(Mancare mancare) {
 	printf("Nume: %s\n", mancare.nrIngrediente);
 
 }
+
+// Creare structura lista dubla
+typedef struct ListaDubla {
+
+	Nod* first;
+	Nod* last;
+	int nrNoduri;
+
+}ListaDubla;
