@@ -13,3 +13,27 @@ typedef struct Avion {
 	float pret;
 
 }Avion;
+
+// Functie de initializare
+Avion initializareAvion(unsigned int id, const char* nume,
+	int nrPasageri, float pret) {
+
+	Avion a;
+	a.id = id;
+	a.nume = (char*)malloc(strlen(nume) + 1);
+	strcpy(a.nume, nume);
+	a.nrPasageri = nrPasageri;
+	a.pret = pret;
+
+	return a;
+
+}
+
+typedef struct Nod {
+
+	Avion avion;
+	struct Nod* next;
+	struct Nod* prev;
+
+}Nod;
+
