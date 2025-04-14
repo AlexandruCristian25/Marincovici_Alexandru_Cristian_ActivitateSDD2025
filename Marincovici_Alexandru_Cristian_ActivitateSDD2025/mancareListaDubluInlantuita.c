@@ -185,3 +185,27 @@ ListaDubla citireLDFisier(const char* numeFisier) {
 
 }
 
+// Functia de dezalocare
+void dezalocareLista(ListaDubla* lista) {
+
+	Nod* p = lista->first;
+	while (p) {
+
+		Nod* aux = p;
+		p = p->next;
+		if (aux->mancare.nume != NULL) {
+
+			free(aux->mancare.nume);
+
+		}
+
+		free(aux);
+
+	}
+
+	lista->first = NULL;
+	lista->last = NULL;
+	lista->nrNoduri = 0;
+
+}
+
