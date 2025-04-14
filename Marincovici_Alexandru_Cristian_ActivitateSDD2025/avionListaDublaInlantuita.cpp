@@ -227,6 +227,27 @@ float calculeazaPretMediu(ListaDubla lista) {
 
 }
 
+// Afisare in main
+int main() {
+
+	ListaDubla lista = citireLDAvionDinFisier("avion.txt");
+	afisareListaMagazineInceput(lista);
+
+	printf("\n ======= Afisare lista de la sfarsit ============\n");
+	afisareListaMagazineSfarsit(lista);
+
+	printf("\n ======= Calculare pret mediu al biletelor ============\n");
+	printf("\nPretul mediu al biletelor este de %.2f lei\n", calculeazaPretMediu(lista));
+
+	printf("\nPretul mediu: %.2f\n", calculeazaPretMediu(lista));
+
+	dezalocareLista(&lista);
+	printf("\n =============== Afisare lista dupa dezalocare ===============\n");
+	afisareListaMagazineInceput(lista);
+
+	return 0;
+}
+
 
 
 
