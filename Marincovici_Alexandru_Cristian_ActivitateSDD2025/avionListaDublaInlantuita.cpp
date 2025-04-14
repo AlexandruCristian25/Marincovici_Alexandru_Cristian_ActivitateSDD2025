@@ -87,3 +87,16 @@ typedef struct ListaDubla {
 
 }ListaDubla;
 
+// Functia de afisare a listei de la inceput
+void afisareListaMagazineInceput(ListaDubla lista) {
+
+	Nod* p = lista.first;
+	while (p) {
+
+		afisareAvion(p->avion);
+		p = p->next;
+
+	}
+
+}
+
