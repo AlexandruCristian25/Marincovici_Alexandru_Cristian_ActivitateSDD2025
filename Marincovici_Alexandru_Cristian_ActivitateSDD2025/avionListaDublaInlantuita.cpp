@@ -100,3 +100,17 @@ void afisareListaMagazineInceput(ListaDubla lista) {
 
 }
 
+// Functia de afisare a listei de la sfarsit
+void afisareListaMagazineSfarsit(ListaDubla lista) {
+
+	Nod* p = lista.last;
+	while (p) {
+
+		afisareAvion(p->avion);
+		p = p->prev;
+
+	}
+
+}
+
+
