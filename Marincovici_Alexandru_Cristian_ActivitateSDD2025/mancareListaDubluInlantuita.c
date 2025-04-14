@@ -140,3 +140,28 @@ void adaugaLaFinalInLista(ListaDubla* lista, Mancare mancareNoua) {
 	lista->nrNoduri++;
 
 }
+
+// Functie de adaugare a unui element la inceputul listei
+void adaugaLaInceputInLista(ListaDubla* lista, Mancare mancareNoua) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->mancare = mancareNoua;
+	nou->next = lista->last;
+	nou->prev = NULL;
+
+	if (lista->first != NULL) {
+
+		lista->first->prev = nou;
+
+	}
+	else {
+
+		lista->last = nou;
+
+	}
+
+	lista->first = nou;
+	lista->nrNoduri++;
+
+}
+
