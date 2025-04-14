@@ -95,3 +95,12 @@ void afisareJoc(Joc joc) {
 	printf("Producator: %s\n", joc.producator);
 
 }
+
+// Creare structura lista dubla
+typedef struct ListaDubla {
+
+	Nod* first;
+	Nod* last;
+	int nrNoduri;
+
+}ListaDubla;
