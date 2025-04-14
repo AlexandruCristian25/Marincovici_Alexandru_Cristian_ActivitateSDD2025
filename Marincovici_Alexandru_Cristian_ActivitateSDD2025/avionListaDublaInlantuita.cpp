@@ -181,6 +181,31 @@ ListaDubla citireLDAvionDinFisier(const char* numeFisier) {
 
 }
 
+// Functia de dezalocare a listei dublu inlantuite
+void dezalocareLista(ListaDubla* lista) {
+
+	Nod* p = lista->first;
+	while (p) {
+
+		Nod* aux = p;
+		p = p->next;
+		if (aux->avion.nume != NULL) {
+
+			free(aux->avion.nume);
+
+		}
+
+		free(aux);
+
+	}
+
+	lista->first = NULL;
+	lista->last = NULL;
+	lista->nrNoduri = 0;
+
+}
+
+
 
 
 
