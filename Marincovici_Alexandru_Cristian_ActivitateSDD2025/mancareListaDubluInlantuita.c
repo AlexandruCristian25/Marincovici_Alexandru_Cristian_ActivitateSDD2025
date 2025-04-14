@@ -165,3 +165,23 @@ void adaugaLaInceputInLista(ListaDubla* lista, Mancare mancareNoua) {
 
 }
 
+// Functia de citire a elementelor din fisier
+ListaDubla citireLDFisier(const char* numeFisier) {
+
+	FILE* f = fopen(numeFisier, "r");
+	ListaDubla lista;
+	lista.first = NULL;
+	lista.last = NULL;
+	lista.nrNoduri = 0;
+
+	while (!feof(f)) {
+
+		adaugaLaFinalInLista(&lista, citireMancareInFisier(f));
+
+	}
+
+	fclose(f);
+	return lista;
+
+}
+
