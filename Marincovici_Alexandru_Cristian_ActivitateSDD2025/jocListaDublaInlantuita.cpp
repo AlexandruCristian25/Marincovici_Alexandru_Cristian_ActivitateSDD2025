@@ -154,3 +154,27 @@ void adaugaLaFinalInLista(ListaDubla* lista, Joc jocNou) {
 	lista->nrNoduri++;
 
 }
+
+// Functia de adaugare a unui element la inceputul listei
+void adaugaLaInceputInLista(ListaDubla* lista, Joc jocNou) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->joc = jocNou;
+	nou->next = lista->first;
+	nou->prev = NULL;
+
+	if (lista->first != NULL) {
+
+		lista->first->prev = nou;
+
+	}
+	else {
+
+		lista->last = nou;
+
+	}
+
+	lista->first = nou;
+	lista->nrNoduri++;
+
+}
