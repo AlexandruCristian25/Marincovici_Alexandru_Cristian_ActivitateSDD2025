@@ -66,5 +66,8 @@
     <ClCompile Include="jocListaDublaInlantuita.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="avionListaDublaInlantuita.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
