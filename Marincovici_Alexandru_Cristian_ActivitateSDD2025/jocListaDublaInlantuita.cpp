@@ -104,3 +104,16 @@ typedef struct ListaDubla {
 	int nrNoduri;
 
 }ListaDubla;
+
+// Functia de afisare a listei de jocuri la inceput
+void afisareListaJocInceput(ListaDubla lista) {
+
+	Nod* p = lista.first;
+	while (p) {
+
+		afisareJoc(p->joc);
+		p = p->next;
+
+	}
+
+}
