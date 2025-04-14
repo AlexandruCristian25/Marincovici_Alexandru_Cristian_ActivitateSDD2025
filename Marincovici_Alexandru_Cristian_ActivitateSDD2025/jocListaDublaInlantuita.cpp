@@ -117,3 +117,16 @@ void afisareListaJocInceput(ListaDubla lista) {
 	}
 
 }
+
+// Functia de afisare a listei de jocuri la sfarsit
+void afisareListaJocSfarsit(ListaDubla lista) {
+
+	Nod* p = lista.last;
+	while (p) {
+
+		afisareJoc(p->joc);
+		p = p->prev;
+
+	}
+
+}
