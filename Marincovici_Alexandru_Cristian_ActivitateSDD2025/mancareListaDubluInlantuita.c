@@ -116,3 +116,27 @@ void afisareListaSfarsit(ListaDubla lista) {
 	}
 
 }
+
+// Functie de adaugare a unui element la finalul listei
+void adaugaLaFinalInLista(ListaDubla* lista, Mancare mancareNoua) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->mancare = mancareNoua;
+	nou->next = NULL;
+	nou->prev = lista->last;
+
+	if (lista->last != NULL) {
+
+		lista->last->next = nou;
+
+	}
+	else {
+
+		lista->first = nou;
+
+	}
+
+	lista->last = nou;
+	lista->nrNoduri++;
+
+}
