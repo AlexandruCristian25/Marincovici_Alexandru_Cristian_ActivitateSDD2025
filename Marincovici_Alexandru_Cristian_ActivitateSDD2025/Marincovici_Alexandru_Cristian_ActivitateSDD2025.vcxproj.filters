@@ -60,13 +60,16 @@
     <ClCompile Include="animalListaSimplaInlantuita.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="taskuriSuplimentareListaDublaInlantuita.cpp">
+    <ClCompile Include="taskuriSuplimentareListaDublaInlantuita.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="jocListaDublaInlantuita.cpp">
+    <ClCompile Include="jocListaDublaInlantuita.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="avionListaDublaInlantuita.cpp">
+    <ClCompile Include="avionListaDublaInlantuita.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mancareListaDubluInlantuita.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

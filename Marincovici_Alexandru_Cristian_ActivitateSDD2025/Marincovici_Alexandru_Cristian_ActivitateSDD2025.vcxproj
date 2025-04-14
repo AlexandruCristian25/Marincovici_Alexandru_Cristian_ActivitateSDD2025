@@ -129,19 +129,20 @@
   <ItemGroup>
     <ClCompile Include="activitateSDD.c" />
     <ClCompile Include="animalListaSimplaInlantuita.c" />
-    <ClCompile Include="avionListaDublaInlantuita.cpp" />
+    <ClCompile Include="avionListaDublaInlantuita.c" />
     <ClCompile Include="blocListaSimpluInlantuita.c" />
     <ClCompile Include="comandaHashTable.c" />
     <ClCompile Include="fisierListaDubla.c" />
-    <ClCompile Include="jocListaDublaInlantuita.cpp" />
+    <ClCompile Include="jocListaDublaInlantuita.c" />
     <ClCompile Include="jocListaSimpla.c" />
     <ClCompile Include="laptopFunctii.c" />
     <ClCompile Include="laptopListaSimplaInlantuita.c" />
     <ClCompile Include="laptopVectori.c" />
+    <ClCompile Include="mancareListaDubluInlantuita.c" />
     <ClCompile Include="spitalVectori.c" />
     <ClCompile Include="subiectHashTable.c" />
     <ClCompile Include="taskuriSuplimentare.c" />
-    <ClCompile Include="taskuriSuplimentareListaDublaInlantuita.cpp" />
+    <ClCompile Include="taskuriSuplimentareListaDublaInlantuita.c" />
     <ClCompile Include="taskuriSuplimentareListaSimplaInlantuita.c" />
     <ClCompile Include="telefonListaSimpla.c" />
     <ClCompile Include="ZooListaSimplaInlantuita.c" />
