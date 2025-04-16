@@ -155,3 +155,31 @@ void inserareCladireInTabela(HashTable hash, Cladire cladire) {
 	adaugaCladireInLista(&hash.tabela[pozitie], cladire);
 
 }
+
+// Functie de citire din fisier
+HashTable citireCladiriDinFisier(const char* numeFisier, int dimensiune) {
+
+	HashTable hash = initializareHashTable(dimensiune);
+	FILE* f = fopen(numeFisier, "r");
+	if (!f) {
+
+		printf("Eroare la deschiderea fisierului.\n");
+		return hash;
+
+	}
+
+	Cladire cladire;
+	while (!feof(f)) {
+
+		cladire = citireDinFisier(f);
+		if (cladire.adresa != NULL) {
+
+			inserareCladireInTabela(hash, cladire);
+
+		}
+
+	}
+
+	fclose(f);
+	return hash;
+}
