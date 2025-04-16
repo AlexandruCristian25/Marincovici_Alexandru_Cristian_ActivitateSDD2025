@@ -86,3 +86,15 @@ void afisareCladire(Cladire cladire) {
 	printf("Nr apartamente: %d\n", cladire.nrApartamente);
 
 }
+
+// Functie de afisare a unui element de pe o anumita pozitie din lista
+void afisareListaCladiri(Nod* cap) {
+
+	while (cap) {
+
+		afisareCladire(cap->cladire);
+		cap = cap->next;
+
+	}
+
+}
