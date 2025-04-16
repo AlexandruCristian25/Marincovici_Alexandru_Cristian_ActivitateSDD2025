@@ -182,4 +182,26 @@ HashTable citireCladiriDinFisier(const char* numeFisier, int dimensiune) {
 
 	fclose(f);
 	return hash;
+
+}
+
+// Functie de afisare a tabelei
+void afisareTabelaBlocuri(HashTable ht) {
+
+	for (int i = 0; i < ht.dim; i++) {
+
+		if (ht.tabela[i] != NULL) {
+
+			printf("\nCladirile de pe pozitia %d sunt:\n", i);
+			afisareListaCladiri(ht.tabela[i]);
+
+		}
+		else {
+
+			printf("\nPe pozitia %d nu avem cladiri\n");
+
+		}
+
+	}
+
 }
