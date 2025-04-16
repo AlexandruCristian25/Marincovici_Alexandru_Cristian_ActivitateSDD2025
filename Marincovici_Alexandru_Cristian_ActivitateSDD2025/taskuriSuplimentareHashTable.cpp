@@ -301,3 +301,54 @@ void stergereCladireDupaId(HashTable* ht, int id) {
 	}
 
 }
+
+// Salvare în vector a clădirilor dintr-un an
+Cladire* cladirileDinAn(HashTable ht, int an, int* nrGasite) {
+
+	*nrGasite = 0;
+	for (int i = 0; i < ht.dim; i++) {
+
+		Nod* p = ht.tabela[i];
+		while (p) {
+
+			if (p->cladire.anConstruire == an) {
+
+				(*nrGasite)++;
+
+			}
+
+			p = p->next;
+
+		}
+
+	}
+
+	if (*nrGasite == 0) {
+
+		return NULL;
+
+	}
+
+	Cladire* vector = (Cladire*)malloc((*nrGasite) * sizeof(Cladire));
+	int index = 0;
+
+	for (int i = 0; i < ht.dim; i++) {
+
+		Nod* p = ht.tabela[i];
+		while (p) {
+
+			if (p->cladire.anConstruire == an) {
+
+				vector[index++] = p->cladire;
+
+			}
+
+			p = p->next;
+
+		}
+
+	}
+
+	return vector;
+
+}
