@@ -142,6 +142,7 @@
     <ClCompile Include="spitalVectori.c" />
     <ClCompile Include="subiectHashTable.c" />
     <ClCompile Include="taskuriSuplimentare.c" />
+    <ClCompile Include="taskuriSuplimentareHashTable.cpp" />
     <ClCompile Include="taskuriSuplimentareListaDublaInlantuita.c" />
     <ClCompile Include="taskuriSuplimentareListaSimplaInlantuita.c" />
     <ClCompile Include="telefonListaSimpla.c" />

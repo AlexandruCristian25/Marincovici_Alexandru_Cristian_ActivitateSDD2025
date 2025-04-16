@@ -72,5 +72,8 @@
     <ClCompile Include="mancareListaDubluInlantuita.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="taskuriSuplimentareHashTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
