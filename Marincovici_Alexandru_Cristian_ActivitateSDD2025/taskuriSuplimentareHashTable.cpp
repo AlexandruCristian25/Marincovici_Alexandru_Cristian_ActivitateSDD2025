@@ -352,3 +352,42 @@ Cladire* cladirileDinAn(HashTable ht, int an, int* nrGasite) {
 	return vector;
 
 }
+
+// Modificare an construire pentru un ID dat
+void modificaAnConstruire(HashTable* ht, int id, int vechiAn, int nouAn) {
+
+	for (int i = 0; i < ht->dim; i++) {
+
+		Nod* p = ht->tabela[i];
+		Nod* prev = NULL;
+
+		while (p) {
+
+			if (p->cladire.id == id && p->cladire.anConstruire == vechiAn) {
+
+
+				if (prev == NULL) {
+
+					ht->tabela[i] = p->next;
+
+				}
+				else {
+
+					prev->next = p->next;
+
+				}
+
+				p->cladire.anConstruire = nouAn;
+				int pozNoua = calculeazaHash(p->cladire.adresa, ht->dim);
+				p->next = ht->tabela[pozNoua];
+				ht->tabela[pozNoua] = p;
+
+				return;
+
+			}
+
+			prev = p;
+			p = p->next;
+		}
+	}
+}
