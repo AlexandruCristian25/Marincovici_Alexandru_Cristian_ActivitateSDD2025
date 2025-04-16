@@ -147,3 +147,11 @@ int calculeazaHash(const char* adresa, int dimensiune) {
 	return suma % dimensiune;
 
 }
+
+// Functia de inseare in tabela
+void inserareCladireInTabela(HashTable hash, Cladire cladire) {
+
+	int pozitie = calculeazaHash(cladire.adresa, hash.dim);
+	adaugaCladireInLista(&hash.tabela[pozitie], cladire);
+
+}
