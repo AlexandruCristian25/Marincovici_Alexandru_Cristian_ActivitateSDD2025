@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
@@ -199,6 +199,28 @@ void afisareTabelaBlocuri(HashTable ht) {
 		else {
 
 			printf("\nPe pozitia %d nu avem cladiri\n");
+
+		}
+
+	}
+
+}
+
+// Afișare clădiri construite într-un anumit an
+void afisareCladiriDinAn(HashTable ht, int an) {
+
+	for (int i = 0; i < ht.dim; i++) {
+
+		Nod* p = ht.tabela[i];
+		while (p) {
+
+			if (p->cladire.anConstruire == an) {
+
+				afisareCladire(p->cladire);
+
+			}
+
+			p = p->next;
 
 		}
 
