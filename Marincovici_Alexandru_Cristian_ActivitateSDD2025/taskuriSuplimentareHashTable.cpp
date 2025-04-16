@@ -98,3 +98,21 @@ void afisareListaCladiri(Nod* cap) {
 	}
 
 }
+
+// Functie de adaugare a unui element in lista existenta
+void adaugaCladireInLista(Nod** cap, Cladire cladireNoua) {
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->cladire = cladireNoua;
+	nou->next = NULL;
+
+	if (*cap == NULL) {
+		*cap = nou;
+	}
+	else {
+		Nod* p = *cap;
+		while (p->next) {
+			p = p->next;
+		}
+		p->next = nou;
+	}
+}
