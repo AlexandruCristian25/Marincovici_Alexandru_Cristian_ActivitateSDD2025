@@ -13,3 +13,11 @@ typedef struct Cladire {
 	int nrApartamente;
 
 }Cladire;
+
+// Creare structura nod pentru Lista Smpla Inlantuita
+typedef struct Nod {
+
+	Cladire cladire;
+	struct Nod* next;
+
+}Nod;
