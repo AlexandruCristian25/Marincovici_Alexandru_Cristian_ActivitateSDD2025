@@ -227,3 +227,39 @@ void afisareCladiriDinAn(HashTable ht, int an) {
 	}
 
 }
+
+// Ștergere clădire după ID și an
+void stergereCladireDupaIdSiAn(HashTable* ht, int id, int an) {
+	for (int i = 0; i < ht->dim; i++) {
+
+		Nod* p = ht->tabela[i];
+		Nod* prev = NULL;
+
+		while (p) {
+
+			if (p->cladire.id == id && p->cladire.anConstruire == an) {
+
+				if (prev == NULL) {
+
+					ht->tabela[i] = p->next;
+
+				}
+				else {
+
+					prev->next = p->next;
+
+				}
+
+				free(p->cladire.adresa);
+				free(p);
+				return;
+			}
+
+			prev = p;
+			p = p->next;
+
+		}
+
+	}
+
+}
