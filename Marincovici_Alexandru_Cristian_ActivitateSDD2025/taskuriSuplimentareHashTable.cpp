@@ -432,3 +432,39 @@ void dezalocareTabela(HashTable* ht) {
 	ht->dim = 0;
 
 }
+
+//Afisare in main
+int main() {
+
+	HashTable ht = citireCladiriDinFisier("bloc.txt", 7);
+	printf("\n--- Tabela Initiala ---\n");
+	afisareTabelaBlocuri(ht);
+
+	printf("\n--- Cladirile din anul 2005 ---\n");
+	afisareCladiriDinAn(ht, 2005);
+
+	printf("\n--- Stergere cladire cu id=2 si an=2005 ---\n");
+	stergereCladireDupaIdSiAn(&ht, 2, 2005);
+	afisareTabelaBlocuri(ht);
+
+	printf("\n--- Stergere cladire cu id=3 (indiferent de an) ---\n");
+	stergereCladireDupaId(&ht, 3);
+	afisareTabelaBlocuri(ht);
+
+	printf("\n--- Vector cladirile din 2010 (cu deep copy) ---\n");
+	int nr = 0;
+	Cladire* vector = cladirileDinAn(ht, 2010, &nr);
+	for (int i = 0; i < nr; i++) {
+		afisareCladire(vector[i]);
+		free(vector[i].adresa);  // eliberăm deep copy-ul
+	}
+	free(vector);
+
+	printf("\n--- Modificare an construire pentru cladirea cu id=4 ---\n");
+	modificaAnConstruire(&ht, 4, 2010, 2022);
+	afisareTabelaBlocuri(ht);
+
+	dezalocareTabela(&ht);
+	return 0;
+
+}
