@@ -76,3 +76,13 @@ Cladire citireDinFisier(FILE* f) {
 	return c;
 
 }
+
+// Functia de afisare
+void afisareCladire(Cladire cladire) {
+
+	printf("Id: %d\n", cladire.id);
+	printf("Adresa: %s\n", cladire.adresa);
+	printf("An construire: %d\n", cladire.anConstruire);
+	printf("Nr apartamente: %d\n", cladire.nrApartamente);
+
+}
