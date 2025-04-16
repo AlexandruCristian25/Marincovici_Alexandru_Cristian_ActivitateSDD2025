@@ -388,6 +388,32 @@ void modificaAnConstruire(HashTable* ht, int id, int vechiAn, int nouAn) {
 
 			prev = p;
 			p = p->next;
+
 		}
+
 	}
+
+}
+
+// Functie de dezalocare a listei
+void dezalocareLista(Nod** cap) {
+
+	Nod* p = *cap;
+	while (p) {
+
+		Nod* temp = p;
+		p = p->next;
+		if (temp->cladire.adresa != NULL) {
+
+			free(temp->cladire.adresa);
+			temp->cladire.adresa = NULL;
+
+		}
+
+		free(temp);
+
+	}
+
+	*cap = NULL;
+
 }
