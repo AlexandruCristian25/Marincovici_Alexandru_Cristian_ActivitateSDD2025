@@ -299,3 +299,19 @@ Magazin getMagazinDinLista(Nod* cap, const char* nume) {
 	return m;
 
 }
+
+// Extragere a unui Magazin dupa denumire
+Magazin getMagazinDupaDenumire(HashTable ht, const char* denumireCautat) {
+
+	Magazin m;
+	m.cod = -1;
+	int pozitie = calculeazaHash(denumireCautat, ht.dim);
+	if (pozitie >= 0 && pozitie < ht.dim) {
+
+		return getMagazinDinLista(ht.tabela[pozitie], denumireCautat);
+
+	}
+
+	return m;
+
+}
