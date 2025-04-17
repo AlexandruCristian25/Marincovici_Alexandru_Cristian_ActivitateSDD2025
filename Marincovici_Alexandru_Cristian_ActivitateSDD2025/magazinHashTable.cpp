@@ -195,3 +195,22 @@ void afisareTabelaDeMagazine(HashTable ht) {
 	}
 
 }
+
+// Functia de dezalocare a listei
+void dezalocareListaMagazine(Nod** cap) {
+
+	Nod* p = *cap;
+	while (p) {
+
+		Nod* temp = p;
+		p = p->next;
+		if (temp->magazin.denumire != NULL) {
+
+			free(temp->magazin.denumire);
+
+		}
+		free(temp);
+	}
+	*cap = NULL;
+
+}
