@@ -228,3 +228,20 @@ void dezalocareTabelaDeMagazine(HashTable* ht) {
 	ht->dim = 0;
 
 }
+
+// Functia de calculare a mediei listei
+float calculeazaMedieLista(Nod* cap) {
+
+	float suma = 0;
+	int nrElemente = 0;
+	while (cap) {
+
+		suma += cap->magazin.pretP;
+		nrElemente++;
+		cap = cap->next;
+
+	}
+
+	return (nrElemente > 0 ? (suma / nrElemente) : 0);
+
+}
