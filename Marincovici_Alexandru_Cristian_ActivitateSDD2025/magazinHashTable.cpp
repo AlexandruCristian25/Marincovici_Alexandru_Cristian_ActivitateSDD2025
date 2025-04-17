@@ -21,3 +21,11 @@ typedef struct Nod {
 	struct Nod* next;
 
 } Nod;
+
+// Creare structura tabela de dispersie
+typedef struct HashTable {
+
+	int dim;
+	Nod** tabela;
+
+} HashTable;
