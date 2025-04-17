@@ -277,3 +277,25 @@ float* calculeazaPreturiMediiPerClustere(HashTable ht, int* nrClustere) {
 	return preturi;
 
 }
+
+// Functia de extragere a unui element din lista
+Magazin getMagazinDinLista(Nod* cap, const char* nume) {
+
+	Magazin m;
+	m.cod = -1;
+	while (cap && strcmp(cap->magazin.denumire, nume) != 0) {
+
+		cap = cap->next;
+
+	}
+	if (cap) {
+
+		m = cap->magazin;
+		m.denumire = (char*)malloc(strlen(cap->magazin.denumire) + 1);
+		strcpy(m.denumire, cap->magazin.denumire);
+
+	}
+
+	return m;
+
+}
