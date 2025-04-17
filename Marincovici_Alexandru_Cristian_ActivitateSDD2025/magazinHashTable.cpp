@@ -129,3 +129,21 @@ int calculeazaHash(const char* nume, int dimensiune) {
 	return suma % dimensiune;
 
 }
+
+// Functia de inserare a unui element in tabela
+void inserareMagazinInTabela(HashTable hash, Magazin magazin) {
+
+	int pozitie = calculeazaHash(magazin.denumire, hash.dim);
+	if (hash.tabela[pozitie] == NULL) {
+
+		hash.tabela[pozitie] = (Nod*)malloc(sizeof(Nod));
+		hash.tabela[pozitie]->magazin = magazin;
+		hash.tabela[pozitie]->next = NULL;
+
+	}
+	else {
+
+		adaugaMagazinInLista(hash.tabela[pozitie], magazin);
+
+	}
+}
