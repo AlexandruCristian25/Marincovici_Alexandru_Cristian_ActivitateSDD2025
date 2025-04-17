@@ -214,3 +214,17 @@ void dezalocareListaMagazine(Nod** cap) {
 	*cap = NULL;
 
 }
+
+// Functia de dezalocare a tabelei
+void dezalocareTabelaDeMagazine(HashTable* ht) {
+
+	for (int i = 0; i < ht->dim; i++) {
+
+		dezalocareListaMagazine(&(ht->tabela[i]));
+
+	}
+	free(ht->tabela);
+	ht->tabela = NULL;
+	ht->dim = 0;
+
+}
