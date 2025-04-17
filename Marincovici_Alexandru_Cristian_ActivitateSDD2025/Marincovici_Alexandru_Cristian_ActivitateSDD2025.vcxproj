@@ -138,6 +138,7 @@
     <ClCompile Include="laptopFunctii.c" />
     <ClCompile Include="laptopListaSimplaInlantuita.c" />
     <ClCompile Include="laptopVectori.c" />
+    <ClCompile Include="magazinHashTable.cpp" />
     <ClCompile Include="mancareListaDubluInlantuita.c" />
     <ClCompile Include="spitalVectori.c" />
     <ClCompile Include="subiectHashTable.c" />
