@@ -70,3 +70,15 @@ void afisareMagazin(Magazin magazin) {
 	printf("Pret: %.2f\n", magazin.pretP);
 
 }
+
+// Functia de afisare a listei
+void afisareListaMagazine(Nod* cap) {
+
+	while (cap) {
+
+		afisareMagazin(cap->magazin);
+		cap = cap->next;
+
+	}
+
+}
