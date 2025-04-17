@@ -315,3 +315,44 @@ Magazin getMagazinDupaDenumire(HashTable ht, const char* denumireCautat) {
 	return m;
 
 }
+
+// Afisare in main
+int main() {
+
+	HashTable ht = citireMagazinDinFisier("magazin.txt", 7);
+	afisareTabelaDeMagazine(ht);
+
+	int nrClustere = 0;
+	float* pret = calculeazaPreturiMediiPerClustere(ht, &nrClustere);
+
+	printf("\nPreturile medii per clustere sunt:\n");
+	for (int i = 0; i < nrClustere; i++) {
+
+		printf("%.2f ", pret[i]);
+
+	}
+	printf("\n");
+	free(pret);
+
+	Magazin magazin = getMagazinDupaDenumire(ht, "Auchan Auchan");
+
+	if (magazin.cod != -1) {
+		printf("Magazin cautat:\n");
+		afisareMagazin(magazin);
+		if (magazin.denumire != NULL) {
+
+			free(magazin.denumire);
+
+		}
+
+	}
+	else {
+
+		printf("Magazinul nu a fost gasit. Magazinul respectiv nu are nici un produs.\n");
+
+	}
+
+	dezalocareTabelaDeMagazine(&ht);
+
+	return 0;
+}
