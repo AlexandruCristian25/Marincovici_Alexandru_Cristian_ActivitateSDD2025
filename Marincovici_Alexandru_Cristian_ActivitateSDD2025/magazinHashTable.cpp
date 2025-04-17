@@ -174,3 +174,24 @@ HashTable citireMagazinDinFisier(const char* numeFisier, int dimensiune) {
 	return hash;
 
 }
+
+// Functia de afisare a tabelei
+void afisareTabelaDeMagazine(HashTable ht) {
+
+	for (int i = 0; i < ht.dim; i++) {
+
+		if (ht.tabela[i] != NULL) {
+
+			printf("\nMagazinele de pe pozitia %d sunt: \n", i);
+			afisareListaMagazine(ht.tabela[i]);
+
+		}
+		else {
+
+			printf("\nPe pozitia %d nu avem magazine\n", i);
+
+		}
+
+	}
+
+}
