@@ -146,4 +146,31 @@ void inserareMagazinInTabela(HashTable hash, Magazin magazin) {
 		adaugaMagazinInLista(hash.tabela[pozitie], magazin);
 
 	}
+
+}
+
+// Functia de citire a elementelor tabelei din fisier
+HashTable citireMagazinDinFisier(const char* numeFisier, int dimensiune) {
+
+	HashTable hash = initializareHashTable(dimensiune);
+	FILE* f = fopen(numeFisier, "r");
+	if (!f) {
+
+		printf("Eroare la deschiderea fisierului!\n");
+		return hash;
+
+	}
+	while (!feof(f)) {
+
+		Magazin magazin = citireMagazinFisier(f);
+		if (magazin.denumire != NULL) {
+
+			inserareMagazinInTabela(hash, magazin);
+
+		}
+
+	}
+	fclose(f);
+	return hash;
+
 }
