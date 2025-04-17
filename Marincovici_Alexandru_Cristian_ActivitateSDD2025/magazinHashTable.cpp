@@ -82,3 +82,20 @@ void afisareListaMagazine(Nod* cap) {
 	}
 
 }
+
+// Functia de adaugare a unui element in lista
+void adaugaMagazinInLista(Nod* cap, Magazin magazinNou) {
+
+	Nod* p = cap;
+	while (p->next) {
+
+		p = p->next;
+
+	}
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->magazin = magazinNou; // shallow copy
+	nou->next = NULL;
+	p->next = nou;
+
+}
