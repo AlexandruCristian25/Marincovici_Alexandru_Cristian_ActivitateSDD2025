@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -29,3 +29,34 @@ typedef struct HashTable {
 	Nod** tabela;
 
 } HashTable;
+
+// Citire din fișier
+Magazin citireMagazinFisier(FILE* f) {
+
+	char buffer[100];
+	Magazin m = { 0, NULL, 0, 0.0f };
+
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token = strtok(buffer, ",;\n");
+		if (token == NULL) return m;
+		m.cod = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) return m;
+		m.denumire = (char*)malloc(strlen(token) + 1);
+		strcpy(m.denumire, token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) return m;
+		m.nrProduse = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) return m;
+		m.pretP = (float)atof(token);
+
+	}
+
+	return m;
+
+}
