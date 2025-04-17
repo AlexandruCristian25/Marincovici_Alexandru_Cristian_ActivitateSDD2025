@@ -13,3 +13,11 @@ typedef struct Magazin {
 	float pretP;
 
 } Magazin;
+
+// Creare structura nod
+typedef struct Nod {
+
+	Magazin magazin;
+	struct Nod* next;
+
+} Nod;
