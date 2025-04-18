@@ -213,3 +213,14 @@ Bilet getBiletDinLista(Nod* cap, const char* nume) {
 	}
 	return b;
 }
+
+// Extragere element dupa nume
+Bilet getBiletDupaNume(HashTable ht, const char* numeCautat) {
+	Bilet b;
+	b.id = -1;
+	int pozitie = calculeazaHash(numeCautat, ht.dim);
+	if (pozitie >= 0 && pozitie < ht.dim) {
+		return getBiletDinLista(ht.tabela[pozitie], numeCautat);
+	}
+	return b;
+}
