@@ -130,6 +130,7 @@
     <ClCompile Include="activitateSDD.c" />
     <ClCompile Include="animalListaSimplaInlantuita.c" />
     <ClCompile Include="avionListaDublaInlantuita.c" />
+    <ClCompile Include="bilet hashTable.c" />
     <ClCompile Include="blocListaSimpluInlantuita.c" />
     <ClCompile Include="comandaHashTable.c" />
     <ClCompile Include="fisierListaDubla.c" />

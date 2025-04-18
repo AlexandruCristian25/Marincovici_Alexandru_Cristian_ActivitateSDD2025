@@ -81,5 +81,8 @@
     <ClCompile Include="smartwatchHashTable.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="bilet hashTable.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
