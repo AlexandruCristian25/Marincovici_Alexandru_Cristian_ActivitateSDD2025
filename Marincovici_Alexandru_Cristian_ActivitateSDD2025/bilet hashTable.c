@@ -198,3 +198,18 @@ float* calculeazaPreturiMediiPerClustere(HashTable ht, int* nrClustere) {
 	}
 	return preturi;
 }
+
+// Extragerea unui element din lista
+Bilet getBiletDinLista(Nod* cap, const char* nume) {
+	Bilet b;
+	b.id = -1;
+	while (cap && strcmp(cap->bilet.nume, nume) != 0) {
+		cap = cap->next;
+	}
+	if (cap) {
+		b = cap->bilet;
+		b.nume = (char*)malloc(strlen(cap->bilet.nume) + 1);
+		strcpy(b.nume, cap->bilet.nume);
+	}
+	return b;
+}
