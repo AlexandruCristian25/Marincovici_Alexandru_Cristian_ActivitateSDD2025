@@ -166,3 +166,29 @@ void inserareMagazinInTabela(HashTable hash, Smartwatch smartwatch) {
 	}
 
 }
+
+// Functia de citire a elementelor tabelei din fisier
+HashTable citireDinFisier(const char* numeFisier, int dimensiune) {
+
+	HashTable hash = initializareHashTable(dimensiune);
+	FILE* f = fopen(numeFisier, "r");
+	if (!f) {
+
+		printf("Eroatre la deschiderea fisierului\n");
+		return hash;
+
+	}
+	while (!feof(f)) {
+
+		Smartwatch smartwatch = citireSmartwatchFisier(f);
+		if (smartwatch.producator != NULL) {
+
+			inserareMagazinInTabela(hash, smartwatch);
+
+		}
+
+	}
+	fclose(f);
+	return hash;
+
+}
