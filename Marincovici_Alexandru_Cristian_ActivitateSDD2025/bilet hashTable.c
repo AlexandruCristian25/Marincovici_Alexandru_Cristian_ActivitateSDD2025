@@ -178,3 +178,23 @@ float calculeazaMedieLista(Nod* cap) {
 	}
 	return (nrElemente > 0 ? (suma / nrElemente) : 0);
 }
+
+// Calcularea preturilor per clustere
+float* calculeazaPreturiMediiPerClustere(HashTable ht, int* nrClustere) {
+	float* preturi = NULL;
+	*nrClustere = 0;
+	for (int i = 0; i < ht.dim; i++) {
+		if (ht.tabela[i] != NULL) {
+			(*nrClustere)++;
+		}
+	}
+	preturi = (float*)malloc(sizeof(float) * (*nrClustere));
+	int contor = 0;
+	for (int i = 0; i < ht.dim; i++) {
+		if (ht.tabela[i] != NULL) {
+			preturi[contor] = calculeazaMedieLista(ht.tabela[i]);
+			contor++;
+		}
+	}
+	return preturi;
+}
