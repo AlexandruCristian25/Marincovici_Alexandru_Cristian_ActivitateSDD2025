@@ -286,3 +286,20 @@ Smartwatch getSmartwatchDinLista(Nod* cap, const char* nume) {
 	return s;
 
 }
+
+// Extragerea unui element dupa producator
+Smartwatch getSmartwatchDupaDenumire(HashTable ht, const char* producatorCautat) {
+
+
+	Smartwatch s;
+	s.id = -1;
+	int pozitie = calculeazaHash(producatorCautat, ht.dim);
+	if (pozitie >= 0 && pozitie < ht.dim) {
+
+		return getSmartwatchDinLista(ht.tabela[pozitie], producatorCautat);
+
+	}
+
+	return s;
+
+}
