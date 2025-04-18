@@ -11,3 +11,9 @@ typedef struct Bilet {
 	int nrLoc;
 	float pret;
 } Bilet;
+
+// Creare structura Nod
+typedef struct Nod {
+	Bilet bilet;
+	struct Nod* next;
+} Nod;
