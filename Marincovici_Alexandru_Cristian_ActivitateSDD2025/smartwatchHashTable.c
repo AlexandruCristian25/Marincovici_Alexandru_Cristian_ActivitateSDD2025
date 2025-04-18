@@ -213,3 +213,23 @@ void afisareTabela(HashTable ht) {
 	}
 
 }
+
+// Functia de dezalocare a listei
+void dezalocareLista(Nod** cap) {
+
+	Nod* p = *cap;
+	while (p) {
+
+		Nod* temp = p;
+		p = p->next;
+		if (temp->smartwatch.producator != NULL) {
+
+			free(temp->smartwatch.producator);
+
+		}
+		free(temp);
+
+	}
+	*cap = NULL;
+
+}
