@@ -17,3 +17,9 @@ typedef struct Nod {
 	Bilet bilet;
 	struct Nod* next;
 } Nod;
+
+// Creare structura HashTable
+typedef struct HashTable {
+	int dim;
+	Nod** tabela;
+} HashTable;
