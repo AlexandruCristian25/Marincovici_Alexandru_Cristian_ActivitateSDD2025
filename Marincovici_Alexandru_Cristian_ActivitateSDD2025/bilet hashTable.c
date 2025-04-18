@@ -129,3 +129,16 @@ HashTable citireBiletDinFisier(const char* numeFisier, int dimensiune) {
 	fclose(f);
 	return hash;
 }
+
+// Functie de afisare a tabelei
+void afisareTabelaDeBilete(HashTable ht) {
+	for (int i = 0; i < ht.dim; i++) {
+		if (ht.tabela[i] != NULL) {
+			printf("\nBiletele de pe pozitia %d sunt: \n", i);
+			afisareListaBilete(ht.tabela[i]);
+		}
+		else {
+			printf("\nPe pozitia %d nu avem bilete\n", i);
+		}
+	}
+}
