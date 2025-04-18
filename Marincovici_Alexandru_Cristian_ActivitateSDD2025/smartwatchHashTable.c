@@ -115,3 +115,19 @@ void adaugaInLista(Nod* cap, Smartwatch smartwatchNou) {
 	p->next = nou;
 
 }
+
+// Initializare tabela de dispersie
+HashTable initializareHashTable(int dimensiune) {
+
+	HashTable ht;
+	ht.dim = dimensiune;
+	ht.tabela = (Nod**)malloc(dimensiune * sizeof(Nod*));
+	for (int i = 0; i < dimensiune; i++) {
+
+		ht.tabela[i] = NULL;
+
+	}
+
+	return ht;
+
+}
