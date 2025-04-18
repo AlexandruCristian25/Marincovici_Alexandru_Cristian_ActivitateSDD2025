@@ -224,3 +224,35 @@ Bilet getBiletDupaNume(HashTable ht, const char* numeCautat) {
 	}
 	return b;
 }
+
+// Afisarea in main
+int main() {
+	HashTable ht = citireBiletDinFisier("bilet.txt", 8);
+	afisareTabelaDeBilete(ht);
+
+	int nrClustere = 0;
+	float* pret = calculeazaPreturiMediiPerClustere(ht, &nrClustere);
+
+	printf("\nPreturile medii per clustere sunt:\n");
+	for (int i = 0; i < nrClustere; i++) {
+		printf("%.2f ", pret[i]);
+	}
+	printf("\n");
+	free(pret);
+
+	Bilet bilet = getBiletDupaNume(ht, "Bilet2 Bilet2");
+
+	if (bilet.id != -1) {
+		printf("Bilet cautat:\n");
+		afisareBilet(bilet);
+		if (bilet.nume != NULL) {
+			free(bilet.nume);
+		}
+	}
+	else {
+		printf("Biletul nu a fost gasit. Biletul respectiv nu are nici un loc disponibil.\n");
+	}
+
+	dezalocareTabelaDeBilete(&ht);
+	return 0;
+}
