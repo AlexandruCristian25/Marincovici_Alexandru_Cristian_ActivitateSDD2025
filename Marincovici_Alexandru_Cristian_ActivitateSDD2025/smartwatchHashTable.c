@@ -303,3 +303,33 @@ Smartwatch getSmartwatchDupaDenumire(HashTable ht, const char* producatorCautat)
 	return s;
 
 }
+
+// Afisare in main
+int main() {
+
+	HashTable ht = citireDinFisier("smartwatch.txt", 6);
+	afisareTabela(ht);
+
+	Smartwatch smartwatch = getSmartwatchDupaDenumire(ht, "Xiaomi Xiaomi");
+
+	if (smartwatch.id != -1) {
+		printf("Smartwatch cautat:\n");
+		afisareSmartwatch(smartwatch);
+		if (smartwatch.producator != NULL) {
+
+			free(smartwatch.producator);
+
+		}
+
+	}
+	else {
+
+		printf("Smartwatch-ul nu a fost gasit. Smartwatch-ul respectiv nu are nici un produs.\n");
+
+	}
+
+	dezalocareTabela(&ht);
+
+	return 0;
+
+}
