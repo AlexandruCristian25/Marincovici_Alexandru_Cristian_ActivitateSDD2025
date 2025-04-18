@@ -98,3 +98,20 @@ void afisareLista(Nod* cap) {
 	}
 
 }
+
+// Functia de adaigare a unui element in lista
+void adaugaInLista(Nod* cap, Smartwatch smartwatchNou) {
+
+	Nod* p = cap;
+	while (p->next) {
+
+		p = p->next;
+
+	}
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->smartwatch = smartwatchNou; // shallow copy
+	nou->next = NULL;
+	p->next = nou;
+
+}
