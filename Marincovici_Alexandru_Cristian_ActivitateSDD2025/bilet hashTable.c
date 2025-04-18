@@ -49,3 +49,11 @@ Bilet citireBiletFisier(FILE* f) {
 	}
 	return b;
 }
+
+// Afisare bilet
+void afisareBilet(Bilet bilet) {
+	printf("Id: %d\n", bilet.id);
+	printf("Nume: %s\n", bilet.nume);
+	printf("Nr loc: %d\n", bilet.nrLoc);
+	printf("Pret: %.2f\n", bilet.pret);
+}
