@@ -142,3 +142,17 @@ void afisareTabelaDeBilete(HashTable ht) {
 		}
 	}
 }
+
+// Functie de dezalocare a listei
+void dezalocareListaBilete(Nod** cap) {
+	Nod* p = *cap;
+	while (p) {
+		Nod* temp = p;
+		p = p->next;
+		if (temp->bilet.nume != NULL) {
+			free(temp->bilet.nume);
+		}
+		free(temp);
+	}
+	*cap = NULL;
+}
