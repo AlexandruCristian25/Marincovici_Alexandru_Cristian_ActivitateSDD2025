@@ -264,3 +264,25 @@ float calculeazaMedieLista(Nod* cap) {
 	return (nrElemente > 0 ? (suma / nrElemente) : 0);
 
 }
+
+// Functia de extragere a unui element din lista
+Smartwatch getSmartwatchDinLista(Nod* cap, const char* nume) {
+
+	Smartwatch s;
+	s.id = -1;
+	while (cap && strcmp(cap->smartwatch.producator, nume) != 0) {
+
+		cap = cap->next;
+
+	}
+	if (cap) {
+
+		s = cap->smartwatch;
+		s.producator = (char*)malloc(strlen(cap->smartwatch.producator) + 1);
+		strcpy(s.producator, cap->smartwatch.producator);
+
+	}
+
+	return s;
+
+}
