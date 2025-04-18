@@ -111,3 +111,21 @@ void inserareBiletInTabela(HashTable hash, Bilet bilet) {
 		adaugaBiletInLista(hash.tabela[pozitie], bilet);
 	}
 }
+
+// Citirea elementelor din fisier
+HashTable citireBiletDinFisier(const char* numeFisier, int dimensiune) {
+	HashTable hash = initializareHashTable(dimensiune);
+	FILE* f = fopen(numeFisier, "r");
+	if (!f) {
+		printf("Eroare la deschiderea fisierului!\n");
+		return hash;
+	}
+	while (!feof(f)) {
+		Bilet bilet = citireBiletFisier(f);
+		if (bilet.nume != NULL) {
+			inserareBiletInTabela(hash, bilet);
+		}
+	}
+	fclose(f);
+	return hash;
+}
