@@ -166,3 +166,15 @@ void dezalocareTabelaDeBilete(HashTable* ht) {
 	ht->tabela = NULL;
 	ht->dim = 0;
 }
+
+// Calcularea mediei din lista
+float calculeazaMedieLista(Nod* cap) {
+	float suma = 0;
+	int nrElemente = 0;
+	while (cap) {
+		suma += cap->bilet.pret;
+		nrElemente++;
+		cap = cap->next;
+	}
+	return (nrElemente > 0 ? (suma / nrElemente) : 0);
+}
