@@ -13,3 +13,11 @@ typedef struct Smartwatch {
 	float pret;
 
 }Smartwatch;
+
+// Creare structura nod
+typedef struct Nod {
+
+	Smartwatch smartwatch;
+	struct Nod* next;
+
+}Nod;
