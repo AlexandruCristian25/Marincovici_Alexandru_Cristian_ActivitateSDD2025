@@ -65,3 +65,16 @@ void afisareListaBilete(Nod* cap) {
 		cap = cap->next;
 	}
 }
+
+// Functie de adaugare in lista
+void adaugaBiletInLista(Nod* cap, Bilet biletNou) {
+	Nod* p = cap;
+	while (p->next) {
+		p = p->next;
+	}
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->bilet = biletNou;
+	nou->next = NULL;
+	p->next = nou;
+}
