@@ -76,3 +76,13 @@ Smartwatch citireSmartwatchFisier(FILE* f) {
 	return s;
 
 }
+
+// Functia de afisare a smartwatch-ului
+void afisareSmartwatch(Smartwatch smartwatch) {
+
+	printf("Id: %d", smartwatch.id);
+	printf("Producator: %s", smartwatch.producator);
+	printf("Baterie: %d", smartwatch.baterie);
+	printf("Pret: %.2f", smartwatch.pret);
+
+}
