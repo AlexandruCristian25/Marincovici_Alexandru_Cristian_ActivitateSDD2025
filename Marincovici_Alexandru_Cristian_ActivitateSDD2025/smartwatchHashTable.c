@@ -86,3 +86,15 @@ void afisareSmartwatch(Smartwatch smartwatch) {
 	printf("Pret: %.2f", smartwatch.pret);
 
 }
+
+// Functia de afisare a listei
+void afisareLista(Nod* cap) {
+
+	while (cap) {
+
+		afisareMagazin(cap->smartwatch);
+		cap = cap->next;
+
+	}
+
+}
