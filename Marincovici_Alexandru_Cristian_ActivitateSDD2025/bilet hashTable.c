@@ -57,3 +57,11 @@ void afisareBilet(Bilet bilet) {
 	printf("Nr loc: %d\n", bilet.nrLoc);
 	printf("Pret: %.2f\n", bilet.pret);
 }
+
+// Functie de afisare a listei
+void afisareListaBilete(Nod* cap) {
+	while (cap) {
+		afisareBilet(cap->bilet);
+		cap = cap->next;
+	}
+}
