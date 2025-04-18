@@ -131,3 +131,17 @@ HashTable initializareHashTable(int dimensiune) {
 	return ht;
 
 }
+
+// Functia de calculare a hash-ului
+int calculeazaHash(const char* nume, int dimensiune) {
+
+	int suma = 0;
+	for (int i = 0; i < strlen(nume); i++) {
+
+		suma += nume[i];
+
+	}
+
+	return suma % dimensiune;
+
+}
