@@ -29,3 +29,50 @@ typedef struct HashTable {
 	Nod** tabela;
 
 }HashTable;
+
+// Citire din fisier
+Smartwatch citireSmartwatchFisier(FILE* f) {
+
+	char buffer[100];
+	Smartwatch s = { 0, NULL, 0, 0.0f };
+
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token = strtok(buffer, ",;\n");
+		if (token == NULL) {
+
+			return s;
+
+		}
+		s.id = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return s;
+
+		}
+		s.producator = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(s.producator, token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return s;
+
+		}
+		s.baterie = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return s;
+
+		}
+		s.pret = atof(token);
+
+	}
+
+	return s;
+
+}
