@@ -145,3 +145,24 @@ int calculeazaHash(const char* nume, int dimensiune) {
 	return suma % dimensiune;
 
 }
+
+// Functia de inserare a unui element in tabela
+void inserareMagazinInTabela(HashTable hash, Smartwatch smartwatch) {
+
+	int pozitie = calculeazaHash(smartwatch.producator, hash.dim);
+
+	if (hash.tabela[pozitie] == NULL) {
+
+		hash.tabela[pozitie] = (Nod*)malloc(sizeof(Nod));
+		hash.tabela[pozitie]->smartwatch = smartwatch;
+		hash.tabela[pozitie]->next = NULL;
+
+
+	}
+	else {
+
+		adaugaInLista(hash.tabela[pozitie], smartwatch);
+
+	}
+
+}
