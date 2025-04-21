@@ -164,3 +164,30 @@ void inserareStudentInTabela(HashTable hash, Student student) {
 	}
 
 }
+
+// Citirea elementelor din fisier
+HashTable citireStudentDinFisier(const char* numeFisier, int dimensiune) {
+
+	HashTable hash = initializareHashTable(dimensiune);
+	FILE* f = fopen(numeFisier, "r");
+	if (!f) {
+
+		printf("Eroare la deschiderea fisierului!\n");
+		return hash;
+
+	}
+	while (!feof(f)) {
+
+		Student student = citireStudentFisier(f);
+		if (student.nume != NULL) {
+
+			inserareStudentInTabela(hash, student);
+
+		}
+
+	}
+
+	fclose(f);
+	return hash;
+
+}
