@@ -13,3 +13,11 @@ typedef struct Student {
 	float medie;
 
 }Student;
+
+// Creare structura nod
+typedef struct Nod {
+
+	Student student;
+	struct Nod* next;
+
+}Nod;
