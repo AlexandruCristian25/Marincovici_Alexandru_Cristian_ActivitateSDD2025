@@ -168,3 +168,22 @@ Moneda greutateMaxima(Nod* cap) {
 	}
 
 }
+
+// Dezalocare lista
+void dezalocareLista(Nod** cap) {
+
+	while (*cap) {
+
+		Nod* p = *cap;
+		*cap = p->next;
+		if (p->info.taraEmitenta) {
+
+			free(p->info.taraEmitenta);
+
+		}
+
+		free(p);
+
+	}
+
+}
