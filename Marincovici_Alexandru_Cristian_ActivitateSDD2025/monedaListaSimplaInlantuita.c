@@ -49,4 +49,15 @@ Moneda citireMonedaFisier(FILE* f) {
 	}
 
 	return m;
+
+}
+
+// Afisare Moneda
+void afisareMoneda(Moneda moneda) {
+
+	printf("Tara emitenta: %s\n", moneda.taraEmitenta);
+	printf("Valoare: %d\n", moneda.valoareN);
+	printf("Greutate: %.2f\n", moneda.greutate);
+	printf("An emitere: %d\n", moneda.anEmitere);
+
 }
