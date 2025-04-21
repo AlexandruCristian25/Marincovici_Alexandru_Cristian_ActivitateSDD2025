@@ -61,3 +61,15 @@ void afisareMoneda(Moneda moneda) {
 	printf("An emitere: %d\n", moneda.anEmitere);
 
 }
+
+// Functia de afisare a listei de monezi
+void afisareListaMonezi(Nod* cap) {
+
+	while (cap) {
+
+		afisareMoneda(cap->info);
+		cap = cap->next;
+
+	}
+
+}
