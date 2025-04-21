@@ -297,3 +297,18 @@ void dezalocareListaStudenti(Nod** cap) {
 	*cap = NULL;
 
 }
+
+// Functie de dezalocare a tabelei
+void dezalocareTabelaStudenti(HashTable* ht) {
+
+	for (int i = 0; i < ht->dim; i++) {
+
+		dezalocareListaStudenti(&(ht->tabela[i]));
+
+	}
+
+	free(ht->tabela);
+	ht->tabela = NULL;
+	ht->dim = 0;
+
+}
