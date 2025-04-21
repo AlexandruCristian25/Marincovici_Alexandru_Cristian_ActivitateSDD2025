@@ -125,3 +125,46 @@ Nod* citireListaMoneziDinFisier(const char* numeFisier) {
 	return cap;
 
 }
+
+// Functia de returnare a greutatii maxime
+Moneda greutateMaxima(Nod* cap) {
+
+	float max = 0;
+	Moneda m;
+
+	if (cap) {
+
+		Nod* aux = cap;
+		while (aux) {
+
+			if (aux->info.greutate > max) {
+
+				max = aux->info.greutate;
+
+			}
+			aux = aux->next;
+
+		}
+
+		aux = cap;
+		while (aux) {
+
+			if (aux->info.greutate == max) {
+
+				m.taraEmitenta = (char*)malloc(sizeof(char) * strlen(aux->info.taraEmitenta) + 1);
+				strcpy(m.taraEmitenta, aux->info.taraEmitenta);
+				m.valoareN = aux->info.valoareN;
+				m.greutate = aux->info.greutate;
+				m.anEmitere = aux->info.anEmitere;
+
+				return m;
+
+			}
+
+			aux = aux->next;
+
+		}
+
+	}
+
+}
