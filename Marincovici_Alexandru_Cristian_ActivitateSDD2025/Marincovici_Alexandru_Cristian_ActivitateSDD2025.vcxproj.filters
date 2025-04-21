@@ -87,5 +87,8 @@
     <ClCompile Include="monedaListaSimplaInlantuita.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="studentHashTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
