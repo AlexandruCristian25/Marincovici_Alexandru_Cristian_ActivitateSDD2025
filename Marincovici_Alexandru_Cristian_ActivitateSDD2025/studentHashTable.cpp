@@ -312,3 +312,25 @@ void dezalocareTabelaStudenti(HashTable* ht) {
 	ht->dim = 0;
 
 }
+
+// Afisare in main
+int main() {
+
+	HashTable ht = citireStudentDinFisier("student.txt", 6);
+	afisareTabelaDeStudenti(ht);
+
+	printf("\n=======  Lista studenti  ===============\n");
+	afisareTabelaDeStudenti(ht);
+
+	printf("\n=======  Lista stergere studenti cu media cea mai mare  ===============\n");
+	stergereStudetnMedieMare(ht);
+	afisareTabelaDeStudenti(ht);
+
+	dezalocareTabelaStudenti(&ht);
+
+	printf("\n=======  Lista studenti dupa dezalocare  ===============\n");
+	afisareTabelaDeStudenti(ht);
+
+	return 0;
+
+}
