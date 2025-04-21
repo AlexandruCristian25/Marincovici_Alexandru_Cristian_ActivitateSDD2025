@@ -84,5 +84,8 @@
     <ClCompile Include="bilet hashTable.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="monedaListaSimplaInlantuita.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -163,7 +163,7 @@ int main() {
 
 	Nod* cap = citireaListaBlocuriDinFisier("bloc.txt");
 
-	printf("==== Lisat blocuri ===== \n");
+	printf("==== Lista blocuri ===== \n");
 	afisareListaBlocuri(cap);
 	dezalocareListaBlocuri(&cap);
 
