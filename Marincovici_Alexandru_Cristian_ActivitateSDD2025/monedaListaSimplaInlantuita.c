@@ -187,3 +187,27 @@ void dezalocareLista(Nod** cap) {
 	}
 
 }
+
+// Afisare in main
+int main() {
+
+	Nod* cap = citireListaMoneziDinFisier("moneda.txt");
+
+	printf("\n=======  Lista monezi  ===============\n");
+	afisareListaMonezi(cap);
+
+	printf("\n=======  Moneda amaxima  ===============\n");
+	Moneda monedaMax = greutateMaxima(cap);
+	printf("Tara emitenta: %s\n", monedaMax.taraEmitenta);
+	printf("Valoare: %d\n", monedaMax.valoareN);
+	printf("Greutate: %.2f\n", monedaMax.greutate);
+	printf("An emitere: %d\n", monedaMax.anEmitere);
+
+	dezalocareLista(&cap);
+
+	printf("\n=======  Lista monezi dupa dezalocare  ===============\n");
+	afisareListaMonezi(cap);
+
+	return 0;
+
+}
