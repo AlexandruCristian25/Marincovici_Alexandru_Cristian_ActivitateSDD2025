@@ -73,3 +73,30 @@ void afisareListaMonezi(Nod* cap) {
 	}
 
 }
+
+// Functia de adaugare a unei monezi in lista
+void adaugaMonedaInLista(Nod** cap, Moneda monedaNoua) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->info = monedaNoua;
+	nou->next = NULL;
+
+	if (*cap == NULL) {
+
+		*cap = nou;
+
+	}
+	else {
+
+		Nod* p = *cap;
+		while (p->next) {
+
+			p = p->next;
+
+		}
+
+		p->next = nou;
+
+	}
+
+}
