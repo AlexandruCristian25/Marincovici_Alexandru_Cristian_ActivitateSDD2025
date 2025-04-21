@@ -212,3 +212,66 @@ void afisareTabelaDeStudenti(HashTable ht) {
 	}
 
 }
+
+// Functie de stergere a unui student cu o media cea mai mare din tabela
+void stergereStudetnMedieMare(HashTable ht) {
+
+	float max = 0;
+
+	if (ht.tabela) {
+
+		for (int i = 0; i < ht.dim; i++) {
+			Nod* aux = ht.tabela[i];
+			while (aux) {
+
+				if (max < ht.tabela[i]->student.medie) {
+
+					max = ht.tabela[i]->student.medie;
+
+				}
+				aux = aux->next;
+
+			}
+
+		}
+
+		for (int i = 0; i < ht.dim; i++) {
+
+			Nod* aux = ht.tabela[i];
+			Nod* prev = NULL;
+			while (aux) {
+
+				if (ht.tabela[i]->student.medie == max) {
+
+					Nod* temp = aux;
+					if (prev == NULL) {
+
+						ht.tabela[i] = aux->next;
+						aux = ht.tabela[i];
+
+					}
+					else {
+
+						prev = aux->next;
+						aux = aux->next;
+
+					}
+
+					free(temp->student.nume);
+					free(temp);
+
+				}
+				else {
+
+					prev = aux;
+					aux = aux->next;
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
