@@ -275,3 +275,25 @@ void stergereStudetnMedieMare(HashTable ht) {
 	}
 
 }
+
+// Functie de dezalocare a listei
+void dezalocareListaStudenti(Nod** cap) {
+
+	Nod* p = *cap;
+	while (p) {
+
+		Nod* temp = p;
+		p = p->next;
+		if (temp->student.nume != NULL) {
+
+			free(temp->student.nume);
+
+		}
+
+		free(temp);
+
+	}
+
+	*cap = NULL;
+
+}
