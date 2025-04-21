@@ -76,3 +76,13 @@ Student citireStudentFisier(FILE* f) {
 	return s;
 
 }
+
+// Afisare Student
+void afisareStudent(Student student) {
+
+	printf("Cod: %d\n", student.cod);
+	printf("Nume: %s\n", student.nume);
+	printf("Varsta: %d\n", student.varsta);
+	printf("Medie: %.2f\n", student.medie);
+
+}
