@@ -86,3 +86,15 @@ void afisareStudent(Student student) {
 	printf("Medie: %.2f\n", student.medie);
 
 }
+
+// Functie de afisare a listei
+void afisareListaStudenti(Nod* cap) {
+
+	while (cap) {
+
+		afisareStudent(cap->student);
+		cap = cap->next;
+
+	}
+
+}
