@@ -100,3 +100,28 @@ void adaugaMonedaInLista(Nod** cap, Moneda monedaNoua) {
 	}
 
 }
+
+// Citirea listei din fisier
+Nod* citireListaMoneziDinFisier(const char* numeFisier) {
+
+	Nod* cap = NULL;
+	FILE* f = fopen(numeFisier, "r");
+	if (f) {
+
+		while (!feof(f)) {
+
+			Moneda m = citireMonedaFisier(f);
+			if (m.taraEmitenta) {
+
+				adaugaMonedaInLista(&cap, m);
+
+			}
+
+		}
+		fclose(f);
+
+	}
+
+	return cap;
+
+}
