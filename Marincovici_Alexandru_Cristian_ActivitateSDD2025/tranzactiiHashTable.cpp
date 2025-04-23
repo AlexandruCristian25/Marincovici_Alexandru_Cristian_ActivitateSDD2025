@@ -171,3 +171,30 @@ void dezalocare(HT* ht) {
     }
 
 }
+
+// Functie calcul valoare medie a tranzactiilor efectuate cu cardul
+float valoaremedietranzactiicard(HT* ht, char* tiptranzactie) {
+
+    float suma = 0;
+    int nrtranzactii = 0;
+    for (int i = 0; i < ht->dimensiune; i++) {
+
+        Nod* temp = ht->vector[i];
+        while (temp != NULL) {
+
+            if (strcmp(temp->info->tipPlata, tiptranzactie) == 0) {
+
+                nrtranzactii++;
+                suma += temp->info->valoareCuDiscount;
+
+            }
+
+            temp = temp->next;
+
+        }
+
+    }
+
+    return suma / nrtranzactii;
+
+}
