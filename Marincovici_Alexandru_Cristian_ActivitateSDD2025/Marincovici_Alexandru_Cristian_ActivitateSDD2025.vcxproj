@@ -151,6 +151,7 @@
     <ClCompile Include="taskuriSuplimentareListaDublaInlantuita.c" />
     <ClCompile Include="taskuriSuplimentareListaSimplaInlantuita.c" />
     <ClCompile Include="telefonListaSimpla.c" />
+    <ClCompile Include="tranzactiiHashTable.cpp" />
     <ClCompile Include="ZooListaSimplaInlantuita.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
