@@ -220,3 +220,17 @@ float valoareatotaladiscountclient(HT* ht, char* numeclient) {
     return totaldiscount;
 
 }
+
+// Afisare lista de clustere
+
+void afisarelista(Nod* lista) {
+
+    while (lista != NULL) {
+
+        printf("Numar Tranzactie: %u, Denumire Comerciant: %s, Nume Client: %s, Valoare cu Discount: %.2f, Discount Procentual: %.2f, Tip Plata: %s\n",
+            lista->info->numarTranzactie, lista->info->denumireComerciant, lista->info->numeClient, lista->info->valoareCuDiscount, lista->info->discountProcentual, lista->info->tipPlata);
+        lista = lista->next;
+
+    }
+
+}
