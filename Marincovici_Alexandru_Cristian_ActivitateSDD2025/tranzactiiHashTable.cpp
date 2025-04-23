@@ -198,3 +198,25 @@ float valoaremedietranzactiicard(HT* ht, char* tiptranzactie) {
     return suma / nrtranzactii;
 
 }
+
+// Valoarea totala a discountului aplicata unui client pt toate tranzactiile efectuate pe numele sau
+float valoareatotaladiscountclient(HT* ht, char* numeclient) {
+
+    float totaldiscount = 0;
+    int pozitie = hash(ht, numeclient);
+    Nod* temp = ht->vector[pozitie];
+    while (temp != NULL) {
+
+        if (strcmp(temp->info->numeClient, numeclient) == 0) {
+
+            totaldiscount += (temp->info->valoareCuDiscount * temp->info->discountProcentual / 100);
+
+        }
+
+        temp = temp->next;
+
+    }
+
+    return totaldiscount;
+
+}
