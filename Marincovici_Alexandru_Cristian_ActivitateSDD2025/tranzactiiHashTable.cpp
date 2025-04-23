@@ -56,3 +56,21 @@ Nod* initializareNod(Tranzactie* info) {
     return nod;
 
 }
+
+//Initilaizare Hash Table
+HT* initializareHT(int dimensiune) {
+
+    HT* ht = (HT*)malloc(sizeof(HT));
+
+    ht->dimensiune = dimensiune;
+    ht->vector = (Nod**)malloc(ht->dimensiune * sizeof(Nod*));
+
+    for (int i = 0; i < ht->dimensiune; i++) {
+
+        ht->vector[i] = NULL;
+
+    }
+
+    return ht;
+
+}
