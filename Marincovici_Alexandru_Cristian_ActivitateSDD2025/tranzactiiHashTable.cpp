@@ -117,3 +117,29 @@ HT* inserareInHT(HT* ht, Tranzactie* tranzactie) {
     return ht;
 
 }
+
+//Functia de afisare
+void afisare(HT* ht) {
+
+    if (ht != NULL) {
+
+        for (int i = 0; i < ht->dimensiune; i++) {
+
+            if (ht->vector[i] != NULL) {
+
+                Nod* temp = ht->vector[i];
+                while (temp != NULL) {
+                    printf("Pozitie: %d \n", i);
+                    printf("Numar Tranzactie: %u, Denumire Comerciant: %s, Nume Client: %s, Valoare cu Discount: %.2f, Discount Procentual: %.2f, Tip Plata: %s\n",
+                        temp->info->numarTranzactie, temp->info->denumireComerciant, temp->info->numeClient, temp->info->valoareCuDiscount, temp->info->discountProcentual, temp->info->tipPlata);
+                    temp = temp->next;
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
