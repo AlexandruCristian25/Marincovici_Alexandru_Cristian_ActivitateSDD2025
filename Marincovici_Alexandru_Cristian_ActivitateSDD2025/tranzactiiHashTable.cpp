@@ -222,7 +222,6 @@ float valoareatotaladiscountclient(HT* ht, char* numeclient) {
 }
 
 // Afisare lista de clustere
-
 void afisarelista(Nod* lista) {
 
     while (lista != NULL) {
@@ -232,5 +231,33 @@ void afisarelista(Nod* lista) {
         lista = lista->next;
 
     }
+
+}
+
+// Functia pt determinarea celei mai lungi liste de coliziuni
+Nod* clustermaxim(HT* ht) {
+
+    Nod* maxim = NULL;
+    int lungimemaximacluster = 0;
+    for (int i = 0; i < ht->dimensiune; i++) {
+
+        Nod* temp = ht->vector[i];
+        int lungimecurenta = 0;
+        while (temp != NULL) {
+
+            lungimecurenta++;
+            temp = temp->next;
+
+        }
+        if (lungimecurenta > lungimemaximacluster) {
+
+            lungimemaximacluster = lungimecurenta;
+            maxim = ht->vector[i];
+
+        }
+
+    }
+
+    return maxim;
 
 }
