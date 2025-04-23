@@ -74,3 +74,46 @@ HT* initializareHT(int dimensiune) {
     return ht;
 
 }
+
+int hash(HT* ht, char* numeClient) {
+
+    int suma = 0;
+    for (int i = 0; i < strlen(numeClient); i++) {
+
+        suma += numeClient[i];
+
+    }
+    return suma % ht->dimensiune;
+
+}
+
+//Inserare in Hash Table
+HT* inserareInHT(HT* ht, Tranzactie* tranzactie) {
+
+    if (ht->vector != NULL) {
+
+        int pozitie = hash(ht, tranzactie->numeClient);
+        Nod* nou = initializareNod(tranzactie);
+
+        if (ht->vector[pozitie] == NULL) {
+
+            ht->vector[pozitie] = nou;
+
+        }
+        else {
+
+            Nod* aux = ht->vector[pozitie];
+            while (aux->next != NULL) {
+
+                aux = aux->next;
+
+            }
+            aux->next = nou;
+
+        }
+
+    }
+
+    return ht;
+
+}
