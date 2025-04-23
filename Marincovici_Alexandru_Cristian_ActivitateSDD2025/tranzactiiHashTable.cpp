@@ -143,3 +143,31 @@ void afisare(HT* ht) {
     }
 
 }
+
+//Functia de dezalocare
+void dezalocare(HT* ht) {
+
+    if (ht->vector != NULL) {
+
+        for (int i = 0; i < ht->dimensiune; i++) {
+
+            Nod* temp = ht->vector[i];
+            while (temp != NULL) {
+                Nod* deSters = temp;
+                temp = temp->next;
+                free(deSters->info->denumireComerciant);
+                free(deSters->info->numeClient);
+                free(deSters->info->tipPlata);
+                free(deSters->info);
+                free(deSters);
+
+            }
+
+        }
+
+        free(ht->vector);
+        free(ht);
+
+    }
+
+}
