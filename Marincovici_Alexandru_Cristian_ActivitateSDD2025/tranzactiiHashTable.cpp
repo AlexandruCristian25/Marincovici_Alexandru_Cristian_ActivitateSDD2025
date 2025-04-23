@@ -261,3 +261,50 @@ Nod* clustermaxim(HT* ht) {
     return maxim;
 
 }
+
+//Afisare in main
+int main() {
+
+    unsigned int numarTranzactie;
+    char denumireComerciant[50];
+    char numeClient[50];
+    float valoareCuDiscount;
+    float discountProcentual;
+    char tipPlata[10];
+
+    HT* ht = initializareHT(20);
+    FILE* f = fopen("tranzactii.txt", "r");
+
+
+    while (fscanf(f, "%u %49s %49s %f %f %9s", &numarTranzactie, denumireComerciant,
+        numeClient, &valoareCuDiscount, &discountProcentual, tipPlata) == 6) {
+
+        Tranzactie* tranzactie = initializareTranzactie(numarTranzactie, denumireComerciant, numeClient, valoareCuDiscount, discountProcentual, tipPlata);
+        ht = inserareInHT(ht, tranzactie);
+
+    }
+
+    fclose(f);
+    afisare(ht);
+    printf("==============================================\n");
+
+    //afisam functia de calcul medie pe tiptranzactie
+
+    float medieplatacard = valoaremedietranzactiicard(ht, "card");
+    printf("%5.2f\n", medieplatacard);
+
+    printf("==============================================\n");
+
+    //afisam valoareatotaldiscount
+
+    float discounttotal = valoareatotaladiscountclient(ht, "Popescu");
+    printf("%5.2f", discounttotal);
+
+    printf("==============================================\n");
+
+    // afisam clustermaxim
+
+    Nod* maxcluster = clustermaxim(ht);
+    afisarelista(maxcluster);
+
+}
