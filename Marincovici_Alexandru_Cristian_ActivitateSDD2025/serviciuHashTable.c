@@ -97,3 +97,15 @@ void afisareServiciu(Serviciu serviciu) {
 	printf("Timp: %d\n", serviciu.timp);
 
 }
+
+// Functia de afisare a listei
+void afisareLista(Nod* cap) {
+
+	while (cap) {
+
+		afisareServiciu(cap->serviciu);
+		cap = cap->next;
+
+	}
+
+}
