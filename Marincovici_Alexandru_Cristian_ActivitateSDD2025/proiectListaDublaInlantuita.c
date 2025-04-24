@@ -255,3 +255,33 @@ void modificaBugetProiecte(ListaDubla* lista,
 	}
 
 }
+
+// Functia de dezalocare a listei dublu inlantuite
+void dezalocareLista(ListaDubla* lista) {
+
+	Nod* p = lista->first;
+	while (p) {
+
+		Nod* aux = p;
+		p = p->next;
+		if (aux->proiect.titluP != NULL) {
+
+			free(aux->proiect.titluP);
+
+		}
+
+		if (aux->proiect.beneficiar != NULL) {
+
+			free(aux->proiect.beneficiar);
+
+		}
+
+		free(aux);
+
+	}
+
+	lista->first = NULL;
+	lista->last = NULL;
+	lista->nrNoduri = 0;
+
+}
