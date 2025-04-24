@@ -285,3 +285,50 @@ void dezalocareLista(ListaDubla* lista) {
 	lista->nrNoduri = 0;
 
 }
+
+// Afisare in main
+int main() {
+
+	ListaDubla lista = citireLDDinFisier("proiect.txt");
+	afisareListaProiecteInceput(lista);
+
+	printf("\n ============ Afisare lista de la sfarsit =========== \n");
+	afisareListaSfarsit(lista);
+
+	// Fonduri pentru beneficiar
+	char numeBeneficiar[100];
+	printf("\nIntroduceti numele beneficiarului pentru care doriti sa aflati fondurile: ");
+	scanf("%s", numeBeneficiar);
+
+	float totalFonduri = fonduriBeneficiar(lista, numeBeneficiar);
+	printf("Fondurile totale pentru beneficiarul '%s' sunt: %.2f\n", numeBeneficiar, totalFonduri);
+
+	// Modificare buget
+	int nrIDuri = 0;
+	printf("\nIntroduceti numarul de proiecte pentru modificare buget: ");
+	scanf("%d", &nrIDuri);
+
+	unsigned int* iduri = (unsigned int*)malloc(sizeof(unsigned int) * nrIDuri);
+	for (int i = 0; i < nrIDuri; i++) {
+		printf("ID proiect %d: ", i + 1);
+		scanf("%u", &iduri[i]);
+	}
+
+	float procent;
+	printf("Introduceti procentul de modificare (ex: 0.1 pentru +10%% sau -0.1 pentru -10%%): ");
+	scanf("%f", &procent);
+
+	modificaBugetProiecte(&lista, iduri, nrIDuri, procent);
+
+	printf("\n===== Lista dupa modificarea bugetelor =====\n");
+	afisareListaProiecteInceput(lista);
+
+	free(iduri);
+
+	dezalocareLista(&lista);
+	printf("\n ============ Afisare lista dupa dezalocare =========== \n");
+	afisareListaProiecteInceput(lista);
+
+	return 0;
+
+}
