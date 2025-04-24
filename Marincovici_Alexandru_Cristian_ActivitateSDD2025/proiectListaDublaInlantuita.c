@@ -105,3 +105,12 @@ void afisareProiect(Proiect proiect) {
 	printf("Buget: %.2f\n", proiect.bugetA);
 
 }
+
+// Creare strcutura lista dubla
+typedef struct ListaDubla {
+
+	Nod* first;
+	Nod* last;
+	int nrNoduri;
+
+}ListaDubla;
