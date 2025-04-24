@@ -282,3 +282,26 @@ void dezalocareLista(Nod** cap) {
 	*cap = NULL;
 
 }
+
+// Functia pentru determinarea nr de servicii
+int numarServiciiClient(HashTable ht, const char* numeClient) {
+
+	int pozitie = calzuleazaHash(numeClient, ht.dim);
+	int count = 0;
+	Nod* p = ht.tabela[pozitie];
+
+	while (p) {
+
+		if (strcmp(p->serviciu.numeClient, numeClient) == 0) {
+
+			count++;
+
+		}
+
+		p = p->next;
+
+	}
+
+	return count;
+
+}
