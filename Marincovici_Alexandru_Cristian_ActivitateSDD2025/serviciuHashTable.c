@@ -203,3 +203,24 @@ HashTable citireServiciuDinFisier(const char* numeFisier, int dimensiune) {
 	return hash;
 
 }
+
+// Functie de afisare a tabelei
+void afisareTabelaDeStudenti(HashTable ht) {
+
+	for (int i = 0; i < ht.dim; i++) {
+
+		if (ht.tabela[i] != NULL) {
+
+			printf("\nServiciile de pe pozitie %d sunt:\n", i);
+			afisareLista(ht.tabela[i]);
+
+		}
+		else {
+
+			printf("\nPe pozitie %d nu avem servicii:\n", i);
+
+		}
+
+	}
+
+}
