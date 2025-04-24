@@ -127,3 +127,16 @@ void afisareListaProiecteInceput(ListaDubla lista) {
 	}
 
 }
+
+// Functia de afisare a listei de la sfarsit 
+void afisareListaSfarsit(ListaDubla lista) {
+
+	Nod* p = lista.last;
+	while (p) {
+
+		afisareProiect(p->proiect);
+		p = p->prev;
+
+	}
+
+}
