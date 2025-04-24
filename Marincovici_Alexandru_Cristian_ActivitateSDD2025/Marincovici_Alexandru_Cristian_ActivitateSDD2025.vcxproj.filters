@@ -96,5 +96,8 @@
     <ClCompile Include="fisierHashTable.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="proiectListaDublaInlantuita.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
