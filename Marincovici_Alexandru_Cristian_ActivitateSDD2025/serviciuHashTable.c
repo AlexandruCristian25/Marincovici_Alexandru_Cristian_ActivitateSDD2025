@@ -253,3 +253,32 @@ void stergereUltimNodDinLista(Nod** cap) {
 	p->next = NULL;
 
 }
+
+// Functia de dezalocare a listei
+void dezalocareLista(Nod** cap) {
+
+	Nod* p = *cap;
+	while (p) {
+
+		Nod* temp = p;
+		p = p->next;
+		if (temp->serviciu.tipServiciu != NULL) {
+
+			free(temp->serviciu.tipServiciu);
+
+		}
+
+		if (temp->serviciu.numeClient != NULL) {
+
+
+			free(temp->serviciu.numeClient);
+
+		}
+
+		free(temp);
+
+	}
+
+	*cap = NULL;
+
+}
