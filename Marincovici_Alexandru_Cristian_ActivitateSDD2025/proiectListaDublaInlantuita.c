@@ -231,3 +231,27 @@ float fonduriBeneficiar(ListaDubla lista,
 	return suma;
 
 }
+
+// Functia care modifca bugetul alocat
+void modificaBugetProiecte(ListaDubla* lista,
+	unsigned int* vectorIDuri, int nrProiecte,
+	float procent) {
+
+	for (int i = 0; i < nrProiecte; i++) {
+
+		Nod* p = lista->first;
+		while (p) {
+
+			if (p->proiect.id == vectorIDuri[i]) {
+
+				p->proiect.bugetA += p->proiect.bugetA * procent;
+
+			}
+
+			p = p->next;
+
+		}
+
+	}
+
+}
