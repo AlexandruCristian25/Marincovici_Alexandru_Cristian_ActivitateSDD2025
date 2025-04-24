@@ -22,3 +22,11 @@ typedef struct Nod {
 	struct Nod* next;
 
 }Nod;
+
+// Creare structura HashTable
+typedef struct HashTable {
+
+	int dim;
+	Nod** tabela;
+
+}HashTable;
