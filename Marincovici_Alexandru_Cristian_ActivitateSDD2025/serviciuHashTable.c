@@ -305,3 +305,18 @@ int numarServiciiClient(HashTable ht, const char* numeClient) {
 	return count;
 
 }
+
+// Functia de stergere a unui serviciu
+void stergereUltimeleServicii(HashTable* ht) {
+
+	for (int i = 0; i < ht->dim; i++) {
+
+		if (ht->tabela[i] != NULL) {
+
+			stergereUltimNodDinLista(&(ht->tabela[i]));
+
+		}
+
+	}
+
+}
