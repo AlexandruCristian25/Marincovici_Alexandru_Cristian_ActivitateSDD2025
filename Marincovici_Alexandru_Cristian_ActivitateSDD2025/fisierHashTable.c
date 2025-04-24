@@ -194,3 +194,24 @@ HashTable citireDinFisier(const char* numeFisier, int dimensiune) {
 	return hash;
 
 }
+
+// Functie de afisare a tebelei
+void afisareTabelaDeFisiere(HashTable ht) {
+
+	for (int i = 0; i < ht.dim; i++) {
+
+		if (ht.tabela[i] != NULL) {
+
+			printf("Fisierele de pe pozitia %d sunt: \n", i);
+			afisareListaFisiere(ht.tabela[i]);
+
+		}
+		else {
+
+			printf("\nPe pozitia %d nu avem studenti: \n", i);
+
+		}
+
+	}
+
+}
