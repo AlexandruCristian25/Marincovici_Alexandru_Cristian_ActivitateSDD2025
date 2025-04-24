@@ -166,3 +166,31 @@ void inserareFisierInTabela(HashTable hash, Fisier fisier) {
 	}
 
 }
+
+// Citirea elementelor din fisier
+HashTable citireDinFisier(const char* numeFisier, int dimensiune) {
+
+
+	HashTable hash = initializareHashTable(dimensiune);
+	FILE* f = fopen(numeFisier, "r");
+	if (!f) {
+
+		printf("Eroare la deschiderea fisierului\n");
+		return hash;
+
+	}
+	while (!feof(f)) {
+
+		Fisier fisier = citireFisier(f);
+		if (fisier.denumire != NULL) {
+
+			inserareFisierInTabela(hash, fisier);
+
+		}
+
+	}
+
+	fclose(f);
+	return hash;
+
+}
