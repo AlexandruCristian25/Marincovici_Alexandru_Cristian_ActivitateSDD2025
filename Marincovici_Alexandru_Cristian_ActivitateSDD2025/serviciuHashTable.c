@@ -320,3 +320,18 @@ void stergereUltimeleServicii(HashTable* ht) {
 	}
 
 }
+
+// Functia de dezalocare a tabelei
+void dezalocareTabela(HashTable* ht) {
+
+	for (int i = 0; i < ht->dim; i++) {
+
+		dezalocareLista(&(ht->tabela[i]));
+
+	}
+
+	free(ht->tabela);
+	ht->tabela = NULL;
+	ht->dim = 0;
+
+}
