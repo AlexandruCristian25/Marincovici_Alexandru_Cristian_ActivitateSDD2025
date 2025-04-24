@@ -31,3 +31,11 @@ Proiect initializareProiect(unsigned int id, char* titluP, char* beneficiar,
 	return p;
 
 }
+
+typedef struct Nod {
+
+	Proiect proiect;
+	struct Nod* next;
+	struct Nod* prev;
+
+}Nod;
