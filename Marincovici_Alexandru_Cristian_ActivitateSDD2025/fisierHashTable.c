@@ -133,3 +133,17 @@ HashTable initializareHashTable(int dimensiune) {
 	return ht;
 
 }
+
+// Calcularea hash-ului
+int calculeazaHash(const char* nume, int dimensiune) {
+
+	unsigned int hash = 0;
+	for (int i = 0; i < strlen(nume); i++) {
+
+		hash = hash * 31 + (unsigned char)nume[i];
+
+	}
+
+	return hash % dimensiune;
+
+}
