@@ -86,3 +86,14 @@ Serviciu citireFisier(FILE* f) {
 	return s;
 
 }
+
+// Afisare Serviciu
+void afisareServiciu(Serviciu serviciu) {
+
+	printf("Id: %d\n", serviciu.id);
+	printf("Tip serviciu: %s\n", serviciu.tipServiciu);
+	printf("Nume Client: %s\n", serviciu.numeClient);
+	printf("Suma: %.2f\n", serviciu.suma);
+	printf("Timp: %d\n", serviciu.timp);
+
+}
