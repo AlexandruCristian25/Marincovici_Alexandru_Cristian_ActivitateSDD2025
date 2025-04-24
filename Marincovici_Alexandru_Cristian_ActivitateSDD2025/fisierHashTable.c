@@ -215,3 +215,37 @@ void afisareTabelaDeFisiere(HashTable ht) {
 	}
 
 }
+
+// Functia de dezalocare a listei
+void dezalocareLista(Nod** cap) {
+
+	Nod* p = *cap;
+	while (p) {
+
+		Nod* temp = p;
+		p = p->next;
+		if (temp->fisier.denumire != NULL) {
+
+			free(temp->fisier.denumire);
+
+		}
+
+		if (temp->fisier.caleF != NULL) {
+
+			free(temp->fisier.caleF);
+
+		}
+
+		if (temp->fisier.extensieF != NULL) {
+
+			free(temp->fisier.extensieF);
+
+		}
+
+		free(temp);
+
+	}
+
+	*cap = NULL;
+
+}
