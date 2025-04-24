@@ -78,3 +78,13 @@ Fisier citireFisier(FILE* f) {
 	return fs;
 
 }
+
+// Afisare Fisier
+void afisareFisier(Fisier fisier) {
+
+	printf("Denumire: %s\n", fisier.denumire);
+	printf("Cale fisier: %s\n", fisier.caleF);
+	printf("Extensie fisier: %s\n", fisier.extensieF);
+	printf("Dimensiune: %d\n", fisier.dimensiune);
+
+}
