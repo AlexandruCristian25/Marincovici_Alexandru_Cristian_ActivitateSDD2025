@@ -142,3 +142,17 @@ HashTable initializareHashTable(int dimensiune) {
 	return ht;
 
 }
+
+// Calcularea hash-ului
+int calzuleazaHash(const char* numeClient, int dimensiune) {
+
+	int suma = 0;
+	for (int i = 0; i < strlen(numeClient); i++) {
+
+		suma += numeClient[i];
+
+	}
+
+	return suma % dimensiune;
+
+}
