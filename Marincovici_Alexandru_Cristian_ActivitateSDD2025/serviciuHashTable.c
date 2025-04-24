@@ -224,3 +224,32 @@ void afisareTabelaDeStudenti(HashTable ht) {
 	}
 
 }
+
+// Functia de stergere a ultimului nod din lista
+void stergereUltimNodDinLista(Nod** cap) {
+
+	if (*cap == NULL) return;
+
+	if ((*cap)->next == NULL) {
+
+		free((*cap)->serviciu.tipServiciu);
+		free((*cap)->serviciu.numeClient);
+		free(*cap);
+		*cap = NULL;
+		return;
+
+	}
+
+	Nod* p = *cap;
+	while (p->next->next != NULL) {
+
+		p = p->next;
+
+	}
+
+	free(p->next->serviciu.tipServiciu);
+	free(p->next->serviciu.numeClient);
+	free(p->next);
+	p->next = NULL;
+
+}
