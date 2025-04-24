@@ -335,3 +335,35 @@ void dezalocareTabela(HashTable* ht) {
 	ht->dim = 0;
 
 }
+
+// Afisare in main
+int main() {
+
+	HashTable ht = citireServiciuDinFisier("serviciu.txt", 7);
+	afisareTabelaDeStudenti(ht);
+
+	printf("\n=========  Lista servicii  ===========\n");
+	afisareTabelaDeStudenti(ht);
+
+	// Determinare nr servicii
+	char numeCautat[] = "Claudia";
+	int numar = numarServiciiClient(ht, numeCautat);
+	printf("\nClientul %s are %d servicii inregistrate.\n", numeCautat, numar);
+
+	// Stergere servicii
+	printf("\n=========  Tabela inainte de stergere ==========\n");
+	afisareTabelaDeStudenti(ht);
+
+	stergereUltimeleServicii(&ht);
+
+	printf("\n=========  Tabela dupa stergerea ultimelor servicii ==========\n");
+	afisareTabelaDeStudenti(ht);
+
+	dezalocareTabela(&ht);
+
+	printf("\n=========  Lista servicii dupa dezalocare  ===========\n");
+	afisareTabelaDeStudenti(ht);
+
+	return 0;
+
+}
