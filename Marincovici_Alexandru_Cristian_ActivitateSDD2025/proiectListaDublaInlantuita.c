@@ -94,3 +94,14 @@ Proiect citireFisier(FILE* f) {
 	return p;
 
 }
+
+// Functia de afisare a Proiectului
+void afisareProiect(Proiect proiect) {
+
+	printf("Id: %d\n", proiect.id);
+	printf("Titilu proiect: %s\n", proiect.titluP);
+	printf("Beneficiar: %s\n", proiect.beneficiar);
+	printf("Nr executanti: %d\n", proiect.nrExecutanti);
+	printf("Buget: %.2f\n", proiect.bugetA);
+
+}
