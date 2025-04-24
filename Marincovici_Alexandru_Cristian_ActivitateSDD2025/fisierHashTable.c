@@ -13,3 +13,11 @@ typedef struct Fisier {
 	unsigned int dimensiune;
 
 }Fisier;
+
+// Creare structura Nod
+typedef struct Nod {
+
+	Fisier fisier;
+	struct Nod* next;
+
+}Nod;
