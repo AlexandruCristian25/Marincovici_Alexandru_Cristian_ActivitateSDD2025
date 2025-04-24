@@ -156,3 +156,22 @@ int calzuleazaHash(const char* numeClient, int dimensiune) {
 	return suma % dimensiune;
 
 }
+
+// Functia de inserare a unui element in tabela
+void inserareServiciuInTabela(HashTable hash, Serviciu serviciu) {
+
+	int pozitie = calzuleazaHash(serviciu.numeClient, hash.dim);
+	if (hash.tabela[pozitie] == NULL) {
+
+		hash.tabela[pozitie] = (Nod*)malloc(sizeof(Nod));
+		hash.tabela[pozitie]->serviciu = serviciu;
+		hash.tabela[pozitie]->next = NULL;
+
+	}
+	else {
+
+		adaugaServiciuInLista(hash.tabela[pozitie], serviciu);
+
+	}
+
+}
