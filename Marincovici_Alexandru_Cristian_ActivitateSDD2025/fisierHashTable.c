@@ -264,3 +264,21 @@ void dezalocareTabela(HashTable* ht) {
 	ht->dim = 0;
 
 }
+
+// Afisarea in main
+int main() {
+
+	HashTable ht = citireDinFisier("fisier.txt", 7);
+	afisareTabelaDeFisiere(ht);
+
+	printf("\n =========  Lista fisiere  =========== \n");
+	afisareTabelaDeFisiere(ht);
+
+	dezalocareTabela(&ht);
+
+	printf("\n =========  Lista fisiere dupa dezalocare  =========== \n");
+	afisareTabelaDeFisiere(ht);
+
+	return 0;
+
+}
