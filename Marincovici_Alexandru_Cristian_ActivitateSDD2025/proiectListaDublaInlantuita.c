@@ -140,3 +140,27 @@ void afisareListaSfarsit(ListaDubla lista) {
 	}
 
 }
+
+// Functia de adaugare a unui element la finalul listei
+void adaugaLaFinalInLista(ListaDubla* lista, Proiect proiectNou) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->proiect = proiectNou;
+	nou->next = NULL;
+	nou->prev = lista->last;
+
+	if (lista->last != NULL) {
+
+		lista->last->next = nou;
+
+	}
+	else {
+
+		lista->first = nou;
+
+	}
+
+	lista->last = nou;
+	lista->nrNoduri++;
+
+}
