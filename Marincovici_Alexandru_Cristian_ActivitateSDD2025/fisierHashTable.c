@@ -88,3 +88,15 @@ void afisareFisier(Fisier fisier) {
 	printf("Dimensiune: %d\n", fisier.dimensiune);
 
 }
+
+// Functie de afisare a listei
+void afisareListaFisiere(Nod* cap) {
+
+	while (cap) {
+
+		afisareFisier(cap->fisier);
+		cap = cap->next;
+
+	}
+
+}
