@@ -133,6 +133,7 @@
     <ClCompile Include="bilet hashTable.c" />
     <ClCompile Include="blocListaSimpluInlantuita.c" />
     <ClCompile Include="comandaHashTable.c" />
+    <ClCompile Include="fisierHashTable.c" />
     <ClCompile Include="fisierListaDubla.c" />
     <ClCompile Include="jocListaDublaInlantuita.c" />
     <ClCompile Include="jocListaSimpla.c" />
