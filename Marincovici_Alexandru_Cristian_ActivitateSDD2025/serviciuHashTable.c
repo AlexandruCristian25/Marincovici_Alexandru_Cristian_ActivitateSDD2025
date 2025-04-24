@@ -175,3 +175,31 @@ void inserareServiciuInTabela(HashTable hash, Serviciu serviciu) {
 	}
 
 }
+
+// Citirea elementelor din fisier
+HashTable citireServiciuDinFisier(const char* numeFisier, int dimensiune) {
+
+	HashTable hash = initializareHashTable(dimensiune);
+	FILE* f = fopen(numeFisier, "r");
+	if (!f) {
+
+		printf("\nEroare la deschidere fisierului!\n");
+		return hash;
+
+	}
+
+	while (!feof(f)) {
+
+		Serviciu serviciu = citireFisier(f);
+		if (serviciu.numeClient != NULL) {
+
+			inserareServiciuInTabela(hash, serviciu);
+
+		}
+
+	}
+
+	fclose(f);
+	return hash;
+
+}
