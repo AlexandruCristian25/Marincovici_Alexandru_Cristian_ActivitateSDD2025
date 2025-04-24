@@ -147,3 +147,22 @@ int calculeazaHash(const char* nume, int dimensiune) {
 	return hash % dimensiune;
 
 }
+
+// Functie de inserare a unui element in tabela
+void inserareFisierInTabela(HashTable hash, Fisier fisier) {
+
+	int pozitie = calculeazaHash(fisier.denumire, hash.dim);
+	if (hash.tabela[pozitie] == NULL) {
+
+		hash.tabela[pozitie] = (Nod*)malloc(sizeof(Nod));
+		hash.tabela[pozitie]->fisier = fisier;
+		hash.tabela[pozitie]->next = NULL;
+
+	}
+	else {
+
+		adaugaFisierInLista(hash.tabela[pozitie], fisier);
+
+	}
+
+}
