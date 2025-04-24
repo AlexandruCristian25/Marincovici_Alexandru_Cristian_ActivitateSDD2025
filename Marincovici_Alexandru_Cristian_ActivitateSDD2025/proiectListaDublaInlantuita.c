@@ -208,3 +208,26 @@ ListaDubla citireLDDinFisier(const char* numeFisier) {
 	return lista;
 
 }
+
+// Functia care determina fondul de investitii
+float fonduriBeneficiar(ListaDubla lista,
+	const char* beneficiar) {
+
+	float suma = 0.0f;
+	Nod* p = lista.first;
+
+	while (p) {
+
+		if (strcmp(p->proiect.beneficiar, beneficiar) == 0) {
+
+			suma += p->proiect.bugetA;
+
+		}
+
+		p = p->next;
+
+	}
+
+	return suma;
+
+}
