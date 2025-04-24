@@ -99,5 +99,8 @@
     <ClCompile Include="proiectListaDublaInlantuita.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="serviciuHashTable.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

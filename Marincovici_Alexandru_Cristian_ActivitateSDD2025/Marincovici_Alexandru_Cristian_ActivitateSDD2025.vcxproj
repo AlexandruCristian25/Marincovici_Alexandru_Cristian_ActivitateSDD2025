@@ -144,6 +144,7 @@
     <ClCompile Include="mancareListaDubluInlantuita.c" />
     <ClCompile Include="monedaListaSimplaInlantuita.c" />
     <ClCompile Include="proiectListaDublaInlantuita.c" />
+    <ClCompile Include="serviciuHashTable.c" />
     <ClCompile Include="smartwatchHashTable.c" />
     <ClCompile Include="spitalVectori.c" />
     <ClCompile Include="studentHashTable.cpp" />
