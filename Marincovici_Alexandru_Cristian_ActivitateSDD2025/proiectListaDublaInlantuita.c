@@ -39,3 +39,58 @@ typedef struct Nod {
 	struct Nod* prev;
 
 }Nod;
+
+// Citire din fisier
+Proiect citireFisier(FILE* f) {
+
+	char buffer[100];
+	Proiect p = { 0, NULL, NULL, 0, 0.0f };
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token = strtok(buffer, ",;\n");
+		if (token == NULL) {
+
+			return p;
+
+		}
+		p.id = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return p;
+
+		}
+		p.titluP = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(p.titluP, token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return p;
+
+		}
+		p.beneficiar = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(p.beneficiar, token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return p;
+
+		}
+		p.nrExecutanti = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return p;
+
+		}
+		p.bugetA = (float)atof(token);
+
+	}
+
+	return p;
+
+}
