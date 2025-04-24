@@ -109,3 +109,20 @@ void afisareLista(Nod* cap) {
 	}
 
 }
+
+// Functia de adaugare in lista
+void adaugaServiciuInLista(Nod* cap, Serviciu serviciuNou) {
+
+	Nod* p = cap;
+	while (p->next) {
+
+		p = p->next;
+
+	}
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->serviciu = serviciuNou;
+	nou->next = NULL;
+	p->next = nou;
+
+}
