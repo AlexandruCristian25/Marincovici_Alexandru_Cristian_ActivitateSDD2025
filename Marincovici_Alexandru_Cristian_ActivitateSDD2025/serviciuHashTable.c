@@ -14,3 +14,11 @@ typedef struct Serviciu {
 	unsigned int timp;
 
 }Serviciu;
+
+// Creare structura nod
+typedef struct Nod {
+
+	Serviciu serviciu;
+	struct Nod* next;
+
+}Nod;
