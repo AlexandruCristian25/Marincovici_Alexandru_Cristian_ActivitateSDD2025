@@ -154,3 +154,23 @@ Nod* citireListaDinFisier(const char* numeFisier) {
 	return cap;
 
 }
+
+// Dezalocare lista
+void dezalocareLista(Nod** cap, int* nrMonitoare) {
+
+	while (*cap) {
+
+		Nod* p = *cap;
+		*cap = p->next;
+		if (p->info.producator) {
+
+			free(p->info.producator);
+
+		}
+
+		free(p);
+		(*nrMonitoare)++;
+
+	}
+
+}
