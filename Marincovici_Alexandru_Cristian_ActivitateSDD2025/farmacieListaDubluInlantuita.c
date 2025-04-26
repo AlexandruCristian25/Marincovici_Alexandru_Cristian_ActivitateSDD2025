@@ -32,3 +32,30 @@ typedef struct Nod {
 	struct Nod* prev;
 
 } Nod;
+
+// Citire din fișier
+Farmacie citireFisier(FILE* f) {
+
+	char buffer[100];
+	Farmacie fa = { NULL, 0.0f, 0 };
+
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token = strtok(buffer, ",;\n");
+		if (token == NULL) return fa;
+		fa.denumire = (char*)malloc(strlen(token) + 1);
+		strcpy(fa.denumire, token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) return fa;
+		fa.suprafata = (float)atof(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) return fa;
+		fa.nrAngajati = atoi(token);
+
+	}
+
+	return fa;
+
+}
