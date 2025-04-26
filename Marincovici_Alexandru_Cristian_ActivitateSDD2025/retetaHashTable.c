@@ -164,3 +164,31 @@ void inserareRetetaInTabela(HashTable hash, Reteta reteta) {
 	}
 
 }
+
+// Citirea elementelor din fisier
+HashTable citireRetetaDinFisier(const char* numeFisier, int dimensiune) {
+
+	HashTable hash = initilaizareHashTable(dimensiune);
+	FILE* f = fopen(numeFisier, "r");
+	if (!f) {
+
+		printf("\nEroare la deschiderea fisierului!\n");
+		return hash;
+
+	}
+
+	while (!feof(f)) {
+
+		Reteta reteta = citireFisier(f);
+		if (reteta.numeMedic != NULL) {
+
+			inserareRetetaInTabela(hash, reteta);
+
+		}
+
+	}
+
+	fclose(f);
+	return hash;
+
+}
