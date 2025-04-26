@@ -68,3 +68,12 @@ void afisareFarmacie(Farmacie farmacie) {
 	printf("Nr angajati: %d\n", farmacie.nrAngajati);
 
 }
+
+// Creare Structura lista dubla
+typedef struct ListaDubla {
+
+	Nod* first;
+	Nod* last;
+	int nrNoduri;
+
+} ListaDubla;
