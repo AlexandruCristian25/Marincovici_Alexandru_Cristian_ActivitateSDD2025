@@ -196,3 +196,15 @@ void dezalocareLista(ListaDubla* lista) {
 	lista->nrNoduri = 0;
 
 }
+
+// Afisare in main
+int main() {
+
+	ListaDubla lista = citireLDFarmacieDinFisier("farmacie.txt");
+	afisareListaMagazineInceput(lista);
+
+	dezalocareLista(&lista);
+
+	return 0;
+
+}
