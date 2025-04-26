@@ -75,3 +75,11 @@ Monitor citireFisier(FILE* f) {
 	return m;
 
 }
+
+// Nod lista simpla
+typedef struct Nod {
+
+	Monitor info;
+	struct Nod* next;
+
+}Nod;
