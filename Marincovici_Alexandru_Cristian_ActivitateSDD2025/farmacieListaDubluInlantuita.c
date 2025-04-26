@@ -77,3 +77,16 @@ typedef struct ListaDubla {
 	int nrNoduri;
 
 } ListaDubla;
+
+// Functia de afisare a listei de farmacii de la inceput
+void afisareListaFarmaciiInceput(ListaDubla lista) {
+
+	Nod* p = lista.first;
+	while (p) {
+
+		afisareFarmacie(p->farmacie);
+		p = p->next;
+
+	}
+
+}
