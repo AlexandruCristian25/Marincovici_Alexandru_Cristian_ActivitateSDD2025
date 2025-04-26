@@ -86,3 +86,15 @@ void afisareReteta(Reteta reteta) {
 	printf("Valoare: %.2f\n", reteta.valoare);
 
 }
+
+// Functia de afisare a listei
+void afisareLista(Nod* cap) {
+
+	while (cap) {
+
+		afisareReteta(cap->reteta);
+		cap = cap->next;
+
+	}
+
+}
