@@ -90,3 +90,16 @@ void afisareListaFarmaciiInceput(ListaDubla lista) {
 	}
 
 }
+
+// Functia de afisare a listei de farmacii de la sfarsit
+void afisareListaFarmaciiSfarsit(ListaDubla lista) {
+
+	Nod* p = lista.last;
+	while (p) {
+
+		afisareFarmacie(p->farmacie);
+		p = p->prev;
+
+	}
+
+}
