@@ -174,3 +174,16 @@ void dezalocareLista(Nod** cap, int* nrMonitoare) {
 	}
 
 }
+
+// Afisare in main
+int main() {
+
+	Nod* cap = citireListaDinFisier("monitor.txt");
+	afisareListaMonitoare(cap);
+
+	int nrMonitoare = 0;
+	dezalocareLista(&cap, &nrMonitoare);
+
+	return 0;
+
+}
