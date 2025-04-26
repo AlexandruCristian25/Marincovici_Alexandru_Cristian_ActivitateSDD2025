@@ -131,3 +131,17 @@ HashTable initilaizareHashTable(int dimensiune) {
 	return ht;
 
 }
+
+// Calcularea hash-ului
+int calculeazaHash(const char* numeMedic, int dimensiune) {
+
+	int suma = 0;
+	for (int i = 0; i < strlen(numeMedic); i++) {
+
+		suma += numeMedic[i];
+
+	}
+
+	return suma % dimensiune;
+
+}
