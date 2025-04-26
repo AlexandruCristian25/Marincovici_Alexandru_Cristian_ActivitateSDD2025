@@ -192,3 +192,24 @@ HashTable citireRetetaDinFisier(const char* numeFisier, int dimensiune) {
 	return hash;
 
 }
+
+// Functie de afisare a tabelei
+void afisareTabelaDeRetete(HashTable ht) {
+
+	for (int i = 0; i < ht.dim; i++) {
+
+		if (ht.tabela[i] != NULL) {
+
+			printf("\nRetetele de pe pozitia %d sunt:\n");
+			afisareLista(ht.tabela[i]);
+
+		}
+		else {
+
+			printf("\nPe pozitia %d nu avem retete:\n", i);
+
+		}
+
+	}
+
+}
