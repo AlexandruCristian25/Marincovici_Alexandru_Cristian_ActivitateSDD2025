@@ -28,3 +28,50 @@ Monitor initializareMonitor(unsigned int cod, char* producator,
 	return m;
 
 }
+
+// Citire din fisier
+Monitor citireFisier(FILE* f) {
+
+	char buffer[100];
+	Monitor m = { 0, NULL, 0.0f, 0 };
+
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token = strtok(buffer, ",;\n");
+		if (token == NULL) {
+
+			return m;
+
+		}
+		m.cod = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return m;
+
+		}
+		m.producator = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(m.producator, token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return m;
+
+		}
+		m.diagonala = (float)atof(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return m;
+
+		}
+		m.nrPorturi = atoi(token);
+
+	}
+
+	return m;
+
+}
