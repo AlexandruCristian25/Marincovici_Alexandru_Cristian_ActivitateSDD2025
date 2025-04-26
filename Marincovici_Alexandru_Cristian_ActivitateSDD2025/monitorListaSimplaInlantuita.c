@@ -83,3 +83,15 @@ typedef struct Nod {
 	struct Nod* next;
 
 }Nod;
+
+// Afisare lista monitoare
+void afisareListaMonitoare(Nod* cap) {
+
+	while (cap != NULL) {
+
+		afisareMonitor(cap->info);
+		cap = cap->next;
+
+	}
+
+}
