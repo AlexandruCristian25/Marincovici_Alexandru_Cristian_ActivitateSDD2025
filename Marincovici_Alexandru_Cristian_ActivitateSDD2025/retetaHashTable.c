@@ -145,3 +145,22 @@ int calculeazaHash(const char* numeMedic, int dimensiune) {
 	return suma % dimensiune;
 
 }
+
+// Functia de inserare a unui element in tabela
+void inserareRetetaInTabela(HashTable hash, Reteta reteta) {
+
+	int pozitie = calculeazaHash(reteta.numeMedic, hash.dim);
+	if (hash.tabela[pozitie] == NULL) {
+
+		hash.tabela[pozitie] = (Nod*)malloc(sizeof(Nod));
+		hash.tabela[pozitie]->reteta = reteta;
+		hash.tabela[pozitie]->next = NULL;
+
+	}
+	else {
+
+		adaugaRetetaInLista(hash.tabela[pozitie], reteta);
+
+	}
+
+}
