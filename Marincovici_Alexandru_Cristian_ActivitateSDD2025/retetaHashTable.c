@@ -98,3 +98,20 @@ void afisareLista(Nod* cap) {
 	}
 
 }
+
+// Functia de adaugare in lista
+void adaugaRetetaInLista(Nod* cap, Reteta retetaNoua) {
+
+	Nod* p = cap;
+	while (p->next) {
+
+		p = p->next;
+
+	}
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->reteta = retetaNoua;
+	nou->next = NULL;
+	p->next = nou;
+
+}
