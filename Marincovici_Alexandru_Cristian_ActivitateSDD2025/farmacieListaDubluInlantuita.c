@@ -59,3 +59,12 @@ Farmacie citireFisier(FILE* f) {
 	return fa;
 
 }
+
+// Functia de afisare a Farmaciei
+void afisareFarmacie(Farmacie farmacie) {
+
+	printf("Denumire: %s\n", farmacie.denumire);
+	printf("Suprafata: %.2f\n", farmacie.suprafata);
+	printf("Nr angajati: %d\n", farmacie.nrAngajati);
+
+}
