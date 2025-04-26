@@ -76,3 +76,13 @@ Reteta citireFisier(FILE* f) {
 	return r;
 
 }
+
+// Afisare Reteta
+void afisareReteta(Reteta reteta) {
+
+	printf("Nr: %d\n", reteta.nr);
+	printf("Nr medicamente: %d\n", reteta.nrMedicamente);
+	printf("Nume medic: %s\n", reteta.numeMedic);
+	printf("Valoare: %.2f\n", reteta.valoare);
+
+}
