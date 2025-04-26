@@ -213,3 +213,25 @@ void afisareTabelaDeRetete(HashTable ht) {
 	}
 
 }
+
+// Functia de dezalocare a listei
+void dezalocareLista(Nod** cap) {
+
+	Nod* p = *cap;
+	while (p) {
+
+		Nod* temp = p;
+		p = p->next;
+		if (temp->reteta.numeMedic != NULL) {
+
+			free(temp->reteta.numeMedic);
+
+		}
+
+		free(temp);
+
+	}
+
+	*cap = NULL;
+
+}
