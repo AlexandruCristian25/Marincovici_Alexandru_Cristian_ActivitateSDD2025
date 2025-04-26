@@ -125,4 +125,30 @@ void adaugaLaFinaltInLista(ListaDubla* lista, Farmacie farmacieNoua) {
 
 	lista->last = nou;
 	lista->nrNoduri++;
+
+}
+
+// Functie de adaugare a unui element la inceputul listei
+void adaugaLaInceputtInLista(ListaDubla* lista, Farmacie farmacieNoua) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->farmacie = farmacieNoua; // shalow copy
+	nou->next = lista->first;
+	nou->prev = NULL;
+
+	if (lista->first != NULL) {
+
+		lista->first->prev = nou;
+
+	}
+	else {
+
+
+		lista->last = nou;
+
+	}
+
+	lista->first = nou;
+	lista->nrNoduri++;
+
 }
