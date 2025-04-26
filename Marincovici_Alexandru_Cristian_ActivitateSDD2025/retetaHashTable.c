@@ -250,3 +250,21 @@ void dezalocareTabela(HashTable* ht) {
 	ht->dim = 0;
 
 }
+
+// Afisare in main
+int main() {
+
+	HashTable ht = citireRetetaDinFisier("reteta.txt", 6);
+	afisareTabelaDeRetete(ht);
+
+	printf("\n============    Lista retete   ============\n");
+	afisareTabelaDeRetete(ht);
+
+	dezalocareTabela(&ht);
+
+	printf("\n============    Lista retete dupa dezalocare   ============\n");
+	afisareTabelaDeRetete(ht);
+
+	return 0;
+
+}
