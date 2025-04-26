@@ -95,3 +95,30 @@ void afisareListaMonitoare(Nod* cap) {
 	}
 
 }
+
+// Adaugare monitor la sfarsit
+void adaugaMonitorInLista(Nod** cap, Monitor monitorNou) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->info = monitorNou;
+	nou->next = NULL;
+
+	if (*cap) {
+
+		Nod* p = *cap;
+		while (p->next != NULL) {
+
+			p = p->next;
+
+		}
+
+		p->next = nou;
+
+	}
+	else {
+
+		*cap = nou;
+
+	}
+
+}
