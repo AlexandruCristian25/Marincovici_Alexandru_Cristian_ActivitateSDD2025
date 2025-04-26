@@ -103,3 +103,26 @@ void afisareListaFarmaciiSfarsit(ListaDubla lista) {
 	}
 
 }
+
+// Functie de adaugare a unui element la finalul listei 
+void adaugaLaFinaltInLista(ListaDubla* lista, Farmacie farmacieNoua) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->farmacie = farmacieNoua; // shalow copy
+	nou->next = NULL;
+	nou->prev = lista->last;
+
+	if (lista->last != NULL) {
+
+		lista->last->next = nou;
+
+	}
+	else {
+
+		lista->first = nou;
+
+	}
+
+	lista->last = nou;
+	lista->nrNoduri++;
+}
