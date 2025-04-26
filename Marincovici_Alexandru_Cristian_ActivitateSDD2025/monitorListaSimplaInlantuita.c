@@ -122,3 +122,35 @@ void adaugaMonitorInLista(Nod** cap, Monitor monitorNou) {
 	}
 
 }
+
+// Citire lista din fisier
+Nod* citireListaDinFisier(const char* numeFisier) {
+
+	Nod* cap = NULL;
+	FILE* f = fopen(numeFisier, "r");
+	if (f) {
+
+		while (!feof(f)) {
+
+			Monitor m = citireFisier(f);
+
+			if (m.producator != NULL) {
+
+				adaugaMonitorInLista(&cap, m);
+
+			}
+
+		}
+
+		fclose(f);
+
+	}
+	else {
+
+		printf("\nFisierul nu a putut fi deschis\n");
+
+	}
+
+	return cap;
+
+}
