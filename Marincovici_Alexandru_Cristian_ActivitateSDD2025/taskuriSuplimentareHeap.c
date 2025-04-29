@@ -203,3 +203,19 @@ Pacient extrageUrgente(Heap* heap) {
 
 	return p;
 }
+
+// Dezalocare Heap
+void dezalocareHeap(Heap* heap) {
+
+	for (int i = 0; i < heap->lungime; i++) {
+
+		free(heap->vector[i].nume);
+
+	}
+
+	free(heap->vector);
+	heap->vector = NULL;
+	heap->lungime = 0;
+	heap->nrPacienti = 0;
+
+}
