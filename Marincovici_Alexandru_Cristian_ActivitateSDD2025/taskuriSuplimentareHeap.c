@@ -219,3 +219,35 @@ void dezalocareHeap(Heap* heap) {
 	heap->nrPacienti = 0;
 
 }
+
+// Afisarea in main
+int main() {
+
+	Heap heap = citireHeapPacientDinFisier("urgente.txt");
+	afisareHeap(heap);
+
+	printf("\n=============  Urgente extrase  ===========\n");
+	afisarePacienti(extrageUrgente(&heap));
+	afisarePacienti(extrageUrgente(&heap));
+	afisarePacienti(extrageUrgente(&heap));
+	afisarePacienti(extrageUrgente(&heap));
+	afisarePacienti(extrageUrgente(&heap));
+	afisarePacienti(extrageUrgente(&heap));
+	afisarePacienti(extrageUrgente(&heap));
+
+	printf("\n=============  Heap-ul ascuns  ===========\n");
+	afiseazaHeapAscuns(heap);
+
+	printf("\n=========== Urgente extrase (prioritate mare = grad mare) ==========\n");
+	while (heap.nrPacienti > 0) {
+
+		afisarePacienti(extrageUrgente(&heap));
+
+	}
+
+	printf("\n=============  Heap-ul dupa dezalocare  ===========\n");
+	dezalocareHeap(&heap);
+
+	return 0;
+
+}
