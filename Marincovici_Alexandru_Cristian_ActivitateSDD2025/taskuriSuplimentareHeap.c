@@ -162,3 +162,24 @@ void afiseazaHeapAscuns(Heap heap) {
 	}
 
 }
+
+// Extragere a unui element din Heap
+Pacient extragePacient(Heap* heap) {
+
+	if (heap->nrPacienti > 0) {
+
+		Pacient aux = heap->vector[0];
+		heap->vector[0] = heap->vector[heap->nrPacienti - 1];
+		heap->vector[heap->nrPacienti - 1] = aux;
+		heap->nrPacienti--;
+		for (int i = (heap->nrPacienti - 2) / 2; i >= 0; i--) {
+
+			filtreazaHeap(*heap, i);
+
+		}
+
+		return aux; // shallow copy
+
+	}
+
+}
