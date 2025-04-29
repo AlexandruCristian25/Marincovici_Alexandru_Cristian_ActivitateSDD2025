@@ -151,3 +151,14 @@ void afisareHeap(Heap heap) {
 	}
 
 }
+
+// Functia de afisare a elementelor ascunse din heap
+void afiseazaHeapAscuns(Heap heap) {
+
+	for (int i = heap.nrPacienti; i < heap.lungime; i++) {
+
+		afisarePacienti(heap.vector[i]);
+
+	}
+
+}
