@@ -69,3 +69,15 @@ void afisarePacienti(Pacient pacient) {
 	printf("Grad Urgenta: %d\n", pacient.gradUrgenta);
 
 }
+
+// Initializare Heap
+Heap initializareHeap(int lungime) {
+
+	Heap heap;
+	heap.lungime = lungime;
+	heap.nrPacienti = 0;
+	heap.vector = (Pacient*)malloc(sizeof(Pacient) * lungime);
+
+	return heap;
+
+}
