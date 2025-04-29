@@ -58,3 +58,14 @@ Pacient citireDinFisier(FILE* f) {
 	return p;
 
 }
+
+// Functia de afisare a pacientului
+void afisarePacienti(Pacient pacient) {
+
+	printf("Id: %u\n", pacient.id);
+	printf("Nume: %s\n", pacient.nume);
+	printf("Varsta: %d\n", pacient.varsta);
+	printf("Inaltime: %d\n", pacient.inaltime);
+	printf("Grad Urgenta: %d\n", pacient.gradUrgenta);
+
+}
