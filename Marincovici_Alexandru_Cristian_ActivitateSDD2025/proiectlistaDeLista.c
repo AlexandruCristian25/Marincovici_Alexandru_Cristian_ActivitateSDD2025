@@ -101,3 +101,11 @@ typedef struct nodLS {
 	nodLS* next;
 
 };
+
+// Creare structura Lista principala - nodLP
+typedef struct nodeLP {
+
+	nodLS* info;
+	nodLP* next;
+
+};
