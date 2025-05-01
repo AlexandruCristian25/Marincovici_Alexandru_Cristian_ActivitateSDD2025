@@ -220,3 +220,27 @@ void dezalocareLS(nodLS* capLS) {
 	}
 
 }
+
+// Afisarea in main
+void main() {
+
+	int nr;
+	Proiect p;
+
+	nodLS* capLS = NULL;
+	nodLS* capLS1 = NULL;
+	nodLP* capLP = NULL;
+
+	char buffer[50];
+
+	FILE* f = fopen("proiect.txt", "r");
+	fclose(f);
+	afisareLS(capLS);
+	afisareLS(capLS1);
+
+	capLP = inserareLP(capLP, capLS);
+	capLP = inserareLP(capLP, capLS1);
+	printf("\n Lista de liste: \n");
+	afisareLP(capLP);
+
+}
