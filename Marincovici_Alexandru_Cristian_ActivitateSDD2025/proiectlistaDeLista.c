@@ -189,3 +189,18 @@ void afisareLS(nodLS* capLS) {
 	}
 
 }
+
+// Afisare Lista Principala
+void afisareLP(nodLP* capLP) {
+
+	nodLP* aux = capLP;
+	int contor = 1;
+	while (aux) {
+
+		printf("Sublista: %d\n", contor++);
+		afisareLS(aux->info);
+		aux = aux->next;
+
+	}
+
+}
