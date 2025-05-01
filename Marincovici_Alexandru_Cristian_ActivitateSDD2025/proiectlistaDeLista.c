@@ -36,3 +36,13 @@ Proiect initilaizareProiect(unsigned int id, const char* nume,
 	return p;
 
 }
+
+// Afisare Proiect
+void afisareProiect(Proiect proiect) {
+
+	printf("Id: %u\n", proiect.id);
+	printf("Nume: %s\n", proiect.nume);
+	printf("Caracteristici: %u\n", proiect.caracteristici);
+	printf("Dimensiune: %d\n", proiect.dimensiune);
+
+}
