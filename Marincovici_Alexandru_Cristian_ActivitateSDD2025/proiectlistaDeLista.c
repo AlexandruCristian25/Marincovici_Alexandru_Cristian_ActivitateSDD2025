@@ -168,3 +168,24 @@ nodLP* inserareLP(nodLP* capLP, nodLS* capLS) {
 	return capLP;
 
 }
+
+// Afisare Lista Secundara
+void afisareLS(nodLS* capLS) {
+
+	nodLS* aux = capLS;
+	while (aux) {
+
+		printf("\n%u, %s, %u, %d\n", aux->info.id, aux->info.nume,
+			aux->info.caracteristici, aux->info.dimensiune);
+		for (int i = 0; i < aux->info.caracteristici; i++) {
+
+			printf("%d", aux->info.dimensiune[i]);
+
+		}
+
+		printf("\n");
+		aux = aux->next;
+
+	}
+
+}
