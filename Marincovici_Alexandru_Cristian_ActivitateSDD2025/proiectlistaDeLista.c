@@ -139,3 +139,32 @@ nodLS* inserareLS(nodLS* capLS, Proiect p) {
 	return capLS;
 
 }
+
+//Inserare in Lista Principala
+nodLP* inserareLP(nodLP* capLP, nodLS* capLS) {
+
+	nodLP* nou = (nodLP*)malloc(sizeof(nodLP));
+	nou->info = capLS;
+	nou->next = NULL;
+
+	if (capLP = NULL) {
+
+		capLP = nou;
+
+	}
+	else {
+
+		nodLP* aux = capLP;
+		while (aux->next) {
+
+			aux = aux->next;
+
+		}
+
+		aux->next = nou;
+
+	}
+
+	return capLP;
+
+}
