@@ -16,6 +16,7 @@ struct Rezervare {
 	int nrCamere;
 	float suma;
 
+
 };
 
 rezervare createRezervare(unsigned int id, char* hotel,
