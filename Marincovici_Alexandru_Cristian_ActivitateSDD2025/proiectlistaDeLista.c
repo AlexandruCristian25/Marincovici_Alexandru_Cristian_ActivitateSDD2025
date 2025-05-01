@@ -17,3 +17,22 @@ typedef struct Proiect {
 	int* dimensiune;
 
 }Proiect;
+
+// Initializare proiect
+Proiect initilaizareProiect(unsigned int id, const char* nume,
+	unsigned char caracteristici, int* dimensiune) {
+
+	Proiect p;
+	p.id = id;
+	p.nume = (char*)malloc(sizeof(char) * strlen(nume) + 1);
+	strcpy(p.nume, nume);
+	p.caracteristici = caracteristici;
+	for (int i = 0; i < caracteristici; i++) {
+
+		p.dimensiune[i] = dimensiune[i];
+
+	}
+
+	return p;
+
+}
