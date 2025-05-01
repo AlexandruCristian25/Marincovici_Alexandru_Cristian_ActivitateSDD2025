@@ -93,3 +93,11 @@ Proiect citireDinFisier(FILE* f) {
 	return p;
 
 }
+
+// Creare structura Lista simpla - nodLS
+typedef struct nodLS {
+
+	Proiect info;
+	nodLS* next;
+
+};
