@@ -204,3 +204,19 @@ void afisareLP(nodLP* capLP) {
 	}
 
 }
+
+// Dezalocare Lista Secundara
+void dezalocareLS(nodLS* capLS) {
+
+	nodLS* aux = capLS;
+	while (aux) {
+
+		free(aux->info.nume);
+		free(aux->info.dimensiune);
+		nodLS* temp = aux->next;
+		free(aux);
+		aux = temp;
+
+	}
+
+}
