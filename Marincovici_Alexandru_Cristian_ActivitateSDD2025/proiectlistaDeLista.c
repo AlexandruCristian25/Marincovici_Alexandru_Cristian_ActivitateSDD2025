@@ -109,3 +109,33 @@ typedef struct nodeLP {
 	nodLP* next;
 
 };
+
+// Inserare in Lista Simpla
+nodLS* inserareLS(nodLS* capLS, Proiect p) {
+
+	nodLS* nou = (nodLS*)malloc(sizeof(nodLS));
+	nou->info = initilaizareProiect(p.id, p.nume,
+		p.caracteristici, p.dimensiune);
+	nou->next = NULL;
+
+	if (capLS = NULL) {
+
+		capLS = nou;
+
+	}
+	else {
+
+		nodLS* aux = capLS;
+		while (aux->next) {
+
+			aux = aux->next;
+
+		}
+
+		aux->next = nou;
+
+	}
+
+	return capLS;
+
+}
