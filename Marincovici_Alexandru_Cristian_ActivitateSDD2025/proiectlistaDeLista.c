@@ -46,3 +46,50 @@ void afisareProiect(Proiect proiect) {
 	printf("Dimensiune: %d\n", proiect.dimensiune);
 
 }
+
+// Citire din fisier
+Proiect citireDinFisier(FILE* f) {
+
+	char buffer[100];
+	Proiect p = { 0, NULL, NULL, 0 };
+
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token = strtok(buffer, ",;\n");
+		if (token == NULL) {
+
+			return p;
+
+		}
+		p.id = atoi(token);
+
+		token = (NULL, ",;\n");
+		if (token == NULL) {
+
+			return p;
+
+		}
+		p.nume = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(p.nume, token);
+
+		token = (NULL, ",;\n");
+		if (token == NULL) {
+
+			return p;
+
+		}
+		p.caracteristici = atoi(token);
+
+		token = (NULL, ",;\n");
+		if (token == NULL) {
+
+			return p;
+
+		}
+		p.dimensiune = atoi(token);
+
+	}
+
+	return p;
+
+}
