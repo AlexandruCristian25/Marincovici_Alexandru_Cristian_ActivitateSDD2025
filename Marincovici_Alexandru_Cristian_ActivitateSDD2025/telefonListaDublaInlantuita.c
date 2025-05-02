@@ -199,3 +199,27 @@ ListaDubla citireLDDinFisier(const char* numeFisier) {
 	return lista;
 
 }
+
+// Functia de dezalocare a listei dublu inlantuite
+void dezalocareLista(ListaDubla* lista) {
+
+	Nod* p = lista->first;
+	while (p) {
+
+		Nod* aux = p;
+		p = p->next;
+		if (aux->telefon.producator != NULL) {
+
+			free(aux->telefon.producator);
+
+		}
+
+		free(aux);
+
+	}
+
+	lista->first = NULL;
+	lista->last = NULL;
+	lista->nrNoduri = 0;
+
+}
