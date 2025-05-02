@@ -13,3 +13,18 @@ typedef struct Telefon {
 	float pret;
 
 }Telefon;
+
+// Functia de initializare
+Telefon initializareTelefon(unsigned int cod, const char* producator,
+	int nrExemplare, float pret) {
+
+	Telefon t;
+	t.cod = cod;
+	t.producator = (char*)malloc(sizeof(char) * strlen(producator) + 1);
+	strcpy(t.producator, producator);
+	t.nrExemplare = nrExemplare;
+	t.pret = pret;
+
+	return t;
+
+}
