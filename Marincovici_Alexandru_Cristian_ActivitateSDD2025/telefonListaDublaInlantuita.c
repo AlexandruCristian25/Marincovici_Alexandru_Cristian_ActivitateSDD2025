@@ -38,3 +38,52 @@ typedef struct Nod {
 
 
 }Nod;
+
+// Citire din fisier
+Telefon citireFisier(FILE* f) {
+
+	char buffer[100];
+	Telefon t = { 0, NULL, 0, 0.0 };
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token = strtok(buffer, ",;\n");
+		if (token == NULL) {
+
+			return t;
+
+
+		}
+		t.cod = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return t;
+
+
+		}
+		t.producator = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(t.producator, token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return t;
+
+
+		}
+		t.nrExemplare = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return t;
+
+
+		}
+		t.pret = atof(token);
+
+	}
+
+	return t;
+}
