@@ -115,3 +115,19 @@ void adaugaJocVideoInLista(Nod* cap, JocVideo jocNou) {
 	p->next = nou;
 
 }
+
+// Initializare HashTable
+HashTable initializareHashTable(int dimensiune) {
+
+	HashTable ht;
+	ht.dim = dimensiune;
+	ht.tabela = (Nod**)malloc(dimensiune * sizeof(Nod*));
+	for (int i = 0; i < dimensiune; i++) {
+
+		ht.tabela[i] = NULL;
+
+	}
+
+	return ht;
+
+}
