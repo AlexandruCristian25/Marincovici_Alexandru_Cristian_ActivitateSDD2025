@@ -76,3 +76,13 @@ JocVideo citireFisier(FILE* f) {
 	return j;
 
 }
+
+// Afisare Joc Video
+void afisareJocVideo(JocVideo jocVideo) {
+
+	printf("Id: %u\n", jocVideo.id);
+	printf("Nume: %s\n", jocVideo.nume);
+	printf("Nr exemplare: %d\n", jocVideo.nrCopii);
+	printf("Pret: %.2f\n", jocVideo.pret);
+
+}
