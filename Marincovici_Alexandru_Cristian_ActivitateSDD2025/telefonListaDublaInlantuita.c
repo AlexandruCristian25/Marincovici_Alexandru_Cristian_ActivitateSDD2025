@@ -86,4 +86,15 @@ Telefon citireFisier(FILE* f) {
 	}
 
 	return t;
+
+}
+
+// Functia de afisare a Telefonului
+void afisareTelefon(Telefon telefon) {
+
+	printf("Cod: %u\n", telefon.cod);
+	printf("Producator: %s\n", telefon.producator);
+	printf("Nr exemplare: %d\n", telefon.nrExemplare);
+	printf("Pret: %.2f\n", telefon.pret);
+
 }
