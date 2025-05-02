@@ -86,3 +86,15 @@ void afisareJocVideo(JocVideo jocVideo) {
 	printf("Pret: %.2f\n", jocVideo.pret);
 
 }
+
+// Functia de afiare a listei
+void afisareLista(Nod* cap) {
+
+	while (cap) {
+
+		afisareJocVideo(cap->jocVideo);
+		cap = cap->next;
+
+	}
+
+}
