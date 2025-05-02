@@ -179,3 +179,23 @@ void adaugaLaInceputlInLista(ListaDubla* lista, Telefon telefonNou) {
 	lista->nrNoduri++;
 
 }
+
+// Functia de citire a elementelor din fisier
+ListaDubla citireLDDinFisier(const char* numeFisier) {
+
+	FILE* f = fopen(numeFisier, "r");
+	ListaDubla lista;
+	lista.first = NULL;
+	lista.last = NULL;
+	lista.nrNoduri = 0;
+
+	while (!feof(f)) {
+
+		adaugaLaFinalInLista(&lista, citireFisier(f));
+
+	}
+
+	fclose(f);
+	return lista;
+
+}
