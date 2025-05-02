@@ -223,3 +223,18 @@ void dezalocareLista(ListaDubla* lista) {
 	lista->nrNoduri = 0;
 
 }
+
+// Afisare in main
+int main() {
+
+	ListaDubla lista = citireLDDinFisier("telefon.txt");
+	afisareListaInceput(lista);
+
+	printf("\n =============  Afisare lista de la sfarsit  ===================\n");
+	afisareListaSfarsit(lista);
+
+	dezalocareLista(&lista);
+	printf("\n =============  Afisare lista dupa dezalocare  ===================\n");
+	afisareListaSfarsit(lista);
+
+}
