@@ -120,3 +120,16 @@ void afisareListaInceput(ListaDubla lista) {
 	}
 
 }
+
+// Functia de afisare a listei duble la sfarsit
+void afisareListaSfarsit(ListaDubla lista) {
+
+	Nod* p = lista.last;
+	while (p) {
+
+		afisareTelefon(p->telefon);
+		p = p->prev;
+
+	}
+
+}
