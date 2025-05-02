@@ -213,3 +213,25 @@ void afisareTabela(HashTable ht) {
 	}
 
 }
+
+// Functia de dezalocare a listei
+void dezalocareLista(Nod** cap) {
+
+	Nod* p = *cap;
+	while (p) {
+
+		Nod* temp = p;
+		p = p->next;
+		if (temp->jocVideo.nume != NULL) {
+
+			free(temp->jocVideo.nume);
+
+		}
+
+		free(temp);
+
+	}
+
+	*cap = NULL;
+
+}
