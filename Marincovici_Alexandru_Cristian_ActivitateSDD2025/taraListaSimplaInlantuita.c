@@ -78,3 +78,15 @@ void afisareTara(Tara tara) {
 	printf("PIB: %d\n", tara.PIB);
 
 }
+
+// Functia de afisare a listei de tari
+void afisareListaTari(Nod* cap) {
+
+	while (cap) {
+
+		afisareTara(cap->info);
+		cap = cap->next;
+
+	}
+
+}
