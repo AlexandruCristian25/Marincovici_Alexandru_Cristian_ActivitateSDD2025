@@ -98,3 +98,20 @@ void afisareLista(Nod* cap) {
 	}
 
 }
+
+// Functia de adaugare in lista
+void adaugaJocVideoInLista(Nod* cap, JocVideo jocNou) {
+
+	Nod* p = cap;
+	while (p->next) {
+
+		p = p->next;
+
+	}
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->jocVideo = jocNou;
+	nou->next = NULL;
+	p->next = nou;
+
+}
