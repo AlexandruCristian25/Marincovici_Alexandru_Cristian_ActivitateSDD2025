@@ -117,3 +117,29 @@ void adaugaTaraInLista(Nod** cap, Tara taraNoua) {
 	}
 
 }
+
+// Citirea listei din fisier
+Nod* citireListaTariDinFisier(const char* numeFisier) {
+
+	Nod* cap = NULL;
+	FILE* f = fopen(numeFisier, "r");
+
+	if (f) {
+
+		while (!feof(f)) {
+
+			Tara t = citireDinFisier(f);
+			if (t.nume) {
+
+				adaugaTaraInLista(&cap, t);
+
+			}
+
+		}
+		fclose(f);
+
+	}
+
+	return cap;
+
+}
