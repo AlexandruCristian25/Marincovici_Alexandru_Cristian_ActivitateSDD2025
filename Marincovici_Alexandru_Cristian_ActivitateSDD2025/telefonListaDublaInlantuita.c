@@ -98,3 +98,12 @@ void afisareTelefon(Telefon telefon) {
 	printf("Pret: %.2f\n", telefon.pret);
 
 }
+
+// Creare lista dubla
+typedef struct ListaDubla {
+
+	Nod* first;
+	Nod* last;
+	int nrNoduri;
+
+}ListaDubla;
