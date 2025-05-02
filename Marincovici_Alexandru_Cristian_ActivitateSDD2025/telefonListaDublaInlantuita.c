@@ -28,3 +28,13 @@ Telefon initializareTelefon(unsigned int cod, const char* producator,
 	return t;
 
 }
+
+// Creare structura nod
+typedef struct Nod {
+
+	Telefon telefon;
+	struct Nod* next;
+	struct Nod* prev;
+
+
+}Nod;
