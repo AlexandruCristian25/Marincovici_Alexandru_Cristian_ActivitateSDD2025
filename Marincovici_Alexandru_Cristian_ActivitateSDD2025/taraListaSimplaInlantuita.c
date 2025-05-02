@@ -13,3 +13,11 @@ typedef struct Tara {
 	int PIB
 
 }Tara;
+
+// Creare structura Nod
+typedef struct Nod {
+
+	Tara info;
+	struct Nod* next;
+
+}Nod;
