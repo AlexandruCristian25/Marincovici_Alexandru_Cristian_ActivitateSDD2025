@@ -156,3 +156,26 @@ void adaugaLaFinalInLista(ListaDubla* lista, Telefon telefonNou) {
 	lista->nrNoduri++;
 
 }
+
+// Functia de adaugare a unui element la inceputul listei
+void adaugaLaInceputlInLista(ListaDubla* lista, Telefon telefonNou) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->telefon = telefonNou;
+	nou->next = lista->first;
+	nou->prev = NULL;
+
+	if (lista->first != NULL) {
+
+		lista->first->prev = nou;
+
+	}
+	else {
+
+		lista->last = nou;
+
+	}
+	lista->first = nou;
+	lista->nrNoduri++;
+
+}
