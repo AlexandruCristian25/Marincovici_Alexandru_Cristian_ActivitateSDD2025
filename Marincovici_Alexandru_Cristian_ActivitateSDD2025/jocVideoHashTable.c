@@ -164,3 +164,31 @@ void inserareJocVideoInTabela(HashTable hash, JocVideo jocVideo) {
 	}
 
 }
+
+// Citirea elementelor din fisier
+HashTable citireJocVideoDinFisier(const char* numeFisier, int dimensiune) {
+
+	HashTable hash = initializareHashTable(dimensiune);
+	FILE* f = fopen(numeFisier, "r");
+	if (!f) {
+
+		printf("\nEroare la deschiderea fisierului!\n");
+		return hash;
+
+	}
+
+	while (!feof(f)) {
+
+		JocVideo jocVideo = citireFisier(f);
+		if (jocVideo.nume != NULL) {
+
+			inserareJocVideoInTabela(hash, jocVideo);
+
+		}
+
+	}
+
+	fclose(f);
+	return hash;
+
+}
