@@ -162,3 +162,18 @@ void dezalocareLista(Nod** cap) {
 	}
 
 }
+
+// Afisare in main
+int main() {
+
+	Nod* cap = citireListaTariDinFisier("tara.txt");
+
+	printf("\n ==============  Lista tari  ================== \n");
+	afisareListaTari(cap);
+
+	dezalocareLista(&cap);
+
+	printf("\n ==============  Lista tari dupa dezalocare  ================== \n");
+	afisareListaTari(cap);
+
+}
