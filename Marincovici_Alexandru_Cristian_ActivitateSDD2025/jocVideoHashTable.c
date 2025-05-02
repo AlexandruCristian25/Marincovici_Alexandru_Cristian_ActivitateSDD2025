@@ -250,3 +250,21 @@ void dezalocareTabela(HashTable* ht) {
 	ht->dim = 0;
 
 }
+
+// Afisarea in main
+int main() {
+
+	HashTable ht = citireJocVideoDinFisier("joc.txt", 7);
+	afisareTabela(ht);
+
+	printf("\n ================  Lista Jocuri Video  ================\n");
+	afisareTabela(ht);
+
+	dezalocareTabela(&ht);
+
+	printf("\n ================  Lista Jocuri Video dupa dezalocare  ================\n");
+	afisareTabela(ht);
+
+	return 0;
+
+}
