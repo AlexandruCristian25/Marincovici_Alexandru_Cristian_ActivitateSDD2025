@@ -107,3 +107,16 @@ typedef struct ListaDubla {
 	int nrNoduri;
 
 }ListaDubla;
+
+// Functia de afisare a listei duble la inceput
+void afisareListaInceput(ListaDubla lista) {
+
+	Nod* p = lista.first;
+	while (p) {
+
+		afisareTelefon(p->telefon);
+		p = p->next;
+
+	}
+
+}
