@@ -68,3 +68,13 @@ Tara citireDinFisier(FILE* f) {
 	return t;
 
 }
+
+// Functia de afisare a Tarii
+void afisareTara(Tara tara) {
+
+	printf("Cod: %u\n", tara.cod);
+	printf("Nume: %s\n", tara.nume);
+	printf("Nr locuitori: %d\n", tara.nrLocuitori);
+	printf("PIB: %d\n", tara.PIB);
+
+}
