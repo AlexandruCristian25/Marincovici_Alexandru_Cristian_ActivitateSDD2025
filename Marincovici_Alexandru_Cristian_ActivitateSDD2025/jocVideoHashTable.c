@@ -13,3 +13,11 @@ typedef struct JocVideo {
 	float pret;
 
 }JocVideo;
+
+// Creare structura nod
+typedef struct Nod {
+
+	JocVideo jocVideo;
+	struct Nod* next;
+
+}Nod;
