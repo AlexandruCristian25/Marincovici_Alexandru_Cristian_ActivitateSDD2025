@@ -145,3 +145,22 @@ int calculeazaHash(const char* nume, int dimensiune) {
 	return suma % dimensiune;
 
 }
+
+// Functia de inserare a unui element in tabela
+void inserareJocVideoInTabela(HashTable hash, JocVideo jocVideo) {
+
+	int pozitie = calculeazaHash(jocVideo.nume, hash.dim);
+	if (hash.tabela[pozitie] == NULL) {
+
+		hash.tabela[pozitie] = (Nod*)malloc(sizeof(Nod));
+		hash.tabela[pozitie]->jocVideo = jocVideo;
+		hash.tabela[pozitie]->next = NULL;
+
+	}
+	else {
+
+		adaugaJocVideoInLista(hash.tabela[pozitie], jocVideo);
+
+	}
+
+}
