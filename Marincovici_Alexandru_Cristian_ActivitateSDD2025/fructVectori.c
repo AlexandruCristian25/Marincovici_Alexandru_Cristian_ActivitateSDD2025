@@ -30,3 +30,14 @@ void afisareFruct(Fruct fruct) {
     printf("Cod: %u, Nume: %s, Pret: %.2f\n", fruct.cod, fruct.nume, fruct.pret);
 
 }
+
+// Afisare vector de Fructe
+void afisareVector(Fruct* vector, int nrElemente) {
+
+    for (int i = 0; i < nrElemente; i++) {
+
+        afisareFruct(vector[i]);
+
+    }
+
+}
