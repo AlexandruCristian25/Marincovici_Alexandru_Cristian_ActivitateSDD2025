@@ -135,3 +135,48 @@ void dezalocareVector(Fruct** vector, int* nrElemente) {
     *nrElemente = 0;
 
 }
+
+// Afisare in main
+int main() {
+
+    Fruct* nrFructe = NULL;
+    int fructe = 3;
+
+    nrFructe = (Fruct*)malloc(sizeof(Fruct) * fructe);
+    nrFructe[0] = initializareFruct(23, "Mar", 10.99f);
+    nrFructe[1] = initializareFruct(50, "Para", 7.99f);
+    nrFructe[2] = initializareFruct(89, "Cirese", 15.99f);
+
+    printf("Toate fructele:\n");
+    afisareVector(nrFructe, fructe);
+
+    // Primele fructe
+    int nrPrimeleFructe = 2;
+    Fruct* primeleFructe = copiazaPrimeleElemente(nrFructe, fructe, nrPrimeleFructe);
+    printf("\nPrimele fructe:\n");
+    afisareVector(primeleFructe, nrPrimeleFructe);
+    dezalocareVector(&primeleFructe, &nrPrimeleFructe);
+
+    // Fructe scumpe
+    Fruct* fructeScumpe = NULL;
+    int nrFructeScumpe = 0;
+    copiazaFruct(nrFructe, fructe, 7.99f, &fructeScumpe, &nrFructeScumpe);
+    printf("\nFructe scumpe:\n");
+    afisareVector(fructeScumpe, nrFructeScumpe);
+    dezalocareVector(&fructeScumpe, &nrFructeScumpe);
+
+    // Cautare fruct dupa nume
+    Fruct fruct = getPrimulFruct(nrFructe, fructe, "Cirese");
+    printf("\nFruct gasit:\n");
+    afisareFruct(fruct);
+    if (fruct.nume != NULL) {
+        free(fruct.nume);
+        fruct.nume = NULL;
+    }
+
+    // Dezalocare finala
+    dezalocareVector(&nrFructe, &fructe);
+
+    return 0;
+
+}
