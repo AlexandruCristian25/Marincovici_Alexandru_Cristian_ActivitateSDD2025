@@ -66,3 +66,27 @@ Ghiozdan* copiazaPrimeleElemente(Ghiozdan* vector, int nrElemente,
 	return vectorNou;
 
 }
+
+// Returneaza primul ghiozdan cu numele dat
+Ghiozdan getPrimulGhiozdan(Ghiozdan* vector, int nrElemente,
+	const char* producator) {
+
+	Ghiozdan g;
+	g.producator = NULL;
+	for (int i = 0; i < nrElemente; i++) {
+
+		if (strcmp(vector[i].producator, producator) == 0) {
+
+			g = vector[i];
+			g.producator = (char*)malloc(sizeof(char) * strlen(vector[i].producator) + 1);
+			strcpy(g.producator, vector[i].producator);
+
+			return g;
+
+		}
+
+	}
+
+	return g;
+
+}
