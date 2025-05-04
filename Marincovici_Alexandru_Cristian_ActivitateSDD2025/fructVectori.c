@@ -57,3 +57,41 @@ Fruct* copiazaPrimeleElemente(Fruct* vector, int nrElemente, int nrElementeCopia
     return vectorNou;
 
 }
+
+// Copiere fructe cu pret >= pretMinim
+void copiazaFruct(Fruct* vector, int nrElemente, float pretMinim, Fruct** vectorNou, int* dimensiune) {
+
+    *dimensiune = 0;
+
+    for (int i = 0; i < nrElemente; i++) {
+
+        if (vector[i].pret >= pretMinim) {
+
+            (*dimensiune)++;
+
+        }
+
+    }
+
+    if (*vectorNou != NULL) {
+
+        free(*vectorNou);
+
+    }
+
+    *vectorNou = (Fruct*)malloc(sizeof(Fruct) * (*dimensiune));
+    int k = 0;
+    for (int i = 0; i < nrElemente; i++) {
+
+        if (vector[i].pret >= pretMinim) {
+
+            (*vectorNou)[k] = vector[i];
+            (*vectorNou)[k].nume = (char*)malloc(strlen(vector[i].nume) + 1);
+            strcpy((*vectorNou)[k].nume, vector[i].nume);
+            k++;
+
+        }
+
+    }
+
+}
