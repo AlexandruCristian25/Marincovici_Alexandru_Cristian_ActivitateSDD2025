@@ -23,3 +23,10 @@ Fruct initializareFruct(unsigned int cod, const char* nume, float pret) {
     return fr;
 
 }
+
+// Afisare Fruct
+void afisareFruct(Fruct fruct) {
+
+    printf("Cod: %u, Nume: %s, Pret: %.2f\n", fruct.cod, fruct.nume, fruct.pret);
+
+}
