@@ -195,3 +195,25 @@ HashTable citireDinFisier(const char* numeFisier, int dimensiune) {
 	return hash;
 
 }
+
+// Functia de afisare a tabelei
+void afisareTabela(HashTable ht) {
+
+	for (int i = 0; i < ht.dim; i++) {
+
+		if (ht.tabela[i] != NULL) {
+
+			printf("Dulciurile de pe pozitia %d sunt: \n", i);
+			afisareLista(ht.tabela[i]);
+
+		}
+		else {
+
+			printf("\nPe pozitia %d nu avem dulciuri: \n", i);
+
+		}
+
+
+	}
+
+}
