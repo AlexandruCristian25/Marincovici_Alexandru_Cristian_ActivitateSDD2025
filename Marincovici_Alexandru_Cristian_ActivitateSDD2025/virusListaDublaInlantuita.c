@@ -131,3 +131,27 @@ void afisareListaSfarsit(ListaDubla lista) {
 	}
 
 }
+
+// Functia de adaugare a unui element la finalul listei
+void adaugaLaFinalulListei(ListaDubla* lista, Virus virusNou) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->virus = virusNou;
+	nou->next = NULL;
+	nou->prev = lista->last;
+
+	if (lista->last != NULL) {
+
+		lista->last->next = nou;
+
+	}
+	else {
+
+		lista->first = nou;
+
+	}
+
+	lista->last = nou;
+	lista->nrNoduri++;
+
+}
