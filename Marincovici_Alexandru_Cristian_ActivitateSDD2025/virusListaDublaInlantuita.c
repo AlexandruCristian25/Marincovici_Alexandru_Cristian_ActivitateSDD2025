@@ -96,3 +96,12 @@ void afisareVirus(Virus virus) {
 	printf("Nr tulpini: %d\n", virus.nrTulpini);
 
 }
+
+// Creare structura lista dubla
+typedef struct ListaDubla {
+
+	Nod* first;
+	Nod* last;
+	int nrNoduri;
+
+}ListaDubla;
