@@ -76,3 +76,15 @@ void afisareFisier(Haina haina) {
 	printf("Pret: %.2f\n", haina.pret);
 
 }
+
+// Functia de afisare a listei
+void afisareLista(Nod* cap) {
+
+	while (cap) {
+
+		afisareFisier(cap->haina);
+		cap = cap->next;
+
+	}
+
+}
