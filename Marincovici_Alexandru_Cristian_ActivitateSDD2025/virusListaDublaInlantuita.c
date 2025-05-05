@@ -179,3 +179,23 @@ void adaugaLaInceputulListei(ListaDubla* lista, Virus virusNou) {
 	lista->nrNoduri++;
 
 }
+
+// Functia de citire a elementelor din fisier
+ListaDubla citireLDDinFisier(const char* numeFisier) {
+
+	FILE* f = fopne(numeFisier, "r");
+	ListaDubla lista;
+	lista.first = NULL;
+	lista.last = NULL;
+	lista.nrNoduri = 0;
+
+	while (!feof(f)) {
+
+		adaugaLaFinalulListei(&lista, citireFisier(f));
+
+	}
+
+	fclose(f);
+	return lista;
+
+}
