@@ -105,3 +105,19 @@ void adaugaFIsierInLista(Nod* cap, Haina hainaNoua) {
 	p->next = nou;
 
 }
+
+// Initializare HashTable
+HashTable initializareHashTable(int dimeniune) {
+
+	HashTable ht;
+	ht.dim = dimeniune;
+	ht.tabela = (Nod**)malloc(dimeniune * sizeof(Nod*));
+	for (int i = 0; i < dimeniune; i++) {
+
+		ht.tabela[i] = NULL;
+
+	}
+
+	return ht;
+
+}
