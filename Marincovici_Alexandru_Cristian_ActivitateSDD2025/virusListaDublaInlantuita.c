@@ -199,3 +199,34 @@ ListaDubla citireLDDinFisier(const char* numeFisier) {
 	return lista;
 
 }
+
+// Functia de dezalocare
+void dezalocareLista(ListaDubla* lista) {
+
+	Nod* p = lista->first;
+	while (p) {
+
+		Nod* aux = p;
+		p = p->next;
+
+		if (aux->virus.nume != NULL) {
+
+			free(aux->virus.nume);
+
+		}
+
+		if (aux->virus.tip != NULL) {
+
+			free(aux->virus.tip);
+
+		}
+
+		free(aux);
+
+	}
+
+	lista->first = NULL;
+	lista->last = NULL;
+	lista->nrNoduri = 0;
+
+}
