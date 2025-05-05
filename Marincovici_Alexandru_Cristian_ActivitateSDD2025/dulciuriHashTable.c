@@ -86,3 +86,15 @@ void afisareDulciuri(Dulciuri dulciuri) {
 	printf("Pret: %.2f\n", dulciuri.pret);
 
 }
+
+// Functie de afisare a listei
+void afisareLista(Nod* cap) {
+
+	while (cap) {
+
+		afisareDulciuri(cap->dulciuri);
+		cap = cap->next;
+
+	}
+
+}
