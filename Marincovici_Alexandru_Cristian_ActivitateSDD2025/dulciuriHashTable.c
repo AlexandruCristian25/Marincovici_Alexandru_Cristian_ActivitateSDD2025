@@ -13,3 +13,11 @@ typedef struct Dulciuri {
 	float pret;
 
 }Dulciuri;
+
+// Creare structura Nod
+typedef struct Nod {
+
+	Dulciuri dulciuri;
+	struct Nod* next;
+
+}Nod;
