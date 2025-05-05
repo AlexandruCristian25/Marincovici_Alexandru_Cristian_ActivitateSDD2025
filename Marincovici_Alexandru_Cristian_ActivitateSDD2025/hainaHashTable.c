@@ -250,3 +250,21 @@ void dealocareTabela(HashTable* ht) {
 	ht->dim = 0;
 
 }
+
+// Afisare in main
+int main() {
+
+	HashTable ht = citireDinFisier("haina.txt", 8);
+	afisareTabela(ht);
+
+	printf("\n ============  Lista haine  =========== \n");
+	afisareTabela(ht);
+
+	dezalocareLista(&ht);
+
+	printf("\n ============  Lista haine dupa dezalocare  =========== \n");
+	afisareTabela(ht);
+
+	return 0;
+
+}
