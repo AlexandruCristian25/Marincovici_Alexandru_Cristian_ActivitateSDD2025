@@ -67,3 +67,12 @@ Haina citireFisier(FILE* f) {
 	return h;
 
 }
+
+// Afisare fisier
+void afisareFisier(Haina haina) {
+
+	printf("Nume: %s\n", haina.nume);
+	printf("Culoare: %s\n", haina.culoare);
+	printf("Pret: %.2f\n", haina.pret);
+
+}
