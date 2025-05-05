@@ -155,3 +155,27 @@ void adaugaLaFinalulListei(ListaDubla* lista, Virus virusNou) {
 	lista->nrNoduri++;
 
 }
+
+// Functia de adaugare a unui element la inceputul listei
+void adaugaLaInceputulListei(ListaDubla* lista, Virus virusNou) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->virus = virusNou;
+	nou->next = lista->first;
+	nou->prev = NULL;
+
+	if (lista->first != NULL) {
+
+		lista->first->prev = nou;
+
+	}
+	else {
+
+		lista->last = nou;
+
+	}
+
+	lista->first = nou;
+	lista->nrNoduri++;
+
+}
