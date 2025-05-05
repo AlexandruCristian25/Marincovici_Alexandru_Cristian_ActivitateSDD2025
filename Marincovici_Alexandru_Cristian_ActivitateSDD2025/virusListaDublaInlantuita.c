@@ -86,3 +86,13 @@ Virus citireFisier(FILE* f) {
 	return v;
 
 }
+
+// Functia de afisare a Virusului
+void afisareVirus(Virus virus) {
+
+	printf("Cod: %u\n", virus.cod);
+	printf("Nume: %s\n", virus.nume);
+	printf("Tip: %s\n", virus.tip);
+	printf("Nr tulpini: %d\n", virus.nrTulpini);
+
+}
