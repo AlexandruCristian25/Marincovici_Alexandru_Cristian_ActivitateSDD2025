@@ -76,3 +76,13 @@ Dulciuri citireFisier(FILE* f) {
 	return d;
 
 }
+
+// Afisare Dulciuri
+void afisareDulciuri(Dulciuri dulciuri) {
+
+	printf("Id: %u\n", dulciuri.id);
+	printf("Nume: %s\n", dulciuri.nume);
+	printf("Nr bucati: %d\n", dulciuri.nrBuc);
+	printf("Pret: %.2f\n", dulciuri.pret);
+
+}
