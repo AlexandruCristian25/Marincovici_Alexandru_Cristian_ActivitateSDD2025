@@ -29,3 +29,12 @@ Virus initializareVirus(unsigned int cod, const char* nume,
 	return v;
 
 }
+
+// Creare structura Nod
+typedef struct Nod {
+
+	Virus virus;
+	struct Nod* next;
+	struct Nod* prev;
+
+}Nod;
