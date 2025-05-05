@@ -38,3 +38,51 @@ typedef struct Nod {
 	struct Nod* prev;
 
 }Nod;
+
+// Citire din fisier
+Virus citireFisier(FILE* f) {
+
+	char buffer[100];
+	Virus v = { 0, NULL, NULL, 0 };
+
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token = strtok(buffer, ",;\n");
+		if (token == NULL) {
+
+			return v;
+
+		}
+		v.cod = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return v;
+
+		}
+		v.nume = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(v.nume, token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return v;
+
+		}
+		v.tip = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(v.tip, token);
+
+		token = strtok(buffer, ",;\n");
+		if (token == NULL) {
+
+			return v;
+
+		}
+		v.nrTulpini = atoi(token);
+
+	}
+
+	return v;
+
+}
