@@ -164,3 +164,34 @@ void inserareInTabela(HashTable hash, Dulciuri dulciuri) {
 	}
 
 }
+
+// Citirea elementelor din fisier
+HashTable citireDinFisier(const char* numeFisier, int dimensiune) {
+
+	HashTable hash = initialzareHashTable(dimensiune);
+	FILE* f = fopen(numeFisier, "r");
+	if (!f) {
+
+		printf("Eroare la deschiderea fisierului!");
+		return hash;
+
+	}
+	else {
+
+		while (!feof(f)) {
+
+			Dulciuri dulciuri = citireFisier(f);
+			if (dulciuri.nume != NULL) {
+
+				inserareInTabela(hash, dulciuri);
+
+			}
+
+		}
+
+	}
+
+	fclose(f);
+	return hash;
+
+}
