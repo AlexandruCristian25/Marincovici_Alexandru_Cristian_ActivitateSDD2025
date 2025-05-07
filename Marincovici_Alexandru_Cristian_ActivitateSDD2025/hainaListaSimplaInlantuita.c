@@ -67,3 +67,13 @@ Haina citireDinFisier(FILE* f) {
 	return h;
 
 }
+
+// Functia de afisare
+void afisareHaina(Haina haina) {
+
+	printf("Cod: %u\n", haina.cod);
+	printf("Producator: %s\n", haina.producator);
+	printf("Nr exemplare: %d\n", haina.nrExemplare);
+	printf("Pret: %.2f\n", haina.pret);
+
+}
