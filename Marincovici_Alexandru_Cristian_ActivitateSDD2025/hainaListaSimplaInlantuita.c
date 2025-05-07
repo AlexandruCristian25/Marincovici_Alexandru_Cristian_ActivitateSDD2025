@@ -116,3 +116,29 @@ void adaugareInLista(Nod** cap, Haina hainaNoua) {
 	}
 
 }
+
+// Citirea listei din fisier
+Nod* citireListaDinFisier(const char* numeFisier) {
+
+	Nod* cap = NULL;
+	FILE* f = fopen(numeFisier, "r");
+
+	if (f) {
+
+		while (!feof(f)) {
+
+			Haina h = citireDinFisier(f);
+			if (h.producator) {
+
+				adaugareInLista(&cap, h);
+
+			}
+
+		}
+		fclose(f);
+
+	}
+
+	return cap;
+
+}
