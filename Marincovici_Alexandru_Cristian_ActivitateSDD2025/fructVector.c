@@ -84,3 +84,25 @@ void copiazaFruct(Fruct* vector, int nrElemente, float pretMinim, Fruct** vector
     }
 
 }
+
+// Returneaza primul fruct cu numele dat
+Fruct getPrimulFruct(Fruct* vector, int nrElemente, const char* nume) {
+
+    Fruct fr;
+    fr.nume = NULL;
+    for (int i = 0; i < nrElemente; i++) {
+
+        if (strcmp(vector[i].nume, nume) == 0) {
+
+            fr = vector[i];
+            fr.nume = (char*)malloc(strlen(vector[i].nume) + 1);
+            strcpy(fr.nume, vector[i].nume);
+            return fr;
+
+        }
+
+    }
+
+    return fr;
+
+}
