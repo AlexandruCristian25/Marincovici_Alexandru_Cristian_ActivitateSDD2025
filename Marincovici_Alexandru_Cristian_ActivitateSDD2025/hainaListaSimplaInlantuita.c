@@ -77,3 +77,15 @@ void afisareHaina(Haina haina) {
 	printf("Pret: %.2f\n", haina.pret);
 
 }
+
+// Functia de afisare a listei de haine
+void afisareLista(Nod* cap) {
+
+	while (cap) {
+
+		afisareHaina(cap->info);
+		cap = cap->next;
+
+	}
+
+}
