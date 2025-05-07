@@ -11,3 +11,15 @@ typedef struct Fruct {
     float pret;
 
 } Fruct;
+
+// Initializare Fruct
+Fruct initializareFruct(unsigned int cod, const char* nume, float pret) {
+
+    Fruct fr;
+    fr.cod = cod;
+    fr.nume = (char*)malloc(strlen(nume) + 1);
+    strcpy(fr.nume, nume);
+    fr.pret = pret;
+    return fr;
+
+}
