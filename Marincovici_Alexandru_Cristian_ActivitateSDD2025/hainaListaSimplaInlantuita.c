@@ -13,3 +13,11 @@ typedef struct Haina {
 	float pret;
 
 }Haina;
+
+// Creare structura Nod
+typedef struct Nod {
+
+	Haina info;
+	struct Nod* next;
+
+}Nod;
