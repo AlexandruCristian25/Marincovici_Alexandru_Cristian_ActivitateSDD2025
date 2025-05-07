@@ -21,3 +21,49 @@ typedef struct Nod {
 	struct Nod* next;
 
 }Nod;
+
+// Functie de citire din fisier
+Haina citireDinFisier(FILE* f) {
+
+	char buffer[100];
+	Haina h = { 0, NULL, 0, 0.0 };
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token = strtok(buffer, ",;\n");
+		if (token == 0) {
+
+			return h;
+
+		}
+		h.cod = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == 0) {
+
+			return h;
+
+		}
+		h.producator = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(h.producator, token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == 0) {
+
+			return h;
+
+		}
+		h.nrExemplare = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == 0) {
+
+			return h;
+
+		}
+		h.pret = atof(token);
+
+	}
+
+	return h;
+
+}
