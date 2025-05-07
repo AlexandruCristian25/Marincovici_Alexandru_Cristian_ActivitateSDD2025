@@ -161,3 +161,18 @@ void dezalocareLista(Nod** cap) {
 	}
 
 }
+
+// Afisare in main
+int main() {
+
+	Nod* cap = citireListaDinFisier("haine.txt");
+
+	printf("\n =============  Lista haine  =================== \n");
+	afisareLista(cap);
+
+	dezalocareLista(&cap);
+
+	printf("\n =============  Lista haine dupa dezalocare  =================== \n");
+	afisareLista(cap);
+
+}
