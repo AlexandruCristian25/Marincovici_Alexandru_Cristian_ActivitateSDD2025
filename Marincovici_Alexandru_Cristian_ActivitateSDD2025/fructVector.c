@@ -30,3 +30,19 @@ void afisareFruct(Fruct fruct) {
     printf("Cod: %u, Nume: %s, Pret: %.2f\n", fruct.cod, fruct.nume, fruct.pret);
 
 }
+
+// Copierea primelor n elemente
+Fruct* copiazaPrimeleElemente(Fruct* vector, int nrElemente, int nrElementeCopiate) {
+
+    Fruct* vectorNou = (Fruct*)malloc(sizeof(Fruct) * nrElementeCopiate);
+    for (int i = 0; i < nrElementeCopiate; i++) {
+
+        vectorNou[i] = vector[i];
+        vectorNou[i].nume = (char*)malloc(strlen(vector[i].nume) + 1);
+        strcpy(vectorNou[i].nume, vector[i].nume);
+
+    }
+
+    return vectorNou;
+
+}
