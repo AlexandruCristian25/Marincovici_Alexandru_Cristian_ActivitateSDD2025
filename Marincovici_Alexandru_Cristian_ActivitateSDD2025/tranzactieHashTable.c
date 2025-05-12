@@ -94,3 +94,20 @@ void afisareLista(Nod* cap) {
     }
 
 }
+
+// Functia de adaugare in lista
+void adaugaInLista(Nod* cap, Tranzactie tranzactieNoua) {
+
+    Nod* p = cap;
+    while (p->next) {
+
+        p = p->next;
+
+    }
+
+    Nod* nou = (Nod*)malloc(sizeof(Nod));
+    nou->tranzactie = tranzactieNoua;
+    nou->next = NULL;
+    p->next = nou;
+
+}
