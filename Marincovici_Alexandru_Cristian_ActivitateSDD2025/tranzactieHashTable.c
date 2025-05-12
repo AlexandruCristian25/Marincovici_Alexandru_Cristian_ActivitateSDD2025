@@ -210,3 +210,25 @@ void afisareTabela(HashTable ht) {
     }
 
 }
+
+// Functia de dezalocare a listei
+void dezalocareLista(Nod** cap) {
+
+    Nod* p = *cap;
+    while (p) {
+
+        Nod* temp = p;
+        p = p->next;
+        if (temp->tranzactie.denumire != NULL) {
+
+            free(temp->tranzactie.denumire);
+
+        }
+
+        free(temp);
+
+    }
+
+    *cap = NULL;
+
+}
