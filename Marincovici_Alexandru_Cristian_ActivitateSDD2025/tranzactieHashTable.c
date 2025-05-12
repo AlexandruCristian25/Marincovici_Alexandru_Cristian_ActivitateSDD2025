@@ -72,3 +72,13 @@ Tranzactie citireFisier(FILE* f) {
     return t;
 
 }
+
+// Afisare fisier
+void afisareFisier(Tranzactie tranzactie) {
+
+    printf("Id: %u\n", tranzactie.id);
+    printf("Denumire: %s\n", tranzactie.denumire);
+    printf("Nume client: %s\n", tranzactie.numeClient);
+    printf("Discount: %.2f\n", tranzactie.dicount);
+
+}
