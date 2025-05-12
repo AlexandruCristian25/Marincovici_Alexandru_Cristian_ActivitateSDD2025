@@ -90,3 +90,39 @@ Ghiozdan getPrimulGhiozdan(Ghiozdan* vector, int nrElemente,
 	return g;
 
 }
+
+//Dezalocare vector
+void dezalocareVector(Ghiozdan** vector, int* nrElemente) {
+
+	for (int i = 0; i < *nrElemente; i++) {
+
+		if ((*vector)[i].producator != NULL) {
+
+			free((*vector)[i].producator);
+
+		}
+
+	}
+
+	free(*vector);
+	*vector = NULL;
+	*nrElemente = 0;
+
+}
+void dezalocareVector(Ghiozdan** vector, int* nrElemente) {
+
+	for (int i = 0; i < *nrElemente; i++) {
+
+		if ((*vector)[i].producator != NULL) {
+
+			free((*vector)[i].producator);
+
+		}
+
+	}
+
+	free(*vector);
+	*vector = NULL;
+	*nrElemente = 0;
+
+}
