@@ -82,3 +82,15 @@ void afisareFisier(Tranzactie tranzactie) {
     printf("Discount: %.2f\n", tranzactie.dicount);
 
 }
+
+// Functia de afisare a listei
+void afisareLista(Nod* cap) {
+
+    while (cap) {
+
+        afisareFisier(cap->tranzactie);
+        cap = cap->next;
+
+    }
+
+}
