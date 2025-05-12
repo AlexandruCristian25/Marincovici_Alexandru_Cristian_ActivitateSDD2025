@@ -143,7 +143,7 @@ int calculeazaHash(const char* nume, int dimensiune) {
 
 }
 
-// Inserarw in tabela
+// Inserare in tabela
 void inserareInTabela(HashTable hash, Tranzactie tranzactie) {
 
     int pozitie = calculeazaHash(tranzactie.denumire, hash.dim);
@@ -159,5 +159,33 @@ void inserareInTabela(HashTable hash, Tranzactie tranzactie) {
         adaugaInLista(hash.tabela[pozitie], tranzactie);
 
     }
+
+}
+
+// Citire din fisier
+HashTable citireDinFisier(const char* numeFisier, int dimensiune) {
+
+    HashTable hash = initializareHashTable(dimensiune);
+    FILE* f = fopen(numeFisier, "r");
+    if (!f) {
+
+        printf("Eroare la deschiderea fisierului!\n");
+        return hash;
+
+    }
+
+    while (!feof(f)) {
+
+        Tranzactie tranzactie = citireFisier(f);
+        if (tranzactie.denumire != NULL) {
+
+            inserareInTabela(hash, tranzactie);
+
+        }
+
+    }
+
+    fclose(f);
+    return hash;
 
 }
