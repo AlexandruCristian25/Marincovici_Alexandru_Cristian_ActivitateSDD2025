@@ -126,3 +126,54 @@ void calculGrad(Nod* radacina) {
 	}
 
 }
+
+// Rotire stang-dreapta
+Nod* rotireStanga(Nod* radacina) {
+
+	if (!radacina || !radacina->dreapta) {
+
+		return radacina;
+
+	}
+
+	Nod* x = radacina->dreapta;
+	Nod* y = x->stanga;
+
+	x->stanga = radacina;
+	radacina->dreapta = y;
+
+	return x;
+
+}
+
+Nod* rotireDreapta(Nod* radacina) {
+
+	if (!radacina || !radacina->stanga) {
+
+		return radacina;
+
+	}
+
+	Nod* x = radacina->stanga;
+	Nod* y = x->dreapta;
+
+	x->dreapta = radacina;
+	radacina->stanga = y;
+
+	return x;
+
+}
+
+Nod* rotireStangaDreapta(Nod* radacina) {
+
+	radacina->stanga = rotireStanga(radacina->stanga);
+	return rotireDreapta(radacina);
+
+}
+
+Nod* rotireDreaptaStanga(Nod* radacina) {
+
+	radacina->dreapta = rotireDreapta(radacina->dreapta);
+	return rotireStanga(radacina);
+
+}
