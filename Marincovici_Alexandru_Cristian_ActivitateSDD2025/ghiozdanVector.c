@@ -28,3 +28,13 @@ Ghiozdan initializareGhiozdan(unsigned int id, const char* producator,
 	return g;
 
 }
+
+// Afisare Ghiozdan
+void afisareGhiozdan(Ghiozdan ghiozdan) {
+
+	printf("Id: %u\n", ghiozdan.id);
+	printf("Producator: %s\n", ghiozdan.producator);
+	printf("Capacitate: %d\n", ghiozdan.capacitate);
+	printf("Pret: %.2f\n", ghiozdan.pret);
+
+}
