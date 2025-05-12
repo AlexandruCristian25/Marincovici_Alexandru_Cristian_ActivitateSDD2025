@@ -13,3 +13,11 @@ typedef struct Tranzactie {
     float dicount;
 
 }Tranzactie;
+
+// Creare structura Nod
+typedef struct Nod {
+
+    Tranzactie tranzactie;
+    struct Nod* next;
+
+}Nod;
