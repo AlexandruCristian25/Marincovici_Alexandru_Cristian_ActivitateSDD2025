@@ -49,3 +49,20 @@ void afisareVector(Ghiozdan* vector, int nrElemente) {
 	}
 
 }
+
+// Copiere primele n elemente
+Ghiozdan* copiazaPrimeleElemente(Ghiozdan* vector, int nrElemente,
+	int nrElementeCopiate) {
+
+	Ghiozdan* vectorNou = (Ghiozdan*)malloc(sizeof(Ghiozdan) * nrElementeCopiate);
+	for (int i = 0; i < nrElementeCopiate; i++) {
+
+		vectorNou[i] = vector[i];
+		vectorNou[i].producator = (char*)malloc(sizeof(char) * strlen(vector[i].producator) + 1);
+		strcpy(vectorNou[i].producator, vector[i].producator);
+
+	}
+
+	return vectorNou;
+
+}
