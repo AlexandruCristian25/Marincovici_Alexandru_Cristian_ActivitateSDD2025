@@ -77,3 +77,17 @@ Nod* inserareArbore(Nod* radacina, Student s) {
 	return creareNod(s, NULL, NULL);
 
 }
+
+// Radacina stanga drapta
+void afisarePreordine(Nod* radacina) {
+
+	if (radacina) {
+
+		printf("Grad: %d \n %u %s %d %.2f", radacina->grad, radacina->info.id,
+			radacina->info.nume, radacina->info.varsta, radacina->info.medie);
+		afisarePreordine(radacina->stanga);
+		afisarePreordine(radacina->dreapta);
+
+	}
+
+}
