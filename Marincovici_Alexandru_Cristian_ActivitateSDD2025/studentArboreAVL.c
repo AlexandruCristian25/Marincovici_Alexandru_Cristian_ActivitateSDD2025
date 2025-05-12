@@ -38,3 +38,13 @@ Student initializareStudent(unsigned int id, const char* nume,
 	return s;
 
 }
+
+// Creare nod
+Nod* creareNod(Student s, Nod* stanga, Nod* dreapta) {
+
+	Nod* nou = (char*)malloc(sizeof(Nod));
+	nou->info = initializareStudent(s.id, s.nume, s.varsta, s.medie);
+	nou->stanga = stanga;
+	nou->dreapta = dreapta;
+
+}
