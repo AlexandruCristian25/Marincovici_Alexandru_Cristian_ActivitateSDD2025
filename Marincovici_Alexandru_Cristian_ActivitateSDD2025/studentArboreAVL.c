@@ -113,3 +113,16 @@ int nrNiveluri(Nod* radacina) {
 	}
 
 }
+
+// Functie de calcul a gradului
+void calculGrad(Nod* radacina) {
+
+	if (radacina) {
+
+		radacina->grad = (nrNiveluri(radacina->stanga) - nrNiveluri(radacina->dreapta));
+		calculGrad(radacina->stanga);
+		calculGrad(radacina->dreapta);
+
+	}
+
+}
