@@ -48,3 +48,32 @@ Nod* creareNod(Student s, Nod* stanga, Nod* dreapta) {
 	nou->dreapta = dreapta;
 
 }
+
+// Cheie de inserare = id
+Nod* inserareArbore(Nod* radacina, Student s) {
+
+	if (radacina) {
+
+		if (s.id < radacina->info.id) {
+
+			radacina->stanga = inserareArbore(radacina->stanga, s);
+			return radacina;
+
+		}
+		else if (s.id > radacina->info.id) {
+
+			radacina->dreapta = inserareArbore(radacina->dreapta, s);
+			return radacina;
+
+		}
+		else {
+
+			return radacina;
+
+		}
+
+	}
+
+	return creareNod(s, NULL, NULL);
+
+}
