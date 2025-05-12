@@ -126,3 +126,41 @@ void dezalocareVector(Ghiozdan** vector, int* nrElemente) {
 	*nrElemente = 0;
 
 }
+
+// Afisare in main
+int main() {
+
+	Ghiozdan* nrGhiozdane = NULL;
+	int ghiozdane = 3;
+
+	nrGhiozdane = (Ghiozdan*)malloc(sizeof(Ghiozdan) * ghiozdane);
+	nrGhiozdane[0] = initializareGhiozdan(1, "Producator1", 25, 299.99);
+	nrGhiozdane[1] = initializareGhiozdan(2, "Producator2", 15, 199.99);
+	nrGhiozdane[2] = initializareGhiozdan(3, "Producator3", 7, 99.99);
+
+	printf("\nToate ghiozdanele: \n");
+	afisareVector(nrGhiozdane, ghiozdane);
+
+	// Primele ghiozdane
+	int nrPrimeleGhiozdane = 2;
+	Ghiozdan* primeleGhiozdane = copiazaPrimeleElemente(nrGhiozdane, ghiozdane, nrPrimeleGhiozdane);
+	printf("\nPrimele ghiozdane: \n");
+	afisareVector(primeleGhiozdane, nrPrimeleGhiozdane);
+	dezalocareVector(&primeleGhiozdane, &nrPrimeleGhiozdane);
+
+	// Cautare ghiozdan dupa producator
+	Ghiozdan ghiozdan = getPrimulGhiozdan(nrGhiozdane, ghiozdane, "Producator2");
+	printf("\nGhiozdan gasit: \n");
+	afisareGhiozdan(ghiozdan);
+	if (ghiozdan.producator != NULL) {
+
+		free(ghiozdan.producator);
+		ghiozdan.producator = NULL;
+
+	}
+
+	dezalocareVector(&nrGhiozdane, &ghiozdane);
+
+	return 0;
+
+}
