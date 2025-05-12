@@ -38,3 +38,14 @@ void afisareGhiozdan(Ghiozdan ghiozdan) {
 	printf("Pret: %.2f\n", ghiozdan.pret);
 
 }
+
+// Afisare vector Ghiozdane
+void afisareVector(Ghiozdan* vector, int nrElemente) {
+
+	for (int i = 0; i < nrElemente; i++) {
+
+		afisareGhiozdan(vector[i]);
+
+	}
+
+}
