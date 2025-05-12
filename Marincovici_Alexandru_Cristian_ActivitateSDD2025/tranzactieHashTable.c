@@ -142,3 +142,22 @@ int calculeazaHash(const char* nume, int dimensiune) {
     return suma % dimensiune;
 
 }
+
+// Inserarw in tabela
+void inserareInTabela(HashTable hash, Tranzactie tranzactie) {
+
+    int pozitie = calculeazaHash(tranzactie.denumire, hash.dim);
+    if (hash.tabela[pozitie] == NULL) {
+
+        hash.tabela[pozitie] = (Nod*)malloc(sizeof(Nod));
+        hash.tabela[pozitie]->tranzactie = tranzactie;
+        hash.tabela[pozitie]->next = NULL;
+
+    }
+    else {
+
+        adaugaInLista(hash.tabela[pozitie], tranzactie);
+
+    }
+
+}
