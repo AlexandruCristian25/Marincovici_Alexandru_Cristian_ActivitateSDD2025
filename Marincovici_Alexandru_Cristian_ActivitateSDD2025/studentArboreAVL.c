@@ -177,3 +177,51 @@ Nod* rotireDreaptaStanga(Nod* radacina) {
 	return rotireStanga(radacina);
 
 }
+
+// Afisare in main
+int main() {
+
+	Student s;
+	Nod* radacina = NULL;
+
+	char buffer[100];
+	char separator[] = ",";
+	char* token;
+
+	FILE* f = fopen("student.txt", "r");
+	while (fgets(buffer, 100, f)) {
+
+		token = strtok(buffer, separator);
+		s.id = atoi(token);
+
+		token = strtok(NULL, separator);
+		s.nume = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(s.nume, token);
+
+		token = strtok(NULL, separator);
+		s.varsta = atoi(token);
+
+		token = strtok(NULL, separator);
+		s.medie = atof(token);
+
+		radacina = inserareArbore(radacina, s);
+
+		free(s.nume);
+
+	}
+
+	int inaltime = nrNiveluri(radacina);
+	printf("Inaltime %d\n", inaltime);
+	calculGrad(radacina);
+	afisarePreordine(radacina);
+
+	printf("Afisare arbore dezechilibrat:\n");
+	radacina = rotireDreapta(radacina);
+	afisarePreordine(radacina);
+
+	printf("Afisare arbore dupa echilibrare:\n");
+	afisarePreordine(radacina);
+
+	return 0;
+
+}
