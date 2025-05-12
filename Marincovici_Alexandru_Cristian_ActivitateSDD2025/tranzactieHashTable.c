@@ -29,3 +29,17 @@ typedef struct HashTable {
     Nod** tabela;
 
 }HashTable;
+
+// Initializare tranzactie
+Tranzactie initializareTrazanctie(unsigned int id, const char* denumire,
+    const char* numeClient, float discount) {
+
+    Tranzactie t;
+    t.id = id;
+    t.denumire = (char*)malloc(sizeof(char) * strlen(denumire) + 1);
+    t.numeClient = (char*)malloc(sizeof(char) * strlen(numeClient) + 1);
+    t.dicount = discount;
+
+    return t;
+
+}
