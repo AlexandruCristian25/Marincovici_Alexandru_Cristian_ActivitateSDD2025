@@ -43,3 +43,32 @@ Tranzactie initializareTrazanctie(unsigned int id, const char* denumire,
     return t;
 
 }
+
+// Citire fisier
+Tranzactie citireFisier(FILE* f) {
+    char buffer[100];
+    Tranzactie t = { 0, NULL, NULL, 0.0 };
+
+    if (fgets(buffer, sizeof(buffer), f)) {
+        char* token = strtok(buffer, ",;\n");
+        if (token == NULL) return t;
+        t.id = atoi(token);
+
+        token = strtok(NULL, ",;\n");
+        if (token == NULL) return t;
+        t.denumire = (char*)malloc(strlen(token) + 1);
+        strcpy(t.denumire, token);
+
+        token = strtok(NULL, ",;\n");
+        if (token == NULL) return t;
+        t.numeClient = (char*)malloc(strlen(token) + 1);
+        strcpy(t.numeClient, token);
+
+        token = strtok(NULL, ",;\n");
+        if (token == NULL) return t;
+        t.dicount = atof(token);
+    }
+
+    return t;
+
+}
