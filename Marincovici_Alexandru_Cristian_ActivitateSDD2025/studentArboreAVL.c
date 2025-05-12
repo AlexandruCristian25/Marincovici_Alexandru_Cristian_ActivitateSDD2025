@@ -13,3 +13,13 @@ typedef struct Student {
 	float medie;
 
 }Student;
+
+// Creare structura Nod
+typedef struct Nod {
+
+	Student info;
+	struct Nod* stanga;
+	struct Nod* dreapta;
+	int grad;
+
+}Nod;
