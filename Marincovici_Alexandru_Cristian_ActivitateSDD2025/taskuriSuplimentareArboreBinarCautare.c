@@ -270,3 +270,64 @@ Nod* subarboreCuMaiMultiNoduri(Nod* radacina) {
 	}
 
 }
+
+// Afisare in main
+int main() {
+
+	Magazin m;
+	Nod* radacina = NULL;
+
+	char buffer[100];
+	char separator[] = ",";
+	char* token;
+
+	FILE* f = fopen("magazin.txt", "r");
+	while (fgets(buffer, 100, f)) {
+
+		token = strtok(buffer, separator);
+		m.cod = atoi(token);
+
+		token = strtok(NULL, separator);
+		m.denumire = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(m.denumire, token);
+
+		token = strtok(NULL, separator);
+		m.nrProduse = atoi(token);
+
+		token = strtok(NULL, separator);
+		m.pretP = atof(token);
+
+		radacina = inserareArbore(radacina, m);
+		free(m.denumire);
+
+	}
+
+	afisarePreordine(radacina);
+
+	unsigned int codDeSters;
+	printf("\nIntrodu codul magazinului de sters: ");
+	scanf("%u", &codDeSters);
+	radacina = stergereNod(radacina, codDeSters);
+
+	printf("\nArbore dupa stergere in preordine:\n");
+	afisarePreordine(radacina);
+
+	Nod* subarbore = subarboreInalt(radacina);
+	if (subarbore) {
+
+		printf("\nSubarborele cu inaltime mai mare (preordine):\n");
+		afisarePreordine(subarbore);
+
+	}
+	else {
+
+		printf("\nSubarborii au inaltimi egale sau nu exista.\n");
+
+	}
+
+	printf("\nNumar noduri aflate in subordinea radacinii: %d\n",
+		numarNoduriSubordine(radacina));
+
+	return 0;
+
+}
