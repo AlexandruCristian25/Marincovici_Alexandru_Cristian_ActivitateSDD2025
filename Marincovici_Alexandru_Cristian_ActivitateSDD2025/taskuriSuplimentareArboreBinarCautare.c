@@ -211,3 +211,30 @@ Nod* subarboreInalt(Nod* radacina) {
 	}
 
 }
+
+// Functie pentru nod radacina primit
+int numarNoduriSubordine(Nod* radacina) {
+
+	if (!radacina) {
+
+		return 0;
+
+	}
+
+	int total = 0;
+
+	if (radacina->stanga) {
+
+		total += 1 + numarNoduriSubordine(radacina->stanga);
+
+	}
+
+	if (radacina->dreapta) {
+
+		total += 1 + numarNoduriSubordine(radacina->dreapta);
+
+	}
+
+	return total;
+
+}
