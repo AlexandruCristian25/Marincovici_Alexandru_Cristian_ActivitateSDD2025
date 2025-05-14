@@ -181,3 +181,33 @@ Nod* stergereNod(Nod* radacina, unsigned int cod) {
 	return radacina;
 
 }
+
+// Functia radacina primita ca parametru
+Nod* subarboreInalt(Nod* radacina) {
+
+	if (!radacina) {
+
+		return NULL;
+
+	}
+
+	int inaltimeStanga = nrNiveluri(radacina->stanga);
+	int inaltimeDreapta = nrNiveluri(radacina->dreapta);
+
+	if (inaltimeStanga > inaltimeDreapta) {
+
+		return radacina->stanga;
+
+	}
+	else if (inaltimeDreapta > inaltimeStanga) {
+
+		return radacina->dreapta;
+
+	}
+	else {
+
+		return NULL;
+
+	}
+
+}
