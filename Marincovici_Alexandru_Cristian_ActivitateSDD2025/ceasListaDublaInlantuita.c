@@ -26,3 +26,12 @@ void initilizareCarte(unsigned int cod, const char* nume,
 	c.pret = pret;
 
 }
+
+// Creare structura Nod
+typedef struct Nod {
+
+	Carte carte;
+	struct Nod* next;
+	struct Nod* prev;
+
+}Nod;
