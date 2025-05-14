@@ -35,3 +35,49 @@ typedef struct Nod {
 	struct Nod* prev;
 
 }Nod;
+
+// Citire din fisier
+Carte citireFisier(FILE * f) {
+
+	char buffer[100];
+	Carte c = { 0, NULL, 0, 0.0 };
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token = strtok(buffer, ",;\n");
+		if (token == NULL) {
+
+			return c;
+
+		}
+		c.cod = atoi(token);
+
+		token = strtok(buffer, ",;\n");
+		if (token == NULL) {
+
+			return c;
+
+		}
+		c.nume = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(c.nume, token);
+
+		token = strtok(buffer, ",;\n");
+		if (token == NULL) {
+
+			return c;
+
+		}
+		c.nrExemplare = atoi(token);
+
+		token = strtok(buffer, ",;\n");
+		if (token == NULL) {
+
+			return c;
+
+		}
+		c.pret = atof(token);
+
+	}
+
+	return c;
+
+}
