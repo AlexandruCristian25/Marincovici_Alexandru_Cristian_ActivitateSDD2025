@@ -91,3 +91,12 @@ void afisareCarte(Carte carte) {
 	printf("\nPret: %.2f\n", carte.pret);
 
 }
+
+// Creare structura lista dubla
+typedef struct ListaDubla {
+
+	Nod* first;
+	Nod* last;
+	int nrNoduri;
+
+}ListaDubla;
