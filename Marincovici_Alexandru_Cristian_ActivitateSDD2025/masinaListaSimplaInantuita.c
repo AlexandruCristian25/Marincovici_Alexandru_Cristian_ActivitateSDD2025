@@ -13,3 +13,11 @@ typedef struct Masina {
 	float pret;
 
 }Masina;
+
+// Creare structura Nod
+typedef struct Nod {
+
+	Masina info;
+	struct Nod* next;
+
+}Nod;
