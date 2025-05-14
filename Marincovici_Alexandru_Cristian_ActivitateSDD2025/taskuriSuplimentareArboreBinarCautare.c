@@ -238,3 +238,35 @@ int numarNoduriSubordine(Nod* radacina) {
 	return total;
 
 }
+
+// Functie care pentru un nod radacina 
+// primit ca parametru
+// returneaza radacina subarborelui stang sau drept
+Nod* subarboreCuMaiMultiNoduri(Nod* radacina) {
+
+	if (!radacina) {
+
+		return NULL;
+
+	}
+
+	int noduriStanga = numarNoduriSubordine(radacina->stanga);
+	int noduriDreapta = numarNoduriSubordine(radacina->dreapta);
+
+	if (noduriStanga > noduriDreapta) {
+
+		return radacina->stanga;
+
+	}
+	else if (noduriDreapta > noduriStanga) {
+
+		return radacina->dreapta;
+
+	}
+	else {
+
+		return NULL;
+
+	}
+
+}
