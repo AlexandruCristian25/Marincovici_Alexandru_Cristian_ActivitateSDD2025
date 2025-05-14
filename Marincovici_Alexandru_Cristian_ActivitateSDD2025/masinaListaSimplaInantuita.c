@@ -116,3 +116,30 @@ void adaugareInLista(Nod** cap, Masina masinaNoua) {
 	}
 
 }
+
+// Citire lista din fisier
+Nod* citireListaDinFisier(const char* numeFisier) {
+
+	Nod* cap = NULL;
+	FILE* f = fopen(numeFisier, "r");
+
+	if (f) {
+
+		while (!feof(f)) {
+
+			Masina m = cititreDinFisier(f);
+			if (m.producator) {
+
+				adaugareInLista(&cap, m);
+
+			}
+
+		}
+		fclose(f);
+
+	}
+
+	return cap;
+
+}
+
