@@ -89,3 +89,30 @@ void afisareLista(Nod* cap) {
 	}
 
 }
+
+// Functia de adaugare a unui element in lista
+void adaugareInLista(Nod** cap, Masina masinaNoua) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->info = masinaNoua;
+	nou->next = NULL;
+
+	if (*cap == NULL) {
+
+		*cap = nou;
+
+	}
+	else {
+
+		Nod* p = *cap;
+		while (p->next) {
+
+			p = p->next;
+
+		}
+
+		p->next = nou;
+
+	}
+
+}
