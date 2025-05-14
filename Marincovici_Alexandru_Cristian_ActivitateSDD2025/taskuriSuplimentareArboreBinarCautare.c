@@ -37,3 +37,16 @@ Magazin initializareMagazin(unsigned int cod, const char* denumire,
 	return m;
 
 }
+
+// Creare nod
+Nod* creareNod(Magazin m, Nod* stanga, Nod* dreapta) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->info = initializareMagazin(m.cod, m.denumire,
+		m.nrProduse, m.pretP);
+	nou->stanga = stanga;
+	nou->dreapta = dreapta;
+
+	return nou;
+
+}
