@@ -79,3 +79,25 @@ Nod* inserareArbore(Nod* radacina, Magazin m) {
 	return creareNod(m, NULL, NULL);
 
 }
+
+// Recursivitate
+int maxim(int a, int b) {
+
+	return a > b ? a : b;
+
+}
+
+int nrNiveluri(Nod* radacina) {
+
+	if (radacina) {
+
+		return 1 + maxim(nrNiveluri(radacina->stanga), nrNiveluri(radacina->dreapta));
+
+	}
+	else {
+
+		return 0;
+
+	}
+
+}
