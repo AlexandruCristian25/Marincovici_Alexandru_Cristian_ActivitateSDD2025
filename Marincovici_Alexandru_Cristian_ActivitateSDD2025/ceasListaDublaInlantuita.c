@@ -113,3 +113,16 @@ void afisareListaInceput(ListaDubla lista) {
 	}
 
 }
+
+// Functia de afisare a listei de la sfarsit
+void afisareListaSfarsit(ListaDubla lista) {
+
+	Nod* p = lista.last;
+	while (p) {
+
+		afisareCarte(p->carte);
+		p = p->prev;
+
+	}
+
+}
