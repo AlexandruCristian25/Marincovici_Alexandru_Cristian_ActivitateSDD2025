@@ -67,3 +67,13 @@ Masina cititreDinFisier(FILE* f) {
 	return m;
 
 }
+
+// Functia de afisare
+void afisareMasina(Masina masina) {
+
+	printf("Id: %u\n", masina.id);
+	printf("Producator: %s\n", masina.producator);
+	printf("Nr usi: %d\n", masina.nrUsi);
+	printf("Pret: %.2f\n", masina.pret);
+
+}
