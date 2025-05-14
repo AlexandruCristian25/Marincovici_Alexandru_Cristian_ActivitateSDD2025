@@ -150,3 +150,27 @@ void adaugaLaFinalInLista(ListaDubla* lista, Carte carteNoua) {
 	lista->nrNoduri++;
 
 }
+
+// Functia de adaugare a unui element la inceputul listei
+void adaugaLaInceputInLista(ListaDubla* lista, Carte carteNoua) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->carte = carteNoua;
+	nou->next = lista->first;
+	nou->prev = NULL;
+
+	if (lista->first != NULL) {
+
+		lista->first->prev = nou;
+
+	}
+	else {
+
+		lista->first = nou;
+
+	}
+
+	lista->first = nou;
+	lista->nrNoduri++;
+
+}
