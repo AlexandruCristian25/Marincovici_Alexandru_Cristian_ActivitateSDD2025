@@ -81,3 +81,13 @@ Carte citireFisier(FILE * f) {
 	return c;
 
 }
+
+// Functia de afisare
+void afisareCarte(Carte carte) {
+
+	printf("\nCod: %u\n", carte.cod);
+	printf("\Nume: %s\n", carte.nume);
+	printf("\Nr exemplare: %d\n", carte.nrExemplare);
+	printf("\nPret: %.2f\n", carte.pret);
+
+}
