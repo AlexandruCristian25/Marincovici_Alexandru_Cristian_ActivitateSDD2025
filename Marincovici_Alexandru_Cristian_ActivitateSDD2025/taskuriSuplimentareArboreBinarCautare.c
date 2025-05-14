@@ -128,3 +128,56 @@ void dezalocareArbore(Nod* radacina) {
 	dezalocareArbore(radacina->dreapta);
 
 }
+
+// Stergere nod dupa Id
+Nod* gasesteMinim(Nod* radacina) {
+	while (radacina->stanga) {
+		radacina = radacina->stanga;
+	}
+	return radacina;
+}
+
+Nod* stergereNod(Nod* radacina, unsigned int cod) {
+	if (!radacina) return NULL;
+
+	if (cod < radacina->info.cod) {
+		radacina->stanga = stergereNod(radacina->stanga, cod);
+	}
+	else if (cod > radacina->info.cod) {
+		radacina->dreapta = stergereNod(radacina->dreapta, cod);
+	}
+	else {
+		// Nod gasit
+		if (!radacina->stanga && !radacina->dreapta) {
+
+			free(radacina->info.denumire);
+			free(radacina);
+
+			return NULL;
+
+		}
+		else if (!radacina->stanga || !radacina->dreapta) {
+
+			Nod* copil = radacina->stanga ? radacina->stanga : radacina->dreapta;
+			free(radacina->info.denumire);
+			free(radacina);
+
+			return copil;
+
+		}
+		else {
+
+			Nod* minimDreapta = gasesteMinim(radacina->dreapta);
+			free(radacina->info.denumire);
+			radacina->info = initializareMagazin(minimDreapta->info.cod,
+				minimDreapta->info.denumire,
+				minimDreapta->info.nrProduse,
+				minimDreapta->info.pretP);
+			radacina->dreapta = stergereNod(radacina->dreapta, minimDreapta->info.cod);
+
+		}
+	}
+
+	return radacina;
+
+}
