@@ -77,3 +77,15 @@ void afisareMasina(Masina masina) {
 	printf("Pret: %.2f\n", masina.pret);
 
 }
+
+// Functia de afisare a listei
+void afisareLista(Nod* cap) {
+
+	while (cap) {
+
+		afisareMasina(cap->info);
+		cap = cap->next;
+
+	}
+
+}
