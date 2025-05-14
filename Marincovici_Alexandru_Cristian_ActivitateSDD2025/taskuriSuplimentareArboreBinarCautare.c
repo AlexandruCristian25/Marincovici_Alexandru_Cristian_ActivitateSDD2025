@@ -116,3 +116,15 @@ void afisarePreordine(Nod* radacina) {
 	}
 
 }
+
+// Functia de dezalocare
+void dezalocareArbore(Nod* radacina) {
+
+	Nod* tempStanga = radacina->stanga;
+	Nod* tempDreapta = radacina->dreapta;
+	free(radacina->info.denumire);
+	free(radacina);
+	dezalocareArbore(radacina->stanga);
+	dezalocareArbore(radacina->dreapta);
+
+}
