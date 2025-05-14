@@ -162,3 +162,17 @@ void dezalocareLista(Nod** cap) {
 
 }
 
+// Afisare in main
+int main() {
+
+	Nod* cap = citireListaDinFisier("masina.txt");
+
+	printf("\n ===========  Lista masini  =============== \n");
+	afisareLista(cap);
+
+	dezalocareLista(&cap);
+
+	printf("\n ===========  Lista masini dupa dezalocare  =============== \n");
+	afisareLista(cap);
+
+}
