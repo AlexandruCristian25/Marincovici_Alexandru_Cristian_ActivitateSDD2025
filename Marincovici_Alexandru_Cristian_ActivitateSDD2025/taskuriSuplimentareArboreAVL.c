@@ -84,3 +84,32 @@ Nod* creareNod(Magazin m, Nod* stanga, Nod* dreapta) {
 	return nou;
 
 }
+
+// Inserare arbore
+Nod* inserareArbore(Nod* radacina, Magazin m) {
+
+	if (radacina) {
+
+		if (m.cod < radacina->info.cod) {
+
+			radacina->stanga = inserareArbore(radacina->stanga, m);
+			return radacina;
+
+		}
+		else if (m.cod > radacina->info.cod) {
+
+			radacina->dreapta = inserareArbore(radacina->dreapta, m);
+			return radacina;
+
+		}
+		else {
+
+			return radacina;
+
+		}
+
+	}
+
+	return creareNod(m, NULL, NULL);
+
+}
