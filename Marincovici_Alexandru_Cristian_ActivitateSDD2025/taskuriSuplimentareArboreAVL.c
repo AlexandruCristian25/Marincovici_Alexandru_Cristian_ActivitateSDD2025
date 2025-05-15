@@ -39,3 +39,12 @@ typedef struct NodLS {
 	struct NodLS* next;
 
 } NodLS;
+
+// Creare structura lista dubla inlantuita
+typedef struct NodLD {
+
+	Magazin info;
+	struct NodLD* prev;
+	struct NodLD* next;
+
+} NodLD;
