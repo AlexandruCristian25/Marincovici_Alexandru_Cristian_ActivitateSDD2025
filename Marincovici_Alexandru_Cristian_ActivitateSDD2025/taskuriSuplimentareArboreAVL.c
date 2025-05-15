@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
@@ -487,5 +487,90 @@ void dezalocareListaLD(NodLD** cap) {
 		free(temp);
 
 	}
+
+}
+
+// Afisare in main
+int main() {
+
+	Magazin m;
+	Nod* radacina = NULL;
+
+	char buffer[100];
+	char separator[] = ",";
+	char* token;
+
+	FILE* f = fopen("magazin.txt", "r");
+	while (fgets(buffer, 100, f)) {
+
+		token = strtok(buffer, separator);
+		m.cod = atoi(token);
+
+		token = strtok(NULL, separator);
+		m.numeM = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(m.numeM, token);
+
+		token = strtok(NULL, separator);
+		m.nrProduse = atoi(token);
+
+		token = strtok(NULL, separator);
+		m.pretP = atof(token);
+
+		radacina = inserareArbore(radacina, m);
+		free(m.numeM);
+
+	}
+	fclose(f);
+
+	afisarePreordine(radacina);
+
+	int codDeCautat = 10;
+
+	Nod* nodGasit = cautaNod(radacina, codDeCautat);
+	if (nodGasit) {
+
+		printf("\nNod gasit: %d %s %d %.2f\n",
+			nodGasit->info.cod,
+			nodGasit->info.numeM,
+			nodGasit->info.nrProduse,
+			nodGasit->info.pretP);
+
+	}
+	else {
+
+		printf("\nNod cu codul %d nu a fost găsit.\n", codDeCautat);
+
+	}
+
+	Vector vectorPre;
+	initializareVector(&vectorPre, 10);
+	salvarePreordine(radacina, &vectorPre);
+
+	printf("\nAfisare rezultate: \n");
+	for (int i = 0; i < vectorPre.dimensiune; i++) {
+		printf("%d %s %d %.2f\n",
+			vectorPre.vector[i].cod,
+			vectorPre.vector[i].numeM,
+			vectorPre.vector[i].nrProduse,
+			vectorPre.vector[i].pretP);
+	}
+
+	printf("\nAfisare lista simpla inlantuita: \n");
+	NodLS* lista = NULL;
+	salvareInordineLS(radacina, &lista);
+	afisareLista(lista);
+	dezalocareLista(&lista);
+
+	printf("\nAfisare lista dubla inlantuita: \n");
+	NodLD* capLD = NULL;
+	NodLD* coadaLD = NULL;
+
+	salvareInordineLD(radacina, &capLD, &coadaLD);
+	afisareListaLD(capLD);
+	dezalocareListaLD(&capLD);
+
+	dezalocareArbore(radacina);
+
+	return 0;
 
 }
