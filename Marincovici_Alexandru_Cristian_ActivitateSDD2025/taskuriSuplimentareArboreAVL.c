@@ -446,3 +446,18 @@ void dezalocareArbore(Nod* radacina) {
 	}
 
 }
+
+// Dezalocare vector
+void dezalocareVector(Vector* v) {
+
+	for (int i = 0; i < v->dimensiune; i++) {
+
+		free(v->vector[i].numeM);
+
+	}
+
+	free(v->vector);
+	v->dimensiune = 0;
+	v->capacitate = 0;
+
+}
