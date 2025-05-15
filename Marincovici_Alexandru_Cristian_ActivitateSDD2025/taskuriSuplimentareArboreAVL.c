@@ -461,3 +461,17 @@ void dezalocareVector(Vector* v) {
 	v->capacitate = 0;
 
 }
+
+// Dezalocare lista simpla inlantuita
+void dezalocareLista(NodLS** cap) {
+
+	while (*cap) {
+
+		NodLS* temp = *cap;
+		*cap = (*cap)->next;
+		free(temp->info.numeM);
+		free(temp);
+
+	}
+
+}
