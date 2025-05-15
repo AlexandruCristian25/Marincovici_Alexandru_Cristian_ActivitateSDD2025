@@ -282,3 +282,17 @@ void afisareLista(NodLS* cap) {
 	}
 
 }
+
+// Afisare lista dubla inlantuita
+void afisareListaLD(NodLD* cap) {
+
+	NodLD* temp = cap;
+	while (temp) {
+
+		printf("%d %s %d %.2f\n", temp->info.cod, temp->info.numeM,
+			temp->info.nrProduse, temp->info.pretP);
+		temp = temp->next;
+
+	}
+
+}
