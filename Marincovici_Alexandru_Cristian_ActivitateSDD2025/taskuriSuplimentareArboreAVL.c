@@ -321,7 +321,7 @@ void salvareInordine(Nod* radacina, Vector* v) {
 
 }
 
-// Afisare Preordine Inorde Postordine Vector
+/// Afisare Preordine Inorde Postordine Vector
 void salvarePreordine(Nod* radacina, Vector* v) {
 
 	if (radacina) {
@@ -354,6 +354,43 @@ void salvarePostordine(Nod* radacina, Vector* v) {
 		salvarePostordine(radacina->stanga, v);
 		salvarePostordine(radacina->dreapta, v);
 		adaugaInVector(v, radacina->info);
+
+	}
+
+}
+
+//Afisare Preordine Inorde Postordine Lista Simpla
+void salvarePreordineLS(Nod* radacina, NodLS** cap) {
+
+	if (radacina) {
+
+		inserareFinalLS(cap, radacina->info);
+		salvarePreordineLS(radacina->stanga, cap);
+		salvarePreordineLS(radacina->dreapta, cap);
+
+	}
+
+}
+
+void salvareInordineLS(Nod* radacina, NodLS** cap) {
+
+	if (radacina) {
+
+		salvareInordineLS(radacina->stanga, cap);
+		inserareFinalLS(cap, radacina->info);
+		salvareInordineLS(radacina->dreapta, cap);
+
+	}
+
+}
+
+void salvarePostordineLS(Nod* radacina, NodLS** cap) {
+
+	if (radacina) {
+
+		salvarePostordineLS(radacina->stanga, cap);
+		salvarePostordineLS(radacina->dreapta, cap);
+		inserareFinalLS(cap, radacina->info);
 
 	}
 
