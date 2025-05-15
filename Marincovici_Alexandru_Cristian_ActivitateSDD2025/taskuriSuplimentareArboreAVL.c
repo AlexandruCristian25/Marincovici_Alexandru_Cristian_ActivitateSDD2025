@@ -38,7 +38,7 @@ typedef struct NodLS {
 	Magazin info;
 	struct NodLS* next;
 
-} NodLS;
+}NodLS;
 
 // Creare structura lista dubla inlantuita
 typedef struct NodLD {
@@ -47,4 +47,19 @@ typedef struct NodLD {
 	struct NodLD* prev;
 	struct NodLD* next;
 
-} NodLD;
+}NodLD;
+
+// Initializare Magazin
+Magazin initializareMagazin(int cod, const char* numeM,
+	int nrProduse, float pretP) {
+
+	Magazin m;
+	m.cod = cod;
+	m.numeM = (char*)malloc(sizeof(char) * strlen(numeM) + 1);
+	strcpy(m.numeM, numeM);
+	m.nrProduse = nrProduse;
+	m.pretP = pretP;
+
+	return m;
+
+}
