@@ -113,3 +113,30 @@ Nod* inserareArbore(Nod* radacina, Magazin m) {
 	return creareNod(m, NULL, NULL);
 
 }
+
+// Inserare final lista simpla
+void inserareFinalLS(NodLS** cap, Magazin m) {
+
+	NodLS* nou = (NodLS*)malloc(sizeof(NodLS));
+	nou->info = initializareMagazin(m.cod, m.numeM, m.nrProduse, m.pretP);
+	nou->next = NULL;
+
+	if (*cap == NULL) {
+
+		*cap = nou;
+
+	}
+	else {
+
+		NodLS* temp = *cap;
+		while (temp->next) {
+
+			temp = temp->next;
+
+		}
+
+		temp->next = nou;
+
+	}
+
+}
