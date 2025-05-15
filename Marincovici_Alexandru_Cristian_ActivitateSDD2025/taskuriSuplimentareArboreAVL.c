@@ -230,3 +230,29 @@ void afisarePostordine(Nod* radacina) {
 	}
 
 }
+
+// Functia de cautare nod dupa Id
+Nod* cautaNod(Nod* radacina, int codCautat) {
+
+	if (radacina == NULL) {
+
+		return NULL;
+
+	}
+	if (codCautat == radacina->info.cod) {
+
+		return radacina;
+
+	}
+	else if (codCautat < radacina->info.cod) {
+
+		return cautaNod(radacina->stanga, codCautat);
+
+	}
+	else {
+
+		return cautaNod(radacina->dreapta, codCautat);
+
+	}
+
+}
