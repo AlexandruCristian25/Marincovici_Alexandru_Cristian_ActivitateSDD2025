@@ -395,3 +395,38 @@ void salvarePostordineLS(Nod* radacina, NodLS** cap) {
 	}
 
 }
+
+//Afisare Preordine Inorde Postordine Lista Dubla inlantuita
+void salvarePreordineLD(Nod* radacina, NodLD** cap, NodLD** coada) {
+
+	if (radacina) {
+
+		inserareFinalLD(cap, coada, radacina->info);
+		salvarePreordineLD(radacina->stanga, cap, coada);
+		salvarePreordineLD(radacina->dreapta, cap, coada);
+	}
+
+}
+
+void salvareInordineLD(Nod* radacina, NodLD** cap, NodLD** coada) {
+
+	if (radacina) {
+
+		salvareInordineLD(radacina->stanga, cap, coada);
+		inserareFinalLD(cap, coada, radacina->info);
+		salvareInordineLD(radacina->dreapta, cap, coada);
+	}
+
+}
+
+void salvarePostordineLD(Nod* radacina, NodLD** cap, NodLD** coada) {
+
+	if (radacina) {
+
+		salvarePostordineLD(radacina->stanga, cap, coada);
+		salvarePostordineLD(radacina->dreapta, cap, coada);
+		inserareFinalLD(cap, coada, radacina->info);
+
+	}
+
+}
