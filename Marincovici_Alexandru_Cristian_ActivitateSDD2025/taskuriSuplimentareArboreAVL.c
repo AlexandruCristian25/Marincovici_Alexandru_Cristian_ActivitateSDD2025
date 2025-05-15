@@ -322,6 +322,31 @@ void salvareInordine(Nod* radacina, Vector* v) {
 }
 
 // Afisare Preordine Inorde Postordine Vector
+void salvarePreordine(Nod* radacina, Vector* v) {
+
+	if (radacina) {
+
+		adaugaInVector(v, radacina->info);
+		salvarePreordine(radacina->stanga, v);
+		salvarePreordine(radacina->dreapta, v);
+
+	}
+
+}
+
+void salvareInordine(Nod* radacina, Vector* v) {
+
+	if (radacina) {
+
+		salvareInordine(radacina->stanga, v);
+		adaugaInVector(v, radacina->info);
+		salvareInordine(radacina->dreapta, v);
+
+	}
+
+}
+
+
 void salvarePostordine(Nod* radacina, Vector* v) {
 
 	if (radacina) {
