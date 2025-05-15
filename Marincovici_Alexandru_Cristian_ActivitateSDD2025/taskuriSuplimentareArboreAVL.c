@@ -185,3 +185,18 @@ int nrNiveluri(Nod* radacina) {
 	}
 
 }
+
+// Rad St Dr
+void afisarePreordine(Nod* radacina) {
+
+	if (radacina) {
+
+		printf("\n%d %s %d %.2f\n", radacina->info.cod,
+			radacina->info.numeM, radacina->info.nrProduse,
+			radacina->info.pretP);
+		afisarePreordine(radacina->stanga);
+		afisarePreordine(radacina->dreapta);
+
+	}
+
+}
