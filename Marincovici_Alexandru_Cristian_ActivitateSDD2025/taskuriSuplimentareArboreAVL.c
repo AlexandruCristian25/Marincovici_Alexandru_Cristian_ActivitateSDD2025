@@ -200,3 +200,18 @@ void afisarePreordine(Nod* radacina) {
 	}
 
 }
+
+// St Rad Dr
+void afisareInordine(Nod* radacina) {
+
+	if (radacina) {
+
+		afisareInordine(radacina->stanga);
+		printf("\n%d %s %d %.2f\n", radacina->info.cod,
+			radacina->info.numeM, radacina->info.nrProduse,
+			radacina->info.pretP);
+		afisareInordine(radacina->dreapta);
+
+	}
+
+}
