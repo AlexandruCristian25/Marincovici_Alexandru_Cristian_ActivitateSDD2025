@@ -72,3 +72,15 @@ void initializareVector(Vector* v, int capacitateInitiala) {
 	v->capacitate = capacitateInitiala;
 
 }
+
+// Creare nod nou
+Nod* creareNod(Magazin m, Nod* stanga, Nod* dreapta) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->info = initializareMagazin(m.cod, m.numeM, m.nrProduse, m.pretP);
+	nou->stanga = stanga;
+	nou->dreapta = dreapta;
+
+	return nou;
+
+}
