@@ -22,3 +22,12 @@ typedef struct Nod {
 	struct Nod* dreapta;
 
 }Nod;
+
+// Creare structura vector
+typedef struct Vector {
+
+	Magazin* vector;
+	int dimensiune;
+	int capacitate;
+
+}Vector;
