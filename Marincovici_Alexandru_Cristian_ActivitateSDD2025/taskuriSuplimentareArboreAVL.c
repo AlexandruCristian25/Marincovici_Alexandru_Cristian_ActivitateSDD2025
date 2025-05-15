@@ -31,3 +31,11 @@ typedef struct Vector {
 	int capacitate;
 
 }Vector;
+
+// Creare structura lista simpla inlantuita
+typedef struct NodLS {
+
+	Magazin info;
+	struct NodLS* next;
+
+} NodLS;
