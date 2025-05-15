@@ -430,3 +430,19 @@ void salvarePostordineLD(Nod* radacina, NodLD** cap, NodLD** coada) {
 	}
 
 }
+
+// Dezalocare arbore
+void dezalocareArbore(Nod* radacina) {
+
+	if (radacina) {
+
+		Nod* tempStanga = radacina->stanga;
+		Nod* tempDreapta = radacina->dreapta;
+		dezalocareArbore(radacina->stanga);
+		dezalocareArbore(radacina->dreapta);
+		free(radacina->info.numeM);
+		free(radacina);
+
+	}
+
+}
