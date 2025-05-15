@@ -140,3 +140,26 @@ void inserareFinalLS(NodLS** cap, Magazin m) {
 	}
 
 }
+
+// Inserare final lista dubla
+void inserareFinalLD(NodLD** cap, NodLD** coada, Magazin m) {
+
+	NodLD* nou = (NodLD*)malloc(sizeof(NodLD));
+	nou->info = initializareMagazin(m.cod, m.numeM, m.nrProduse, m.pretP);
+	nou->next = NULL;
+	nou->prev = NULL;
+
+	if (*cap == NULL) {
+
+		*cap = *coada = nou;
+
+	}
+	else {
+
+		nou->prev = *coada;
+		(*coada)->next = nou;
+		*coada = nou;
+
+	}
+
+}
