@@ -63,3 +63,12 @@ Magazin initializareMagazin(int cod, const char* numeM,
 	return m;
 
 }
+
+// Initializare vector
+void initializareVector(Vector* v, int capacitateInitiala) {
+
+	v->vector = (Magazin*)malloc(sizeof(Magazin) * capacitateInitiala);
+	v->dimensiune = 0;
+	v->capacitate = capacitateInitiala;
+
+}
