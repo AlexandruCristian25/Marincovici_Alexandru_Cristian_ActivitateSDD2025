@@ -256,3 +256,17 @@ Nod* cautaNod(Nod* radacina, int codCautat) {
 	}
 
 }
+
+// Adaugare in vector
+void adaugaInVector(Vector* v, Magazin m) {
+
+	if (v->dimensiune >= v->capacitate) {
+
+		v->capacitate *= 2;
+		v->vector = (Magazin*)realloc(v->vector, sizeof(Magazin) * v->capacitate);
+
+	}
+
+	v->vector[v->dimensiune++] = initializareMagazin(m.cod, m.numeM, m.nrProduse, m.pretP);
+
+}
