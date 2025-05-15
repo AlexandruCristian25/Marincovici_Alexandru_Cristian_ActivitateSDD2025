@@ -270,3 +270,15 @@ void adaugaInVector(Vector* v, Magazin m) {
 	v->vector[v->dimensiune++] = initializareMagazin(m.cod, m.numeM, m.nrProduse, m.pretP);
 
 }
+
+// Afisare lista simpla inlantuita
+void afisareLista(NodLS* cap) {
+
+	while (cap) {
+
+		printf("%d %s %d %.2f\n", cap->info.cod, cap->info.numeM, cap->info.nrProduse, cap->info.pretP);
+		cap = cap->next;
+
+	}
+
+}
