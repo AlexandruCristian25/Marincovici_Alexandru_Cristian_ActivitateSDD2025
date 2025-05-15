@@ -475,3 +475,17 @@ void dezalocareLista(NodLS** cap) {
 	}
 
 }
+
+// Dezalocare lista dubla inlantuita
+void dezalocareListaLD(NodLD** cap) {
+
+	while (*cap) {
+
+		NodLD* temp = *cap;
+		*cap = (*cap)->next;
+		free(temp->info.numeM);
+		free(temp);
+
+	}
+
+}
