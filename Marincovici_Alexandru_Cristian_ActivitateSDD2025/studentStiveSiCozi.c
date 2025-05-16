@@ -36,3 +36,13 @@ Student initializareStudent(int id, const char* nume,
 	return s;
 
 }
+
+// Functia de afisare
+void afisareStudent(Student student) {
+
+	printf("Id: %d", student.id);
+	printf("Nume: %s", student.nume);
+	printf("Varsta: %d", student.varsta);
+	printf("Medie: %.2f", student.medie);
+
+}
