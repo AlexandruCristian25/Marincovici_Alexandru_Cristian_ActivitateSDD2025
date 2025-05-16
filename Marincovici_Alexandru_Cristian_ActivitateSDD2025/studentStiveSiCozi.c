@@ -101,3 +101,49 @@ void afisare(Nod* stiva) {
 	}
 
 }
+
+// Coada
+void put(Nod** prim, Nod** ultim, Student s) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->info = initializareStudent(s.id, s.nume,
+		s.varsta, s.medie);
+	nou->next = NULL;
+
+	if (*prim == NULL && *ultim == NULL) {
+
+		*prim = nou;
+		*ultim = nou;
+
+	}
+	else {
+
+		(*ultim)->next = nou;
+		*ultim = nou;
+
+	}
+
+}
+
+
+int get(Nod** prim, Nod** ultim, Student* s) {
+
+	if (prim == NULL && ultim == NULL) {
+
+		return -1;
+
+	}
+	else {
+
+		*s = initializareStudent((*prim)->info.id, (*prim)->info.nume,
+			(*prim)->info.varsta, (*prim)->info.medie);
+		Nod* temp = (*prim)->next;
+		free((*prim)->info.nume);
+		free((*prim));
+		*prim = temp;
+
+		return 0;
+
+	}
+
+}
