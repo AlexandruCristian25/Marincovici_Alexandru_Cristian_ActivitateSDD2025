@@ -125,6 +125,84 @@ void put(Nod** prim, Nod** ultim, Student s) {
 
 }
 
+// Afisare in main
+int main() {
+
+	Student s;
+
+	Student s1 = initializareStudent(12, "Popescu Ion", 20, 8.50);
+	printf("Id: %d", s1.id);
+	printf("Nume: %s", s1.nume);
+	printf("Varsta: %d", s1.varsta);
+	printf("Medie: %.2f", s1.medie);
+	printf("\n\n");
+
+	Student s2 = initializareStudent(12, "Sibila Maria", 25, 9.20);
+	printf("Id: %d", s2.id);
+	printf("Nume: %s", s2.nume);
+	printf("Varsta: %d", s2.varsta);
+	printf("Medie: %.2f", s2.medie);
+	printf("\n\n");
+
+	Student s3 = initializareStudent(12, "Mateescu Andrei", 23, 7.50);
+	printf("Id: %d", s3.id);
+	printf("Nume: %s", s3.nume);
+	printf("Varsta: %d", s3.varsta);
+	printf("Medie: %.2f", s3.medie);
+	printf("\n\n");
+
+	int nrStudenti = 3;
+	Student* vectorStud = (Student*)malloc(sizeof(Student) * nrStudenti);
+	vectorStud[0] = s1;
+	vectorStud[1] = s2;
+	vectorStud[2] = s3;
+
+	for (int i = 0; i < nrStudenti; i++) {
+
+		afisareStudent(vectorStud[i]);
+
+	}
+
+	// Stiva
+
+	int nr;
+	char* buffer[100];
+	Nod* stiva = NULL;
+	Nod* coadaPrim = NULL;
+	Nod* coadaUltim = NULL;
+
+	FILE* f = fopen("student.txt", "r");
+	fscanf(f, "%d", &nr);
+
+	for (int i = 0; i < nr; i++) {
+
+		fscanf(f, "%d", &s.id);
+		fscanf(f, "%s", buffer);
+		s.nume = (char*)malloc(sizeof(char) * strlen(buffer) + 1);
+		strcpy(s.nume, buffer);
+		fscanf(f, "%d", &s.varsta);
+		fscanf(f, "%.2f", &s.medie);
+
+		push(&stiva, s);
+		put(&coadaPrim, &coadaUltim, s);
+
+		free(s.nume);
+
+	}
+	fclose(f);
+
+	afisare(stiva);
+	Student s5;
+
+	pop(&stiva, &s5);
+	afisare(stiva);
+
+	afisare(coadaPrim);
+
+	return 0;
+
+}
+
 
 int get(Nod** prim, Nod** ultim, Student* s) {
 
