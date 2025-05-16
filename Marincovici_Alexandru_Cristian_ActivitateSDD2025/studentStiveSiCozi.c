@@ -46,3 +46,58 @@ void afisareStudent(Student student) {
 	printf("Medie: %.2f", student.medie);
 
 }
+
+// Stiva
+void push(Nod** stiva, Student s) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->info = initializareStudent(s.id, s.nume, s.varsta, s.medie);
+	nou->next = NULL;
+
+	if (stiva == NULL) {
+
+		*stiva = nou;
+
+	}
+	else {
+
+		nou->next = *stiva;
+		*stiva = nou;
+
+	}
+
+}
+
+void pop(Nod** stiva, Student* s) {
+
+	if (*stiva == NULL) {
+
+		return -1;
+
+	}
+	else {
+
+		*s = initializareStudent((*stiva)->info.id, (*stiva)->info.nume,
+			(*stiva)->info.varsta, (*stiva)->info.medie);
+		Nod* temp = (*stiva)->next;
+		free((*stiva)->info.nume);
+		free((*stiva));
+		*stiva = temp;
+
+		return 0;
+
+	}
+
+}
+
+void afisare(Nod* stiva) {
+
+	Nod* aux = stiva;
+	while (aux) {
+
+		afisareStudent(aux->info);
+		aux = aux->next;
+
+	}
+
+}
