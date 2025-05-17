@@ -162,3 +162,20 @@ void dezalocareLista(Nod** cap) {
 	}
 
 }
+
+// Afisare in main
+int main() {
+
+	Nod* cap = citireListaDinFisier("ceas.txt");
+
+	printf("\n ============  Lista ceasuri  ================ \n");
+	afisareLista(cap);
+
+	dezalocareLista(&cap);
+
+	printf("\n ============  Lista ceasuri dupa dezalocare  ================ \n");
+	afisareLista(cap);
+
+	return 0;
+
+}
