@@ -117,3 +117,29 @@ void adaugaInLista(Nod** cap, Ceas ceasNou) {
 	}
 
 }
+
+// Citirea listei din fisier
+Nod* citireListaDinFisier(const char* numrFisier) {
+
+	Nod* cap = NULL;
+	FILE* f = fopen(numrFisier, "r");
+
+	if (f) {
+
+		while (!feof(f)) {
+
+			Ceas c = citireDinFisier(f);
+			if (c.nume) {
+
+				adaugaInLista(&cap, c);
+
+			}
+
+		}
+		fclose(f);
+
+	}
+
+	return cap;
+
+}
