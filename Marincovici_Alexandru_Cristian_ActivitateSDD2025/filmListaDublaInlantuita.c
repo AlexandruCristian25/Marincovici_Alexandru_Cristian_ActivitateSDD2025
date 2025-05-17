@@ -93,3 +93,12 @@ void afsareFilm(Film film) {
 	printf("Pret bilet: %.2f\n", film.pretBilet);
 
 }
+
+// Creare structura lista dubla
+typedef struct ListaDubla {
+
+	Nod* first;
+	Nod* last;
+	int nrNoduri;
+
+}ListaDubla;
