@@ -22,3 +22,18 @@ typedef struct Nod {
 	struct Nod* prev;
 
 }Nod;
+
+// Functia de initializare
+Film initialiareFilm(unsigned int id, const char numeF,
+	int nrActori, float pretBilet) {
+
+	Film fi;
+	fi.id = id;
+	fi.numeF = (char*)malloc(sizeof(char) * strlen(numeF) + 1);
+	strcpy(fi.numeF, numeF);
+	fi.nrActori = nrActori;
+	fi.pretBilet = pretBilet;
+
+	return fi;
+
+}
