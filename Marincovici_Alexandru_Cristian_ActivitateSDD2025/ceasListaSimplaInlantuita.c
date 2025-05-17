@@ -68,3 +68,13 @@ Ceas citireDinFisier(FILE* f) {
 	return c;
 
 }
+
+// Functia de afiare
+void afisareCeas(Ceas ceas) {
+
+	printf("Id: %u\n", ceas.id);
+	printf("Nume: %s\n", ceas.nume);
+	printf("Greutate: %d\n", ceas.greutate);
+	printf("Pret: %.2f\n", ceas.pret);
+
+}
