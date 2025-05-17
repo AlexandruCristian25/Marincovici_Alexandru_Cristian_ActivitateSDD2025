@@ -13,3 +13,12 @@ typedef struct Film {
 	float pretBilet;
 
 }Film;
+
+// Creare structura Nod
+typedef struct Nod {
+
+	Film film;
+	struct Nod* next;
+	struct Nod* prev;
+
+}Nod;
