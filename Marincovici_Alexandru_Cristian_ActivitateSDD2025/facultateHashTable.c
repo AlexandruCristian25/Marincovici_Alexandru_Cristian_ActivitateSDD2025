@@ -249,3 +249,19 @@ void dezalocareTabela(HashTable* ht) {
 	ht->dim = 0;
 
 }
+
+// Afisare in main
+int main() {
+
+	HashTable ht = citireDinFisier("facultate.txt", 7);
+	afisareTabela(ht);
+
+	printf("\n ============  Lista facultati  ============== \n");
+	afisareTabela(ht);
+
+	dezalocareTabela(&ht);
+
+	printf("\n ============  Lista facultati dupa dezalocare  ============== \n");
+	afisareTabela(ht);
+
+}
