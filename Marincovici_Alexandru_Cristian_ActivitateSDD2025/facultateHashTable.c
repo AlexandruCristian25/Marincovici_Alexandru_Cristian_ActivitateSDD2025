@@ -86,3 +86,15 @@ void afisareFisier(Facultate facultate) {
 	printf("Nr credite: %u\n", facultate.nrCredite);
 
 }
+
+// Functie de afisare a listei
+void afisareLista(Nod* cap) {
+
+	while (cap) {
+
+		afisareFisier(cap->facultate);
+		cap = cap->next;
+
+	}
+
+}
