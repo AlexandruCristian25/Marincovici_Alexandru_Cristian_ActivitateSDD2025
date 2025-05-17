@@ -83,3 +83,13 @@ Film citireFisier(FILE* f) {
 	return fi;
 
 }
+
+// Functia de afisare a Filmului
+void afsareFilm(Film film) {
+
+	printf("Id: %u\n", film.id);
+	printf("Nume film: %s\n", film.numeF);
+	printf("Nr actori: %d\n", film.nrActori);
+	printf("Pret bilet: %.2f\n", film.pretBilet);
+
+}
