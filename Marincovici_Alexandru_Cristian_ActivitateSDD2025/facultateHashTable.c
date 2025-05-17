@@ -115,3 +115,19 @@ void adaugaInLista(Nod* cap, Facultate facultateNoua) {
 	p->next = nou;
 
 }
+
+// Initializare HashTable
+HashTable initializareHashTable(int dimensiune) {
+
+	HashTable ht;
+	ht.dim = dimensiune;
+	ht.tabela = (Nod**)malloc(dimensiune * sizeof(Nod*));
+	for (int i = 0; i < dimensiune; i++) {
+
+		ht.tabela[i] = NULL;
+
+	}
+
+	return ht;
+
+}
