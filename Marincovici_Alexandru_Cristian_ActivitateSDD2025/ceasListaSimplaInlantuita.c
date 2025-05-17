@@ -21,3 +21,50 @@ typedef struct Nod {
 	struct Nod* next;
 
 }Nod;
+
+// Functia de citire din fisier
+Ceas citireDinFisier(FILE* f) {
+
+	char buffer[100];
+	Ceas c = { 0, NULL, 0, 0.0 };
+
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token = strtok(buffer, ",;\n");
+		if (token == NULL) {
+
+			return c;
+
+		}
+		c.id = atoi(token);
+
+		token = strtok(buffer, ",;\n");
+		if (token == NULL) {
+
+			return c;
+
+		}
+		c.nume = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(c.nume, token);
+
+		token = strtok(buffer, ",;\n");
+		if (token == NULL) {
+
+			return c;
+
+		}
+		c.greutate = atoi(token);
+
+		token = strtok(buffer, ",;\n");
+		if (token == NULL) {
+
+			return c;
+
+		}
+		c.pret = atof(token);
+
+	}
+
+	return c;
+
+}
