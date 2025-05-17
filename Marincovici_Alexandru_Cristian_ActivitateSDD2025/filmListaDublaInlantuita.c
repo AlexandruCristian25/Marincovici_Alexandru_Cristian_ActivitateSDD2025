@@ -152,3 +152,27 @@ void adaugaLaFinalInLista(ListaDubla* lista, Film filmNou) {
 	lista->nrNoduri++;
 
 }
+
+// Functia de adaugare a unui element la inceputul listei
+void adaugaLaInceputInLista(ListaDubla* lista, Film filmNou) {
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->film = filmNou;
+	nou->prev = lista->first;
+	nou->prev = NULL;
+
+	if (lista->first != NULL) {
+
+		lista->first->prev = nou;
+
+	}
+	else {
+
+		lista->last = nou;
+
+	}
+
+	lista->first = nou;
+	lista->nrNoduri++;
+
+}
