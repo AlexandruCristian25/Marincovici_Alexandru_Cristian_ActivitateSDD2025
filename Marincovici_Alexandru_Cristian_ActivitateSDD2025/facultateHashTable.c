@@ -29,3 +29,50 @@ typedef struct HashTable {
 	Nod** tabela;
 
 }HashTable;
+
+// Citire din fisier
+Facultate citireFisier(FILE* f) {
+
+	char buffer[100];
+	Facultate fa = { 0, NULL, 0, 0 };
+
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token = strtok(buffer, ",'\n");
+		if (token == NULL) {
+
+			return fa;
+
+		}
+		fa.cod = atoi(token);
+
+		token = strtok(NULL, ",'\n");
+		if (token == NULL) {
+
+			return fa;
+
+		}
+		fa.nume = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(fa.nume, token);
+
+		token = strtok(NULL, ",'\n");
+		if (token == NULL) {
+
+			return fa;
+
+		}
+		fa.nrLocuri = atoi(token);
+
+		token = strtok(NULL, ",'\n");
+		if (token == NULL) {
+
+			return fa;
+
+		}
+		fa.nrCredite = atoi(token);
+
+	}
+
+	return fa;
+
+}
