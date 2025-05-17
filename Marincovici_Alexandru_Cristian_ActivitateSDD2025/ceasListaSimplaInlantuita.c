@@ -143,3 +143,22 @@ Nod* citireListaDinFisier(const char* numrFisier) {
 	return cap;
 
 }
+
+// Functia de dezalocare a listei
+void dezalocareLista(Nod** cap) {
+
+	while (*cap) {
+
+		Nod* p = *cap;
+		*cap = p->next;
+		if (p->info.nume) {
+
+			free(p->info.nume);
+
+		}
+
+		free(p);
+
+	}
+
+}
