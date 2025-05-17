@@ -13,3 +13,11 @@ typedef struct Facultate {
 	int nrCredite;
 
 }Facultate;
+
+// Creare strcutura Nod
+typedef struct Nod {
+
+	Facultate facultate;
+	struct Nod* next;
+
+}Nod;
