@@ -98,3 +98,20 @@ void afisareLista(Nod* cap) {
 	}
 
 }
+
+// Functie de adaugare in lista
+void adaugaInLista(Nod* cap, Facultate facultateNoua) {
+
+	Nod* p = cap;
+	while (p->next) {
+
+		p = p->next;
+
+	}
+
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->facultate = facultateNoua;
+	nou->next = NULL;
+	p->next = nou;
+
+}
