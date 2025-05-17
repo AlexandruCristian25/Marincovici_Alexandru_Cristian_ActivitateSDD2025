@@ -76,3 +76,13 @@ Facultate citireFisier(FILE* f) {
 	return fa;
 
 }
+
+// Functie de afisare a fisierului
+void afisareFisier(Facultate facultate) {
+
+	printf("Cod: %u\n", facultate.cod);
+	printf("Nume: %s\n", facultate.nume);
+	printf("Nr locuri: %u\n", facultate.nrLocuri);
+	printf("Nr credite: %u\n", facultate.nrCredite);
+
+}
