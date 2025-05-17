@@ -37,3 +37,49 @@ Film initialiareFilm(unsigned int id, const char numeF,
 	return fi;
 
 }
+
+// Citire din fisier
+Film citireFisier(FILE* f) {
+
+	char buffer[100];
+	Film fi = { 0, NULL, 0, 0.0 };
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token = strtok(buffer, ",;\n");
+		if (token == NULL) {
+
+			return fi;
+
+		}
+		fi.id = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return fi;
+
+		}
+		fi.numeF = (char*)malloc(sizeof(char) * strlen(token) + 1);
+		strcpy(fi.numeF, token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return fi;
+
+		}
+		fi.nrActori = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) {
+
+			return fi;
+
+		}
+		fi.pretBilet = atof(token);
+
+	}
+
+	return fi;
+
+}
