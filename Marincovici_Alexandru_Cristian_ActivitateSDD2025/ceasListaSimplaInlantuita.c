@@ -13,3 +13,11 @@ typedef struct Ceas {
 	float pret;
 
 }Ceas;
+
+// Creare structura Nod
+typedef struct Nod {
+
+	Ceas info;
+	struct Nod* next;
+
+}Nod;
