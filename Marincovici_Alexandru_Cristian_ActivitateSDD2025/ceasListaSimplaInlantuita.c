@@ -78,3 +78,15 @@ void afisareCeas(Ceas ceas) {
 	printf("Pret: %.2f\n", ceas.pret);
 
 }
+
+// Functia de afisare a listei
+void afisareLista(Nod* cap) {
+
+	while (cap) {
+
+		afisareCeas(cap->info);
+		cap = cap->next;
+
+	}
+
+}
