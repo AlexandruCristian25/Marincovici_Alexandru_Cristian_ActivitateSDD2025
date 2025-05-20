@@ -133,4 +133,20 @@ int nrNiveluri(Nod* radacina) {
     }
 
     return 0;
+
 }
+
+// Dezalocare arbore binar
+void dezalocareArbore(Nod* radacina) {
+
+    if (radacina) {
+
+        dezalocareArbore(radacina->stanga);
+        dezalocareArbore(radacina->dreapta);
+        free(radacina->info.nume);
+        free(radacina);
+
+    }
+
+}
+
