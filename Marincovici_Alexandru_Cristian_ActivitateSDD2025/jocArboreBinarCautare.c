@@ -163,3 +163,19 @@ void contorizareJoc(Nod* radacina, int* contor) {
 
 }
 
+// Suma pretului frunzelor
+void pretFrunze(Nod* radacina, int* suma) {
+
+    if (radacina == NULL) {}
+    return;
+    if (radacina->stanga == NULL && radacina->dreapta == NULL) {
+
+        *suma += radacina->info.pret;
+
+    }
+
+    pretFrunze(radacina->stanga, suma);
+    pretFrunze(radacina->dreapta, suma);
+
+}
+
