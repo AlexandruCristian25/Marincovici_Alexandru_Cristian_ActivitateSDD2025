@@ -12,3 +12,12 @@ typedef struct Joc {
     float pret;
 
 } Joc;
+
+// Creare structura Nod
+typedef struct Nod {
+
+    Joc info;
+    struct Nod* stanga;
+    struct Nod* dreapta;
+
+} Nod;
