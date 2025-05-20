@@ -164,3 +164,19 @@ void contorizareRestaurante(Nod* radacina, int* contor) {
     }
 
 }
+
+// Nr total frunze
+void nrLivrariFrunze(Nod* radacina, int* suma) {
+
+    if (radacina == NULL) {}
+    return;
+    if (radacina->stanga == NULL && radacina->dreapta == NULL) {
+
+        *suma += radacina->info.nrLivrari;
+
+    }
+
+    nrLivrariFrunze(radacina->stanga, suma);
+    nrLivrariFrunze(radacina->dreapta, suma);
+
+}
