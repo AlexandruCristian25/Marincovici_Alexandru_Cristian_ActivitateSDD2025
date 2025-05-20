@@ -151,3 +151,16 @@ void dezalocareArbore(Nod* radacina) {
     }
 
 }
+
+// Contorizare restaurante
+void contorizareRestaurante(Nod* radacina, int* contor) {
+
+    if (radacina) {
+
+        (*contor)++;
+        contorizareRestaurante(radacina->stanga, contor);
+        contorizareRestaurante(radacina->dreapta, contor);
+
+    }
+
+}
