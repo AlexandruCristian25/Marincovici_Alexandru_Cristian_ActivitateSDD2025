@@ -179,3 +179,58 @@ void pretFrunze(Nod* radacina, int* suma) {
 
 }
 
+// Afisare main
+int main() {
+    Joc j;
+    Nod* radacina = NULL;
+
+    char buffer[100];
+    char separator[] = ",";
+    char* token;
+
+    FILE* f = fopen("joc.txt", "r");
+    if (!f) {
+
+        printf("Fisierul nu s-a putut deschide!\n");
+        return -1;
+
+    }
+
+    while (fgets(buffer, sizeof(buffer), f)) {
+
+        token = strtok(buffer, separator);
+        j.cod = atoi(token);
+
+        token = strtok(NULL, separator);
+        j.nume = (char*)malloc(sizeof(char) * (strlen(token) + 1));
+        strcpy(j.nume, token);
+
+
+        token = strtok(NULL, separator);
+        j.pret = atof(token);
+
+        radacina = inserareArbore(radacina, j);
+        free(j.nume);
+
+    }
+    fclose(f);
+
+    printf("\n =======  Afisare in preordine  ======= \n");
+    afisarePreordine(radacina);
+
+    int nr = nrNiveluri(radacina);
+    printf("\nNumar de niveluri: %d\n", nr);
+
+    int contor = 0;
+    contorizareStudenti(radacina, &contor);
+    printf("Numar total de noduri (studenti): %d\n", contor);
+
+    int suma = 0;
+    pretFrunze(radacina, &suma);
+    printf("Suma pretului frunzelor: %d\n", suma);
+
+    dezalocareArbore(radacina);
+
+    return 0;
+}
+
