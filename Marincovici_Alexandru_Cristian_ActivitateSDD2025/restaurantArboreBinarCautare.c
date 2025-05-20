@@ -48,3 +48,33 @@ Nod* creareNod(Restaurant r, Nod* stanga, Nod* dreapta) {
     return nou;
 
 }
+
+// Inserare nod in arbore dupa cod
+Nod* inserareArbore(Nod* radacina, Restaurant r) {
+
+    if (radacina) {
+
+        if (r.nrAngajati < radacina->info.nrAngajati) {
+
+            radacina->stanga = inserareArbore(radacina->stanga, r);
+            return radacina;
+
+        }
+
+        else if (r.nrAngajati > radacina->info.nrAngajati) {
+
+            radacina->dreapta = inserareArbore(radacina->dreapta, r);
+            return radacina;
+
+        }
+        else {
+
+            return radacina;
+
+        }
+
+    }
+
+    return creareNod(r, NULL, NULL);
+
+}
