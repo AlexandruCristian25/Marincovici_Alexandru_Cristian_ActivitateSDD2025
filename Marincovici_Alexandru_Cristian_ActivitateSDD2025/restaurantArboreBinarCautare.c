@@ -180,3 +180,58 @@ void nrLivrariFrunze(Nod* radacina, int* suma) {
     nrLivrariFrunze(radacina->dreapta, suma);
 
 }
+
+// Afisare main
+int main() {
+    Restaurant r;
+    Nod* radacina = NULL;
+
+    char buffer[100];
+    char separator[] = ",";
+    char* token;
+
+    FILE* f = fopen("restaurant.txt", "r");
+    if (!f) {
+
+        printf("Fisierul nu s-a putut deschide!\n");
+        return -1;
+
+    }
+
+    while (fgets(buffer, sizeof(buffer), f)) {
+
+        token = strtok(buffer, separator);
+        r.nrAngajati = atoi(token);
+
+        token = strtok(NULL, separator);
+        r.adresa = (char*)malloc(sizeof(char) * (strlen(token) + 1));
+        strcpy(r.adresa, token);
+
+        token = strtok(NULL, separator);
+        r.nrLivrari = atoi(token);
+
+        radacina = inserareArbore(radacina, r);
+        free(r.adresa);
+
+    }
+    fclose(f);
+
+    printf("\n =======  Afisare in preordine  ======= \n");
+    afisarePreordine(radacina);
+
+    int nr = nrNiveluri(radacina);
+    printf("\nNumar de niveluri: %d\n", nr);
+
+    int contor = 0;
+    contorizareRestaurante(radacina, &contor);
+    printf("Numar total de noduri: %d\n", contor);
+
+    int suma = 0;
+    nrLivrariFrunze(radacina, &suma);
+    printf("Nr total frunze: %d\n", suma);
+
+    dezalocareArbore(radacina);
+
+    return 0;
+
+}
