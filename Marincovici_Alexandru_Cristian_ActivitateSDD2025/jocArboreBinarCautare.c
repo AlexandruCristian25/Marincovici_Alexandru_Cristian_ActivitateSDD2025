@@ -116,3 +116,21 @@ void afisarePostordine(Nod* radacina) {
     }
 
 }
+
+// Recursivitate
+int maxim(int a, int b) {
+
+    return (a > b) ? a : b;
+
+}
+
+int nrNiveluri(Nod* radacina) {
+
+    if (radacina) {
+
+        return 1 + (nrNiveluri(radacina->stanga), nrNiveluri(radacina->dreapta));
+
+    }
+
+    return 0;
+}
