@@ -150,3 +150,16 @@ void dezalocareArbore(Nod* radacina) {
 
 }
 
+// Contorizare Jocuri
+void contorizareJoc(Nod* radacina, int* contor) {
+
+    if (radacina) {
+
+        (*contor)++;
+        contorizareJoc(radacina->stanga, contor);
+        contorizareJoc(radacina->dreapta, contor);
+
+    }
+
+}
+
