@@ -22,7 +22,7 @@ typedef struct Nod {
 
 } Nod;
 
-// Ini?ializare Restaurant
+// Initializare Restaurant
 Restaurant initializareRestaurant(int nrAngajati,
     const char* adresa, int nrLivrari) {
 
@@ -33,5 +33,18 @@ Restaurant initializareRestaurant(int nrAngajati,
     r.nrLivrari = nrLivrari;
 
     return r;
+
+}
+
+// Creare nod in arbore
+Nod* creareNod(Restaurant r, Nod* stanga, Nod* dreapta) {
+
+    Nod* nou = (Nod*)malloc(sizeof(Nod));
+    nou->info = initializareRestaurant(r.nrAngajati,
+        r.adresa, r.nrLivrari);
+    nou->stanga = stanga;
+    nou->dreapta = dreapta;
+
+    return nou;
 
 }
