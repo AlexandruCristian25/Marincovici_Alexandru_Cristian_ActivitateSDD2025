@@ -34,3 +34,15 @@ Joc initializareJoc(int cod, const char* nume, float pret) {
     return j;
 
 }
+
+// Creare nod în arbore
+Nod* creareNod(Joc j, Nod* stanga, Nod* dreapta) {
+
+    Nod* nou = (Nod*)malloc(sizeof(Nod));
+    nou->info = initializareJoc(j.cod, j.nume, j.pret);
+    nou->stanga = stanga;
+    nou->dreapta = dreapta;
+
+    return nou;
+
+}
