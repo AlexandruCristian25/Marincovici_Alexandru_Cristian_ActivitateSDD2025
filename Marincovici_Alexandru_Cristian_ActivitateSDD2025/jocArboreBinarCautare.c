@@ -76,3 +76,43 @@ Nod* inserareArbore(Nod* radacina, Joc j) {
     return creareNod(j, NULL, NULL);
 
 }
+
+// Afișare Preordine Inordine Postordine
+void afisarePreordine(Nod* radacina) {
+
+    if (radacina) {
+
+        printf("\n%d %s%.2f\n", radacina->info.cod,
+            radacina->info.nume, radacina->info.pret);
+        afisarePreordine(radacina->stanga);
+        afisarePreordine(radacina->dreapta);
+
+    }
+
+}
+ 
+void afisareInordine(Nod* radacina) {
+
+    if (radacina) {
+
+        afisareInordine(radacina->stanga);
+        printf("\n%d %s%.2f\n", radacina->info.cod,
+            radacina->info.nume, radacina->info.pret);
+        afisareInordine(radacina->dreapta);
+
+    }
+
+}
+
+void afisarePostordine(Nod* radacina) {
+
+    if (radacina) {
+
+        afisarePostordine(radacina->stanga);
+        afisarePostordine(radacina->dreapta);
+        printf("\n%d %s%.2f\n", radacina->info.cod,
+            radacina->info.nume, radacina->info.pret);
+
+    }
+
+}
