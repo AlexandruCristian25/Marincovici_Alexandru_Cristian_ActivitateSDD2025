@@ -21,3 +21,17 @@ typedef struct Nod {
     struct Nod* dreapta;
 
 } Nod;
+
+// Ini?ializare Restaurant
+Restaurant initializareRestaurant(int nrAngajati,
+    const char* adresa, int nrLivrari) {
+
+    Restaurant r;
+    r.nrAngajati = nrAngajati;
+    r.adresa = (char*)malloc(sizeof(char) * (strlen(adresa) + 1));
+    strcpy(r.adresa, adresa);
+    r.nrLivrari = nrLivrari;
+
+    return r;
+
+}
