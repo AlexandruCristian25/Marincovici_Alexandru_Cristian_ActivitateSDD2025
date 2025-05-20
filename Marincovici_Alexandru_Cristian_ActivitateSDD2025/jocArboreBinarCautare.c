@@ -46,3 +46,33 @@ Nod* creareNod(Joc j, Nod* stanga, Nod* dreapta) {
     return nou;
 
 }
+
+// Inserare nod în arbore dupa cod
+Nod* inserareArbore(Nod* radacina, Joc j) {
+
+    if (radacina) {
+
+        if (j.cod < radacina->info.cod) {
+
+            radacina->stanga = inserareArbore(radacina->stanga, j);
+            return radacina;
+
+        }
+
+        else if (j.cod > radacina->info.cod) {
+
+            radacina->dreapta = inserareArbore(radacina->dreapta, j);
+            return radacina;
+
+        }
+        else {
+
+            return radacina;
+
+        }
+
+    }
+
+    return creareNod(j, NULL, NULL);
+
+}
