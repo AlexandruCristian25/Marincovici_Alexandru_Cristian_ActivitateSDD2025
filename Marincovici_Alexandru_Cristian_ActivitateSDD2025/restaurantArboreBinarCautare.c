@@ -78,3 +78,43 @@ Nod* inserareArbore(Nod* radacina, Restaurant r) {
     return creareNod(r, NULL, NULL);
 
 }
+
+// Afisare Preordine Inordine Postordine
+void afisarePreordine(Nod* radacina) {
+
+    if (radacina) {
+
+        printf("\n%d %s% %d\n", radacina->info.nrAngajati,
+            radacina->info.adresa, radacina->info.nrLivrari);
+        afisarePreordine(radacina->stanga);
+        afisarePreordine(radacina->dreapta);
+
+    }
+
+}
+
+void afisareInordine(Nod* radacina) {
+
+    if (radacina) {
+
+        afisareInordine(radacina->stanga);
+        printf("\n%d %s% %d\n", radacina->info.nrAngajati,
+            radacina->info.adresa, radacina->info.nrLivrari);
+        afisareInordine(radacina->dreapta);
+
+    }
+
+}
+
+void afisarePostordine(Nod* radacina) {
+
+    if (radacina) {
+
+        afisarePostordine(radacina->stanga);
+        afisarePostordine(radacina->dreapta);
+        printf("\n%d %s% %d\n", radacina->info.nrAngajati,
+            radacina->info.adresa, radacina->info.nrLivrari);
+
+    }
+
+}
