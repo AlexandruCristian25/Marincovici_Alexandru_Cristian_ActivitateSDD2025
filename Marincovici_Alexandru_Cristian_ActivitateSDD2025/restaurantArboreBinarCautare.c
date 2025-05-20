@@ -12,3 +12,12 @@ typedef struct Restaurant {
     int nrLivrari;
 
 } Restaurant;
+
+// Creare structura Nod
+typedef struct Nod {
+
+    Restaurant info;
+    struct Nod* stanga;
+    struct Nod* dreapta;
+
+} Nod;
