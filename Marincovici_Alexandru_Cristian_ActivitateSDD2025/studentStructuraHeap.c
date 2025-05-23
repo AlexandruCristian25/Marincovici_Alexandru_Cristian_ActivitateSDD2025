@@ -53,3 +53,13 @@ Student citireDinFisier(FILE* f) {
 	return s;
 
 }
+
+// Functia de afisare a studentului
+void afisarePacienti(Student student) {
+
+	printf("Id: %u\n", student.id);
+	printf("Nume: %s\n", student.nume);
+	printf("Varsta: %d\n", student.varsta);
+	printf("Medie: %.2f\n", student.medie);
+
+}
