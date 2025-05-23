@@ -177,3 +177,25 @@ Student extragePacient(Heap* heap) {
 	}
 
 }
+
+// Extragere Studenti (cu prioritate pe gradStudent)
+Student extrageStudenti(Heap* heap) {
+
+	Student s = { 0, NULL, 0, 0.0 };
+
+	if (heap->nrStudenti > 0) {
+		Student aux = heap->vector[0];
+		heap->vector[0] = heap->vector[heap->nrStudenti - 1];
+		heap->vector[heap->nrStudenti - 1] = aux;
+		heap->nrStudenti--;
+
+		for (int i = (heap->nrStudenti - 2) / 2; i >= 0; i--) {
+			filtreazaHeap(*heap, i);
+		}
+
+		return aux;
+	}
+
+	return s;
+
+}
