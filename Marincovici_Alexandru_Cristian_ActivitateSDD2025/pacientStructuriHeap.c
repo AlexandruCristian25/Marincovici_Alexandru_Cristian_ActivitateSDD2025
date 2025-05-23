@@ -14,3 +14,12 @@ typedef struct Pacient {
 	int gradUrgenta;
 
 }Pacient;
+
+// Creare structura Heap
+typedef struct Heap {
+
+	int lungime;
+	Pacient* vector;
+	int nrPacienti;
+
+}Heap;
