@@ -63,3 +63,16 @@ void afisarePacienti(Student student) {
 	printf("Medie: %.2f\n", student.medie);
 
 }
+
+// Initializare Heap
+Heap initializareHeap(int lungime) {
+
+	Heap heap;
+	heap.lungime = lungime;
+	heap.nrStudenti = 0;
+	heap.vector = (Student*)malloc(sizeof(Student) * lungime);
+
+	return heap;
+
+}
+
