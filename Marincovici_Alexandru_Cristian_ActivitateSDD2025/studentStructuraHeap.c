@@ -22,3 +22,34 @@ typedef struct Heap {
 	int nrStudenti;
 
 }Heap;
+
+// Citire din fisier
+Student citireDinFisier(FILE* f) {
+
+	char buffer[100];
+	Student s = { 0, NULL, 0, 0.0 };
+
+	if (fgets(buffer, sizeof(buffer), f)) {
+
+		char* token = strtok(buffer, ",;\n");
+		if (token == NULL) return s;
+		s.id = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) return s;
+		s.nume = (char*)malloc(strlen(token) + 1);
+		strcpy(s.nume, token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) return s;
+		s.varsta = atoi(token);
+
+		token = strtok(NULL, ",;\n");
+		if (token == NULL) return s;
+		s.medie = atof(token);
+
+	}
+
+	return s;
+
+}
