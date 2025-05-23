@@ -135,3 +135,13 @@ Heap citireHeapPacientDinFisier(const char* numeFisier) {
 
 }
 
+// Functie de afisare a Heap-ului
+void afisareHeap(Heap heap) {
+
+	for (int i = 0; i < heap.nrStudenti; i++) {
+
+		afisarePacienti(heap.vector[i]);
+
+	}
+
+}
