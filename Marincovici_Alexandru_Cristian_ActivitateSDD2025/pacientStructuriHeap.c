@@ -172,3 +172,23 @@ Pacient extragePacient(Heap* heap) {
 	}
 
 }
+
+// Extragere urgente (cu prioritate pe gradUrgenta)
+Pacient extrageUrgente(Heap* heap) {
+	Pacient p = { 0, NULL, 0, 0, 0 };
+
+	if (heap->nrPacienti > 0) {
+		Pacient aux = heap->vector[0];
+		heap->vector[0] = heap->vector[heap->nrPacienti - 1];
+		heap->vector[heap->nrPacienti - 1] = aux;
+		heap->nrPacienti--;
+
+		for (int i = (heap->nrPacienti - 2) / 2; i >= 0; i--) {
+			filtreazaHeap(*heap, i);
+		}
+
+		return aux;
+	}
+
+	return p;
+}
