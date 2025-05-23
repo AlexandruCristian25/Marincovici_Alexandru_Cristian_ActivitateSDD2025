@@ -58,3 +58,15 @@ Pacient citireDinFisier(FILE* f) {
 	return p;
 
 }
+
+// Initializare Heap
+Heap initializareHeap(int lungime) {
+
+	Heap heap;
+	heap.lungime = lungime;
+	heap.nrPacienti = 0;
+	heap.vector = (Pacient*)malloc(sizeof(Pacient) * lungime);
+
+	return heap;
+
+}
