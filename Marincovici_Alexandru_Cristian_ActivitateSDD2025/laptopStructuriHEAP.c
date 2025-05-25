@@ -75,3 +75,38 @@ Heap initializareHeap(int lungime) {
 	return heap;
 
 }
+
+// Functia de filtrare a Heap-ului
+void filtreazaHeap(Heap heap, int pozitieNod) {
+
+	int pozFiuSt = 2 * pozitieNod + 1;
+	int pozFiuDr = 2 * pozitieNod + 2;
+	int pozMax = pozitieNod;
+
+	if (pozFiuSt < heap.nrStudenti && heap.vector[pozMax].id < heap.vector[pozFiuSt].id) {
+
+		pozMax = pozFiuSt;
+
+	}
+
+	if (pozFiuDr < heap.nrStudenti && heap.vector[pozMax].id < heap.vector[pozFiuDr].id) {
+
+		pozMax = pozFiuDr;
+
+	}
+
+	if (pozMax != pozitieNod) {
+
+		Student aux = heap.vector[pozMax];
+		heap.vector[pozMax] = heap.vector[pozitieNod];
+		heap.vector[pozitieNod] = aux;
+
+		if (pozMax <= (heap.nrStudenti - 2) / 2) {
+
+			filtreazaHeap(heap, pozMax);
+
+		}
+
+	}
+
+}
