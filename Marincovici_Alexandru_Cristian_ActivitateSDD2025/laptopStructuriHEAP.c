@@ -110,3 +110,27 @@ void filtreazaHeap(Heap heap, int pozitieNod) {
 	}
 
 }
+
+// Citire Heap din fisier
+Heap citireHeapPacientDinFisier(const char* numeFisier) {
+
+	FILE* f = fopen(numeFisier, "r");
+	Heap heap = initializareHeap(7);
+
+	while (!feof(f)) {
+
+		heap.vector[heap.nrStudenti++] = citireDinFisier(f);
+
+	}
+
+	fclose(f);
+
+	for (int i = (heap.nrStudenti - 2) / 2; i >= 0; i--) {
+
+		filtreazaHeap(heap, i);
+
+	}
+
+	return heap;
+
+}
