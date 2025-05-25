@@ -13,3 +13,12 @@ typedef struct Laptop {
 	float pret;
 
 }Student;
+
+// Creare structura Heap
+typedef struct Heap {
+
+	int lungime;
+	Student* vector;
+	int nrStudenti;
+
+}Heap;
